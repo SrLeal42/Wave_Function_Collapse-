@@ -2,6 +2,11 @@ import * as B from "@babylonjs/core";
 
 import { Camera } from "./Camera";
 
+import { MaterialInstance } from "./managers/MaterialManager";
+
+import { Cell } from "./wfc/Cell";
+import { WFC } from "./wfc/WFC";
+
 export class Scene{
 
     public engine : B.Engine;
@@ -10,6 +15,7 @@ export class Scene{
 
     public camera? : Camera;
 
+    public wfc? : WFC;
 
     constructor(engine : B.Engine, canvas : HTMLCanvasElement){
 
@@ -23,6 +29,10 @@ export class Scene{
         this.scene = scene;
 
         this.camera = new Camera(scene);
+
+        await MaterialInstance.Initialize(scene);
+
+        this.wfc = new WFC(scene,18,18);
 
         return scene;
     }
