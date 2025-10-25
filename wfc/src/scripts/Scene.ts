@@ -4,8 +4,9 @@ import { Camera } from "./Camera";
 
 import { MaterialInstance } from "./managers/MaterialManager";
 
-import { Cell } from "./wfc/Cell";
 import { WFC } from "./wfc/WFC";
+
+import { TILESET_REGISTRY } from "./wfc/TilesetRegistry";
 
 export class Scene{
 
@@ -32,7 +33,7 @@ export class Scene{
 
         await MaterialInstance.Initialize(scene);
 
-        this.wfc = new WFC(scene,18,18);
+        this.wfc = new WFC(scene,18,18, 'grasslands');
 
         return scene;
     }

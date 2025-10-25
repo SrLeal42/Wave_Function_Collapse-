@@ -1,0 +1,45 @@
+{
+    "name": "Grasslands",
+    
+    "tiles": [
+        {"id": "grass", "matKey": "grassUnlit", "weight": 1},
+        {"id": "water", "matKey": "waterUnlit", "weight": 1},
+        {"id": "sand", "matKey": "sandUnlit", "weight": 1},
+        {"id": "stone", "matKey": "stoneUnlit", "weight": 1}
+    ],
+
+    "rules": {
+        
+        "grass": {
+            "up": ["grass", "water", "sand", "stone"],
+            "down": ["grass", "water", "sand", "stone"],
+            "left": ["grass", "water", "sand", "stone"],
+            "right": ["grass", "water", "sand", "stone"]
+        },
+
+        "water": {
+            "up": ["water", "sand"],
+            "down": ["water", "sand"],
+            "left": ["water", "sand"],
+            "right": ["water", "sand"]
+        },
+
+        "sand": {
+            "up": ["grass", "water", "sand"],
+            "down": ["grass", "water", "sand"],
+            "left": ["grass", "water", "sand"],
+            "right": ["grass", "water", "sand"]
+        },
+
+        "stone": {
+            "up": ["grass", "stone"],
+            "down": ["grass", "stone"],
+            "left": ["grass", "stone"],
+            "right": ["grass", "stone"]
+        }
+
+    }
+
+
+
+}
