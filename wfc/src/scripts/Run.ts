@@ -29,11 +29,15 @@ export class Run{
 
         this.scene = await this.sceneClass.CreateScene();
         
-        this.AdjustCamera();
+        this.AdjustCanvas();
 
         window.addEventListener('resize', () => {
-            this.AdjustCamera();
+            this.AdjustCanvas();
             this.engine.resize();
+
+            if (this.sceneClass.camera)
+                this.sceneClass.camera.CalculateZoom();
+        
         });
 
         this.engine.runRenderLoop(()=>{
@@ -43,7 +47,7 @@ export class Run{
     }
 
 
-    public AdjustCamera() {
+    public AdjustCanvas() {
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
     }
