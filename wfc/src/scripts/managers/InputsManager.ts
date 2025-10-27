@@ -10,7 +10,9 @@ class InputsManager {
     private keyState: Map<string, {down:boolean, up:boolean, pressed:boolean}> = new Map();
 
     private keys = new Map<string, boolean | number>([
-        ['space', false]
+        ['space', false],
+        ['a', false],
+        ['r', false]
     ]);
 
     public Initialize(scene : B.Scene) : void{
@@ -69,6 +71,8 @@ class InputsManager {
     public Update():void {
 
         this.keys.set('space', this.keyState.get("Space")?.down || false);
+        this.keys.set('a', this.keyState.get("KeyA")?.down || false);
+        this.keys.set('r', this.keyState.get("KeyR")?.down || false);
         
         this.ResetInputs();
     }
@@ -82,6 +86,20 @@ class InputsManager {
             throw new Error("InputsManager não foi inicializado. Chame initialize() primeiro.");
         }
         return this.keys.get('space')!;
+    }
+
+    public get Animation(): boolean | number {
+        if (!this.isInitialized) {
+            throw new Error("InputsManager não foi inicializado. Chame initialize() primeiro.");
+        }
+        return this.keys.get('a')!;
+    }
+
+    public get Reset(): boolean | number {
+        if (!this.isInitialized) {
+            throw new Error("InputsManager não foi inicializado. Chame initialize() primeiro.");
+        }
+        return this.keys.get('r')!;
     }
 
 }

@@ -19,6 +19,9 @@ export class Scene{
 
     public wfc? : WFC;
 
+    public animation = false;
+    public intervalAnimation? : number;
+
     constructor(engine : B.Engine, canvas : HTMLCanvasElement){
 
         this.engine = engine;
@@ -35,14 +38,32 @@ export class Scene{
         await MaterialInstance.Initialize(scene);
         await InputsInstance.Initialize(scene);
 
-        this.wfc = new WFC(scene, 9, 'grasslands');
+        this.wfc = new WFC(scene, 11, 'grasslands');
         await this.wfc.Initialize();
         
-
         scene.onBeforeRenderObservable.add(() => {
-            // console.log(InputsInstance.Space);
-            if (InputsInstance.Space)
+            if (InputsInstance.Space && !this.animation)
                 this.wfc!.Step();
+
+            if (InputsInstance.Animation){
+                this.animation = !this.animation;
+                
+                if(this.animation){
+                    this.intervalAnimation = setInterval(() => {
+                        this.wfc!.Step();
+                    }, 50);
+                } else {
+                    clearInterval(this.intervalAnimation);
+                }
+            }
+
+            if (InputsInstance.Reset){
+                this.animation = false;
+                clearInterval(this.intervalAnimation);
+                this.wfc!.Reset();
+            }
+
+
         });
 
         return scene;

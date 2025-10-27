@@ -4,7 +4,7 @@ import { Cell } from "./Cell";
 import { Tileset } from "../interfaces/TilesSet";
 
 import { PriorityQueue } from "./PriorityQueue";
-import { LoadTileset, DIRECTIONS } from "../Utilities";
+import { LoadTileset, DIRECTIONS, type CollapsedNeighbors } from "../Utilities";
 
 
 export class WFC{
@@ -103,7 +103,21 @@ export class WFC{
 
 
     private CollapseCell(cellToChange : Cell) : void {
-        cellToChange.Collapse();
+        
+        const neighbors: CollapsedNeighbors = {};
+        for (const dir of DIRECTIONS) {
+            const nx = cellToChange.x + dir.dx;
+            const ny = cellToChange.y + dir.dy;
+            const neighbor = this.grid.get(`${nx},${ny}`);
+
+            if (neighbor && neighbor.collapsed) {
+                neighbors[dir.name] = neighbor;
+            }
+        }
+
+
+        cellToChange.Collapse(neighbors);
+        
         this.Propagate(cellToChange);
     }
 
@@ -191,6 +205,21 @@ export class WFC{
         }
     
     
+    }
+
+
+
+    public Reset() : void {
+
+        this.entropyQueue = new PriorityQueue();
+
+        this.grid.forEach((cell) => {
+            cell.Reset();
+            this.entropyQueue.insert(cell);
+        })
+
+        this.CollapseCell(this.grid.get('0,0')!);
+
     }
 
 

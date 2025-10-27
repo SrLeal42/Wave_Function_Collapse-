@@ -4,6 +4,8 @@ import { TileDefinition } from "../interfaces/TilesDefinition";
 
 import { MaterialInstance } from "../managers/MaterialManager";
 
+import { ChooseWeightedRandomBy, CollapsedNeighbors, Direction } from "../Utilities";
+
 export class Cell {
     
     public scene : B.Scene;
@@ -11,6 +13,7 @@ export class Cell {
     public x: number;
     public y: number;
 
+    public possibleTilesStart: TileDefinition[];
     public possibleTiles: TileDefinition[];
     public collapsed: boolean;
     public chosenTile: TileDefinition | null;
@@ -30,6 +33,7 @@ export class Cell {
         this.x = x;
         this.y = y;
 
+        this.possibleTilesStart = possibleTiles;
         this.possibleTiles = possibleTiles; // [...possibleTiles];
         this.collapsed = false;
         this.chosenTile = null;
@@ -52,11 +56,39 @@ export class Cell {
     }
 
 
-    public Collapse() : void {
+    public Collapse(neighbors: CollapsedNeighbors) : void {
         if (this.collapsed || this.possibleTiles.length === 0) return;
 
-        const index = Math.floor(Math.random() * this.possibleTiles.length);
-        this.chosenTile = this.possibleTiles[index];
+        const getDynamicWeight = (tile: TileDefinition): number => {
+            let dynamicWeight = tile.weight ?? 1;
+            
+            for (const dir in neighbors) {
+                const neighborCell = neighbors[dir as Direction];
+                
+                if (neighborCell && neighborCell.chosenTile) {
+                    const neighborTile = neighborCell.chosenTile;
+
+                    if (neighborTile.id === tile.id) {
+                        // dynamicWeight += 5;
+                        dynamicWeight *= 2;
+                    }
+
+                    // EXEMPLO 2: Uma regra específica
+                    // (Ex: "areia" gosta de ficar ao lado de "agua")
+                    // if (tile.id === 'areia' && neighborTile.id === 'agua') {
+                    //     dynamicWeight += 3;
+                    // }
+                    
+                }
+            }
+
+            return Math.max(0.1, dynamicWeight);
+        };
+
+
+        const chosenTile = ChooseWeightedRandomBy(this.possibleTiles, getDynamicWeight);
+
+        this.chosenTile = chosenTile;
         this.possibleTiles = [this.chosenTile];
         this.collapsed = true;
 
@@ -102,6 +134,18 @@ export class Cell {
     //     return { success: true, changed: newCount < initialCount};
     // }
     
+
+    public Reset() : void {
+
+        this.possibleTiles = this.possibleTilesStart;
+        this.collapsed = false;
+        this.chosenTile = null;
+
+        this.plane.material = MaterialInstance.GetMaterial('defaultUnlit');
+
+    }
+
+
 
     get entropy(): number {
         return this.possibleTiles.length;
