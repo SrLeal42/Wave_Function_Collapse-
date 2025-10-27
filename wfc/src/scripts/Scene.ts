@@ -3,6 +3,7 @@ import * as B from "@babylonjs/core";
 import { Camera } from "./Camera";
 
 import { MaterialInstance } from "./managers/MaterialManager";
+import { InputsInstance } from "./managers/InputsManager";
 
 import { WFC } from "./wfc/WFC";
 
@@ -32,8 +33,17 @@ export class Scene{
         this.camera = new Camera(scene);
 
         await MaterialInstance.Initialize(scene);
+        await InputsInstance.Initialize(scene);
 
-        this.wfc = new WFC(scene,18,18, 'grasslands');
+        this.wfc = new WFC(scene, 9, 'grasslands');
+        await this.wfc.Initialize();
+        
+
+        scene.onBeforeRenderObservable.add(() => {
+            // console.log(InputsInstance.Space);
+            if (InputsInstance.Space)
+                this.wfc!.Step();
+        });
 
         return scene;
     }

@@ -15,3 +15,11 @@ export async function LoadTileset(name: string): Promise<Tileset> {
 
   return (await response.json()) as Tileset;
 }
+
+export type Direction = 'up' | 'down' | 'right' | 'left';
+export const DIRECTIONS: { name: Direction, dx: number, dy: number, opposite: Direction }[] = [
+    { name: 'up', dx: 0,  dy: 1,  opposite: 'down' },
+    { name: 'down', dx: 0,  dy: -1, opposite: 'up' },
+    { name: 'right',  dx: 1,  dy: 0,  opposite: 'left'  },
+    { name: 'left',  dx: -1, dy: 0,  opposite: 'right'  },
+];

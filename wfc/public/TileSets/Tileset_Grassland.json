@@ -11,10 +11,10 @@
     "rules": {
         
         "grass": {
-            "up": ["grass", "water", "sand", "stone"],
-            "down": ["grass", "water", "sand", "stone"],
-            "left": ["grass", "water", "sand", "stone"],
-            "right": ["grass", "water", "sand", "stone"]
+            "up": ["grass", "sand", "stone"],
+            "down": ["grass", "sand", "stone"],
+            "left": ["grass", "sand", "stone"],
+            "right": ["grass", "sand", "stone"]
         },
 
         "water": {
