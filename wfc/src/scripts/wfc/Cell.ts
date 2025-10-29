@@ -73,16 +73,14 @@ export class Cell {
                 if (neighborCell && neighborCell.chosenTile) {
                     const neighborTile = neighborCell.chosenTile;
 
-                    if (neighborTile.id === tile.id) {
-                        // dynamicWeight += 5;
+                    if (neighborTile.id === tile.id) 
                         dynamicWeight *= 2;
-                    }
 
-                    // EXEMPLO 2: Uma regra específica
-                    // (Ex: "areia" gosta de ficar ao lado de "agua")
-                    // if (tile.id === 'areia' && neighborTile.id === 'agua') {
-                    //     dynamicWeight += 3;
-                    // }
+                    if (!tile.affinities) 
+                        continue;
+                    
+                    const multiplier = tile.affinities[neighborTile.id] ? tile.affinities[neighborTile.id] : 1;
+                    dynamicWeight *= multiplier;
                     
                 }
             }
