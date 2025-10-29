@@ -5,25 +5,25 @@
         {
             "id": "grass", "matKey": "grassUnlit", "weight": 10,
             "affinities": { 
-                "grass": 2.0, "sand": 1.5, "stone": 1.2 
+                "grass": 3.0, "sand": 1.5, "stone": 1.2 
             }
         },
         {
-            "id": "water", "matKey": "waterUnlit", "weight": 3,
+            "id": "water", "matKey": "waterUnlit", "weight": 2,
             "affinities": { 
-                "water": 1.5, "sand": 2.0 
+                "water": 2, "sand": 1.5 
             }
         },
         {
             "id": "sand", "matKey": "sandUnlit", "weight": 2,
             "affinities": { 
-                "water": 1.5, "sand": 2, "grass": 1.5 
+                "water": 1.5, "sand": 1.5, "grass": 3
             }
         },
         {
             "id": "stone", "matKey": "stoneUnlit", "weight": 1,
             "affinities": { 
-                "stone": 1.0, "grass": 1.2 
+                "stone": 1.0, "grass": 1.5
             }
         }
     ],

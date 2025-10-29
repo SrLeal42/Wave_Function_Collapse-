@@ -73,8 +73,8 @@ export class Cell {
                 if (neighborCell && neighborCell.chosenTile) {
                     const neighborTile = neighborCell.chosenTile;
 
-                    if (neighborTile.id === tile.id) 
-                        dynamicWeight *= 2;
+                    // if (neighborTile.id === tile.id) 
+                    //     dynamicWeight *= 2;
 
                     if (!tile.affinities) 
                         continue;
