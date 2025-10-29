@@ -41,6 +41,8 @@ export class Scene{
         this.wfc = new WFC(scene, 11, 'grasslands');
         await this.wfc.Initialize();
         
+        const pageTitle = document.querySelector("title")!;
+
         scene.onBeforeRenderObservable.add(() => {
             if (InputsInstance.Space && !this.animation)
                 this.wfc!.Step();
@@ -63,8 +65,10 @@ export class Scene{
                 this.wfc!.Reset();
             }
 
+            pageTitle.innerHTML = `WFC | ${this.engine.getFps().toFixed(2).toString()}`;
 
         });
+
 
         return scene;
     }

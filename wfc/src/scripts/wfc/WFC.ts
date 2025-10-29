@@ -2,6 +2,8 @@ import * as B from "@babylonjs/core";
 
 import { Cell } from "./Cell";
 import { Tileset } from "../interfaces/TilesSet";
+import { TileDefinition } from "../interfaces/TilesDefinition";
+import { WFCState, WFCChange } from "../interfaces/WFCState";
 
 import { PriorityQueue } from "./PriorityQueue";
 import { LoadTileset, DIRECTIONS, type CollapsedNeighbors } from "../Utilities";
@@ -18,6 +20,9 @@ export class WFC{
 
     public tilesetName : string;
     public tileset! : Tileset;
+
+    private stateStack: WFCState[] = [];
+
 
     constructor(scene : B.Scene, renderDistance : number, tilesetName : string){
     
@@ -40,8 +45,8 @@ export class WFC{
 
         this.InitializeGrid();
 
-        this.CollapseCell(this.grid.get('0,0')!);
-        // console.log(this.FindCellWithLowestEntropy());
+        this.Step();
+        
     }
 
 
@@ -88,21 +93,87 @@ export class WFC{
     //     return cellToPick;
     // }
 
-
     public Step(): boolean {
+
         const cellToCollapse = this.FindCellWithLowestEntropy();
 
         if (!cellToCollapse) {
-            console.log("WFC Concluído!");
-            return false;
+            console.log(`WFC Concluído com sucesso!`);
+            return true; 
         }
 
-        this.CollapseCell(cellToCollapse);
+        const changeLog: WFCChange[] = []; 
+
+        const chosenTile = this.CollapseCell(cellToCollapse, changeLog); 
+        const success = this.Propagate(cellToCollapse, changeLog);
+
+        if (success) {
+
+            this.stateStack.push({
+                changes: changeLog,
+                failedCell: cellToCollapse,
+                failedTile: chosenTile!
+            });
+
+        } else {
+            console.warn(`Contradição detectada em (${cellToCollapse.x}, ${cellToCollapse.y}) ao tentar ${chosenTile!.id}.`);
+
+            let rollbackSuccess = false;
+            
+            while (!rollbackSuccess && this.stateStack.length > 0) {
+                
+                const lastGoodState = this.stateStack.pop()!;
+                
+                this.RestoreState(lastGoodState.changes);
+                
+                const banLog: WFCChange[] = [];
+                const result = lastGoodState.failedCell.BanTile(lastGoodState.failedTile, banLog);
+                this.entropyQueue.update(lastGoodState.failedCell);
+
+                if (result.success) {
+                    if (this.Propagate(lastGoodState.failedCell, banLog)) {
+                        
+                        this.stateStack.push({
+                            changes: banLog,
+                            failedCell: lastGoodState.failedCell, // Célula fictícia
+                            failedTile: lastGoodState.failedTile // Tile fictício
+                        });
+
+                        rollbackSuccess = true;
+                        console.log("Rollback bem-sucedido. Continuando...");
+                    }
+                }
+
+            }
+
+            if (!rollbackSuccess) {
+                console.error("FALHA CATASTRÓFICA: A pilha de rollback está vazia e a contradição persiste.");
+                return false; 
+            }
+        }
+
+
         return true;
     }
 
 
-    private CollapseCell(cellToChange : Cell) : void {
+    // public Step(): boolean {
+    //     const cellToCollapse = this.FindCellWithLowestEntropy();
+
+    //     if (!cellToCollapse) {
+    //         console.log("WFC Concluído!");
+    //         return false;
+    //     }
+
+    //     this.CollapseCell(cellToCollapse);
+    //     return true;
+    // }
+
+
+    private CollapseCell(
+        cellToChange : Cell, 
+        changeLog: WFCChange[]
+    ) : TileDefinition | null {
         
         const neighbors: CollapsedNeighbors = {};
         for (const dir of DIRECTIONS) {
@@ -116,12 +187,17 @@ export class WFC{
         }
 
 
-        cellToChange.Collapse(neighbors);
+        const chosenTile = cellToChange.Collapse(neighbors, changeLog);
         
-        this.Propagate(cellToChange);
+        // this.Propagate(cellToChange);
+
+        return chosenTile;
     }
 
-    private Propagate(cellChanged : Cell) : void {
+    private Propagate(
+        cellChanged : Cell, 
+        changeLog: WFCChange[]
+    ) : boolean {
         
         const stack: Cell[] = [cellChanged];
         const inStack: Set<Cell> = new Set([cellChanged]);
@@ -163,7 +239,7 @@ export class WFC{
                 }
 
                 // 5. Aplicar a restrição no vizinho (A SUA IDEIA!) 
-                const result = neighbor.Constrain(allowedIDs);
+                const result = neighbor.Constrain(allowedIDs, changeLog);
 
                 // Se a restrição levou a uma contradição (entropy = 0), pare tudo.
                 if (!result.success) {
@@ -181,7 +257,8 @@ export class WFC{
                     // (O ideal seria definir um 'flag' no WFC como 'this.failed = true'
                     // e parar o loop 'Step' principal)
                     
-                    break; // Sai do loop 'for (const dir...)'
+                    return false;
+                    // break; // Sai do loop 'for (const dir...)'
                 }
 
                 // 6. Se o vizinho mudou (perdeu possibilidades)...
@@ -203,22 +280,73 @@ export class WFC{
         
     
         }
+
+
+        return true;
     
     
     }
 
 
+    // private TakeSnapshot(): Map<string, TileDefinition[]> {
+    //     const snapshot = new Map<string, TileDefinition[]>();
+
+    //     for (const [key, cell] of this.grid.entries()) {
+    //         snapshot.set(key, [...cell.possibleTiles]); 
+    //     }
+
+    //     return snapshot;
+    // }
+
+
+    private RestoreState(changes: WFCChange[]): void {
+        console.warn("--- Iniciando Rollback (Otimizado) ---");
+
+        // Reverte as alterações na ORDEM OPOSTA em que foram feitas
+        for (let i = changes.length - 1; i >= 0; i--) {
+            const change = changes[i];
+            const cell = change.cell;
+            
+            cell.RestoreTiles(change.oldTiles);
+
+            // Adiciona de volta à fila de entropia, pois seu estado mudou
+            if (!cell.collapsed) {
+                this.entropyQueue.insert(cell);
+            }
+        }
+    }
+
+
+    // private RestoreState(snapshot: Map<string, TileDefinition[]>): void {
+    //     console.warn("--- Iniciando Rollback ---");
+
+    //     for (const [key, cell] of this.grid.entries()) {
+    //         const oldTiles = snapshot.get(key);
+
+    //         if (oldTiles) {
+    //             cell.RestoreTiles(oldTiles);
+
+    //             if (!cell.collapsed) {
+    //                 this.entropyQueue.insert(cell);
+    //             }
+
+    //         }
+
+    //     }
+    // }
+
 
     public Reset() : void {
 
         this.entropyQueue = new PriorityQueue();
+        this.stateStack = [];
 
         this.grid.forEach((cell) => {
             cell.Reset();
             this.entropyQueue.insert(cell);
         })
 
-        this.CollapseCell(this.grid.get('0,0')!);
+        this.Step();
 
     }
 

@@ -3,7 +3,7 @@
     
     "tiles": [
         {"id": "grass", "matKey": "grassUnlit", "weight": 10},
-        {"id": "water", "matKey": "waterUnlit", "weight": 4},
+        {"id": "water", "matKey": "waterUnlit", "weight": 3},
         {"id": "sand", "matKey": "sandUnlit", "weight": 2},
         {"id": "stone", "matKey": "stoneUnlit", "weight": 1}
     ],

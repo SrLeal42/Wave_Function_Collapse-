@@ -1,6 +1,7 @@
 import * as B from "@babylonjs/core"; 
 
 import { TileDefinition } from "../interfaces/TilesDefinition";
+import { WFCChange } from "../interfaces/WFCState";
 
 import { MaterialInstance } from "../managers/MaterialManager";
 
@@ -56,8 +57,12 @@ export class Cell {
     }
 
 
-    public Collapse(neighbors: CollapsedNeighbors) : void {
-        if (this.collapsed || this.possibleTiles.length === 0) return;
+    public Collapse(
+        neighbors: CollapsedNeighbors, 
+        changeLog : WFCChange[]
+    ) : TileDefinition | null{
+    
+        if (this.collapsed || this.possibleTiles.length === 0) return null;
 
         const getDynamicWeight = (tile: TileDefinition): number => {
             let dynamicWeight = tile.weight ?? 1;
@@ -88,24 +93,37 @@ export class Cell {
 
         const chosenTile = ChooseWeightedRandomBy(this.possibleTiles, getDynamicWeight);
 
+        changeLog.push({ cell: this, oldTiles: this.possibleTiles });
+
         this.chosenTile = chosenTile;
         this.possibleTiles = [this.chosenTile];
         this.collapsed = true;
 
         this.plane.material = MaterialInstance.GetMaterial(this.chosenTile.matKey);
 
+        return chosenTile;
+
     }
 
-    public Constrain(allowedTileIDs: Set<string>) : { success : boolean, changed : boolean} {
-        const initialCount = this.possibleTiles.length;
+    public Constrain(
+        allowedTileIDs: Set<string>,
+        changeLog: WFCChange[]
+    ) : { success : boolean, changed : boolean} {
 
+        const initialCount = this.possibleTiles.length;
         const setAllowedTileIDs = new Set(allowedTileIDs);
 
-        this.possibleTiles = this.possibleTiles.filter(tile => {
+        const newPossibleTiles = this.possibleTiles.filter(tile => {
             return setAllowedTileIDs.has(tile.id);
         });
 
-        const newCount = this.possibleTiles.length;
+        const newCount = newPossibleTiles.length;
+        const changed = newCount < initialCount;
+
+        if (changed) {
+            changeLog.push({ cell: this, oldTiles: this.possibleTiles });
+            this.possibleTiles = newPossibleTiles;
+        }
 
         if (newCount === 0 && initialCount > 0) {
             console.error(`Contradição na célula (${this.x}, ${this.y})!`);
@@ -133,7 +151,38 @@ export class Cell {
 
     //     return { success: true, changed: newCount < initialCount};
     // }
+
+
+    public RestoreTiles(tiles: TileDefinition[]): void {
+        this.possibleTiles = [...tiles]; // Restaura uma cópia
+        this.collapsed = (tiles.length === 1);
+        this.chosenTile = (tiles.length === 1) ? tiles[0] : null;
+
+        // Redefine o material visual
+        if (this.collapsed && this.chosenTile) {
+            this.plane.material = MaterialInstance.GetMaterial(this.chosenTile.matKey);
+        } else {
+            this.plane.material = MaterialInstance.GetMaterial('defaultUnlit');
+        }
+    }
     
+
+    public BanTile(
+        tileToBan: TileDefinition,
+        changeLog: WFCChange[]
+    ): { success: boolean, changed: boolean } {
+        
+        const idToBan = tileToBan.id;
+        const currentPossibleIDs = new Set(this.possibleTiles.map(t => t.id));
+
+        if (currentPossibleIDs.has(idToBan)) {
+            currentPossibleIDs.delete(idToBan);
+            return this.Constrain(currentPossibleIDs, changeLog);
+        }
+        
+        return { success: true, changed: false };
+    }
+
 
     public Reset() : void {
 
