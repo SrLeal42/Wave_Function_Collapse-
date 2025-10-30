@@ -23,6 +23,7 @@ export class MaterialManager{
         this.materials.set('waterUnlit', this.CreateWaterUnLitMaterial());
         this.materials.set('sandUnlit', this.CreateSandUnLitMaterial());
         this.materials.set('stoneUnlit', this.CreateStoneUnLitMaterial());
+        this.materials.set('PlayerDefaultUnlit', this.CreatePlayerDefaultUnLitMaterial());
 
         this.isInitialized = true;
 
@@ -72,6 +73,16 @@ export class MaterialManager{
         const mat = new B.StandardMaterial('Sand_Unlit_Mat', this.scene);
         mat.disableLighting = true;
         mat.emissiveColor = new B.Color3(.5, .5, .5);
+
+        return mat;
+    }
+
+
+    public CreatePlayerDefaultUnLitMaterial() : B.StandardMaterial {
+
+        const mat = new B.StandardMaterial('Player_Default_Unlit_Mat', this.scene);
+        mat.disableLighting = true;
+        mat.emissiveColor = new B.Color3(1, 0, 0);
 
         return mat;
     }

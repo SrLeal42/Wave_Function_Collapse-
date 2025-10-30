@@ -6,8 +6,7 @@ import { MaterialInstance } from "./managers/MaterialManager";
 import { InputsInstance } from "./managers/InputsManager";
 
 import { WFC } from "./wfc/WFC";
-
-import { TILESET_REGISTRY } from "./wfc/TilesetRegistry";
+import { Player } from "./Player/Player";
 
 export class Scene{
 
@@ -18,6 +17,7 @@ export class Scene{
     public camera? : Camera;
 
     public wfc? : WFC;
+    public player? : Player;
 
     public animation = false;
     public intervalAnimation? : number;
@@ -33,17 +33,21 @@ export class Scene{
 
         this.scene = scene;
 
-        this.camera = new Camera(scene);
-
         await MaterialInstance.Initialize(scene);
         await InputsInstance.Initialize(scene);
 
-        this.wfc = new WFC(scene, 11, 'grasslands');
+        this.player = new Player(scene,0,0);
+        this.camera = new Camera(scene, this.player);
+
+        this.wfc = new WFC(scene, 11, 'grasslands', this.player);
         await this.wfc.Initialize();
         
         const pageTitle = document.querySelector("title")!;
 
         scene.onBeforeRenderObservable.add(() => {
+
+            pageTitle.innerHTML = `WFC | ${this.engine.getFps().toFixed(2).toString()}`;
+
             if (InputsInstance.Space && !this.animation)
                 this.wfc!.Step();
 
@@ -65,7 +69,10 @@ export class Scene{
                 this.wfc!.Reset();
             }
 
-            pageTitle.innerHTML = `WFC | ${this.engine.getFps().toFixed(2).toString()}`;
+            this.player!.Move();
+            this.camera!.Move();
+
+            this.wfc!.Update(this.player!.pivot.position);
 
         });
 

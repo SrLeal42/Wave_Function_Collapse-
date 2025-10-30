@@ -34,8 +34,8 @@ export class Cell {
         this.x = x;
         this.y = y;
 
-        this.possibleTilesStart = possibleTiles;
-        this.possibleTiles = possibleTiles; // [...possibleTiles];
+        this.possibleTilesStart = [...possibleTiles];
+        this.possibleTiles = [...possibleTiles];
         this.collapsed = false;
         this.chosenTile = null;
 
@@ -109,10 +109,10 @@ export class Cell {
     ) : { success : boolean, changed : boolean} {
 
         const initialCount = this.possibleTiles.length;
-        const setAllowedTileIDs = new Set(allowedTileIDs);
+        // const setAllowedTileIDs = new Set(allowedTileIDs);
 
         const newPossibleTiles = this.possibleTiles.filter(tile => {
-            return setAllowedTileIDs.has(tile.id);
+            return allowedTileIDs.has(tile.id);
         });
 
         const newCount = newPossibleTiles.length;

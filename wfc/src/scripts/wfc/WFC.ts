@@ -5,6 +5,8 @@ import { Tileset } from "../interfaces/TilesSet";
 import { TileDefinition } from "../interfaces/TilesDefinition";
 import { WFCState, WFCChange } from "../interfaces/WFCState";
 
+import { Player } from "../Player/Player";
+
 import { PriorityQueue } from "./PriorityQueue";
 import { LoadTileset, DIRECTIONS, type CollapsedNeighbors } from "../Utilities";
 
@@ -16,6 +18,8 @@ export class WFC{
     public grid: Map<string, Cell> = new Map();
     private entropyQueue: PriorityQueue;
     
+    private disposeCellQueue: string[] = [];
+
     public renderDistance = 1;
 
     public tilesetName : string;
@@ -23,8 +27,10 @@ export class WFC{
 
     private stateStack: WFCState[] = [];
 
+    public player : Player;
 
-    constructor(scene : B.Scene, renderDistance : number, tilesetName : string){
+
+    constructor(scene : B.Scene, renderDistance : number, tilesetName : string, player: Player){
     
         this.scene = scene;
         
@@ -34,6 +40,8 @@ export class WFC{
 
         this.entropyQueue = new PriorityQueue();
         
+        this.player = player;
+
         // this.Initialize();
 
     }
@@ -54,16 +62,135 @@ export class WFC{
 
         for(let y = -this.renderDistance; y < this.renderDistance; y++){
             for (let x = -this.renderDistance; x < this.renderDistance; x++){
-                
-                const newCell = new Cell(this.scene, x, y, this.tileset.tiles);
-                this.grid.set(`${x},${y}`, newCell);
-
-                this.entropyQueue.insert(newCell);
-
+                this.CreateCell(x,y);
             }
         }
 
     }
+
+
+    public Update(playerPosition: B.Vector3) : void {
+
+        const playerCell = this.GetCellCoordinates(playerPosition);
+
+        this.grid.forEach((cell, cellKey) => {
+            // const [cellX, cellY] = [cell.x!, cell.y!];
+
+            if (
+                (Math.abs(cell.x - playerCell.x) > this.renderDistance ||
+                 Math.abs(cell.y - playerCell.y) > this.renderDistance)
+            ) {
+                this.disposeCellQueue.push(cellKey);
+            }
+        });
+
+
+        for (let x = playerCell.x - this.renderDistance; x <= playerCell.x + this.renderDistance; x++) {
+            for (let y = playerCell.y - this.renderDistance; y <= playerCell.y + this.renderDistance; y++) {
+
+                const cellKey = `${x},${y}`;
+                
+                if (!this.grid.has(cellKey)) {
+                    this.CreateCell(x, y, true);
+                } 
+                
+            }
+        }
+
+
+        for(let i = 0; i < this.disposeCellQueue.length; i++){
+            const cellKey = this.disposeCellQueue.pop()!;
+            const cell = this.grid.get(cellKey);
+            
+            if (cell){
+                cell.plane.dispose();
+                this.grid.delete(cellKey);
+            }
+        }
+
+        // if (this.disposeCellQueue.length > 0){
+        //     const cellKey = this.disposeCellQueue.pop()!;
+        //     const cell = this.grid.get(cellKey);
+            
+        //     if (cell){
+        //         cell.plane.dispose();
+        //         this.grid.delete(cellKey);
+        //     }
+
+        // }
+
+
+
+    }
+
+
+    public GetCellCoordinates(position: B.Vector3): { x: number, y: number } {
+        const x = Math.floor((position.x + Cell.cellSize * .5) / Cell.cellSize);
+        const y = Math.floor((position.y + Cell.cellSize * .5) / Cell.cellSize);
+        return { x, y };
+    }
+
+
+    private CreateCell(x: number, y: number, constrain = false) : boolean {
+        const cellKey = `${x},${y}`;
+
+        const newCell = new Cell(this.scene, x, y, this.tileset.tiles);
+        this.grid.set(cellKey, newCell);
+
+        this.entropyQueue.insert(newCell);
+
+        if (!constrain)
+            return true;
+
+        const changeLog: WFCChange[] = []; 
+
+        // 1. Comece com um Set contendo TODOS os IDs de tile possíveis
+        let allowedIDs = new Set(newCell.possibleTiles.map(t => t.id));
+
+        // 2. Itere sobre todas as direções para encontrar vizinhos
+        for (const dir of DIRECTIONS) {
+            const nx = newCell.x + dir.dx;
+            const ny = newCell.y + dir.dy;
+            const neighbor = this.grid.get(`${nx},${ny}`);
+
+            // Se não houver vizinho, ele não pode nos restringir. Continue.
+            if (!neighbor)
+                continue;
+
+            // 3. Calcule o conjunto de IDs que ESTE vizinho permite
+            const neighborAllows = new Set<string>();
+            
+            // Para cada tile possível do vizinho...
+            for (const tile of neighbor.possibleTiles) {
+                // ...pegue suas regras para a direção OPOSTA (virada para a newCell)
+                const rules = this.tileset.rules[tile.id];
+                const rulesForDir = rules[dir.opposite]; // Ex: vizinho 'up' -> regra 'down'
+                
+                // Adicione todos os IDs permitidos por essa regra
+                rulesForDir.forEach(id => neighborAllows.add(id));
+            }
+
+            // 4. FAÇA A INTERSEÇÃO.
+            // Mantenha em 'allowedIDs' apenas os IDs que
+            // também existem em 'neighborAllows'.
+            allowedIDs = new Set(
+                [...allowedIDs].filter(id => neighborAllows.has(id))
+            );
+        }
+
+        // 5. Agora, 'allowedIDs' contém apenas tiles permitidos
+        // por TODOS os vizinhos. Aplique a restrição.
+        // console.log(`Nova célula (${x},${y}) restrita para:`, allowedIDs);
+        const result = newCell.Constrain(allowedIDs, changeLog);
+
+        if (!result.success) {
+            console.error(`CREATECELL FALHOU: Contradição na célula (${x},${y})`);
+            return false;
+        }
+
+        return true;
+    }
+
 
 
     private FindCellWithLowestEntropy(): Cell | undefined {
@@ -93,13 +220,13 @@ export class WFC{
     //     return cellToPick;
     // }
 
-    public Step(): boolean {
+    public Step(): { success: boolean, finish: boolean } {
 
         const cellToCollapse = this.FindCellWithLowestEntropy();
 
         if (!cellToCollapse) {
-            console.log(`WFC Concluído com sucesso!`);
-            return true; 
+            // console.log(`WFC Concluído com sucesso!`);
+            return { success: true, finish: true }; 
         }
 
         const changeLog: WFCChange[] = []; 
@@ -148,12 +275,12 @@ export class WFC{
 
             if (!rollbackSuccess) {
                 console.error("FALHA CATASTRÓFICA: A pilha de rollback está vazia e a contradição persiste.");
-                return false; 
+                return { success: false, finish: true };
             }
         }
 
 
-        return true;
+        return { success: true, finish: false };
     }
 
 

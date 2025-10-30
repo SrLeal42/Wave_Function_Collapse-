@@ -11,8 +11,12 @@ class InputsManager {
 
     private keys = new Map<string, boolean | number>([
         ['space', false],
+        ['enter', false],
+        ['r', false],
+        ['w', false],
         ['a', false],
-        ['r', false]
+        ['s', false],
+        ['d', false],
     ]);
 
     public Initialize(scene : B.Scene) : void{
@@ -71,8 +75,16 @@ class InputsManager {
     public Update():void {
 
         this.keys.set('space', this.keyState.get("Space")?.down || false);
-        this.keys.set('a', this.keyState.get("KeyA")?.down || false);
+        this.keys.set('enter', this.keyState.get("Enter")?.down || false);
         this.keys.set('r', this.keyState.get("KeyR")?.down || false);
+        
+        this.keys.set('vertical', this.keyState.get("KeyW")?.pressed ? 1 : this.keyState.get("KeyS")?.pressed ? -1 : 0 );
+        this.keys.set('horizontal', this.keyState.get("KeyD")?.pressed ? 1 : this.keyState.get("KeyA")?.pressed ? -1 : 0 );
+        
+        // this.keys.set('w', this.keyState.get("KeyW")?.pressed || false);
+        // this.keys.set('a', this.keyState.get("KeyA")?.pressed || false);
+        // this.keys.set('s', this.keyState.get("KeyS")?.pressed || false);
+        // this.keys.set('d', this.keyState.get("KeyD")?.pressed || false);
         
         this.ResetInputs();
     }
@@ -92,7 +104,7 @@ class InputsManager {
         if (!this.isInitialized) {
             throw new Error("InputsManager não foi inicializado. Chame initialize() primeiro.");
         }
-        return this.keys.get('a')!;
+        return this.keys.get('enter')!;
     }
 
     public get Reset(): boolean | number {
@@ -100,6 +112,20 @@ class InputsManager {
             throw new Error("InputsManager não foi inicializado. Chame initialize() primeiro.");
         }
         return this.keys.get('r')!;
+    }
+
+    public get Vertical(): boolean | number {
+        if (!this.isInitialized) {
+            throw new Error("InputsManager não foi inicializado. Chame initialize() primeiro.");
+        }
+        return this.keys.get('vertical')!;
+    }
+
+    public get Horizontal(): boolean | number {
+        if (!this.isInitialized) {
+            throw new Error("InputsManager não foi inicializado. Chame initialize() primeiro.");
+        }
+        return this.keys.get('horizontal')!;
     }
 
 }
