@@ -8,7 +8,16 @@
             "weight": 10,
             "height": 0,
             "affinities": { 
-                "grass": 3.0, "stone": 1.5, "lowMountain": 1.5
+                "grass": 3.0, "grassWet": 1.2, "stone": 1.5, "lowMountain": 1.5
+            }
+        },
+        {
+            "id": "grassWet", 
+            "matKey": "grassWetUnlit", 
+            "weight": 2,
+            "height": 0,
+            "affinities": { 
+                "grass": 1.5, "grassWet": 2, "sand": 2 
             }
         },
         {
@@ -23,10 +32,10 @@
         {
             "id": "sand", 
             "matKey": "sandUnlit", 
-            "weight": 3,
+            "weight": 2,
             "height": 0,
             "affinities": { 
-                "water": 6, "sand": 2, "grass": 1
+                "water": 6, "sand": 2, "grassWet": 1.2
             }
         },
         {
@@ -41,19 +50,28 @@
         {
             "id": "lowMountain", 
             "matKey": "lowMountainUnlit", 
-            "weight": 1,
+            "weight": 1.3,
             "height": 3,
             "affinities": { 
-                "lowMountain": 10, "highMountain": 6, "grass": 2, "stone": 1.5
+                "lowMountain": 3, "highMountain": 1.2, "grass": 2, "stone": 1.5
             }
         },
         {
             "id": "highMountain", 
             "matKey": "highMountainUnlit", 
-            "weight": 5,
+            "weight": 1,
             "height": 5,
             "affinities": { 
-                "highMountain": 5, "lowMountain": 5
+                "highMountain": 2, "lowMountain": 5
+            }
+        },
+        {
+            "id": "snow", 
+            "matKey": "snowUnlit", 
+            "weight": 1,
+            "height": 5,
+            "affinities": { 
+                "highMountain": 1.5
             }
         }
         
@@ -62,10 +80,17 @@
     "rules": {
         
         "grass": {
-            "up": ["grass", "sand", "stone", "lowMountain"],
-            "down": ["grass", "sand", "stone", "lowMountain"],
-            "left": ["grass", "sand", "stone", "lowMountain"],
-            "right": ["grass", "sand", "stone", "lowMountain"]
+            "up": ["grass", "grassWet", "stone", "lowMountain"],
+            "down": ["grass", "grassWet", "stone", "lowMountain"],
+            "left": ["grass", "grassWet", "stone", "lowMountain"],
+            "right": ["grass", "grassWet", "stone", "lowMountain"]
+        },
+
+        "grassWet": {
+            "up": ["grass", "grassWet", "sand", "stone", "lowMountain"],
+            "down": ["grass", "grassWet", "sand", "stone", "lowMountain"],
+            "left": ["grass", "grassWet", "sand", "stone", "lowMountain"],
+            "right": ["grass", "grassWet", "sand", "stone", "lowMountain"]
         },
 
         "water": {
@@ -76,10 +101,10 @@
         },
 
         "sand": {
-            "up": ["grass", "water", "sand", "lowMountain"],
-            "down": ["grass", "water", "sand", "lowMountain"],
-            "left": ["grass", "water", "sand", "lowMountain"],
-            "right": ["grass", "water", "sand", "lowMountain"]
+            "up": ["grassWet", "water", "sand", "lowMountain"],
+            "down": ["grassWet", "water", "sand", "lowMountain"],
+            "left": ["grassWet", "water", "sand", "lowMountain"],
+            "right": ["grassWet", "water", "sand", "lowMountain"]
         },
 
         "stone": {
@@ -97,10 +122,17 @@
         },
 
         "highMountain": {
-            "up": ["lowMountain", "highMountain"],
-            "down": ["lowMountain", "highMountain"],
-            "left": ["lowMountain", "highMountain"],
-            "right": ["lowMountain", "highMountain"]
+            "up": ["lowMountain", "highMountain", "snow"],
+            "down": ["lowMountain", "highMountain", "snow"],
+            "left": ["lowMountain", "highMountain", "snow"],
+            "right": ["lowMountain", "highMountain", "snow"]
+        },
+
+        "snow": {
+            "up": ["snow", "highMountain"],
+            "down": ["snow", "highMountain"],
+            "left": ["snow", "highMountain"],
+            "right": ["snow", "highMountain"]
         }
 
     }

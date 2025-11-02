@@ -19,6 +19,7 @@ export class Camera {
         this.scene = scene;
 
         this.camera = new B.FreeCamera("MainCamera", new B.Vector3(0,0,-300), scene); // -10
+        // this.camera.fov = .8;
         // this.camera.mode = B.Camera.ORTHOGRAPHIC_CAMERA;
 
         this.camera.rotation.x = 0;

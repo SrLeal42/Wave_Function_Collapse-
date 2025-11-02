@@ -57,7 +57,7 @@ export class Scene{
                 if(this.animation){
                     this.intervalAnimation = setInterval(() => {
                         this.wfc!.Step();
-                    }, 10);
+                    }, 0);
                 } else {
                     clearInterval(this.intervalAnimation);
                 }

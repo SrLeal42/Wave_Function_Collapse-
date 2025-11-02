@@ -20,11 +20,13 @@ export class MaterialManager{
         this.materials.set('defaultUnlit', this.CreateDefaultUnLitMaterial());
 
         this.materials.set('grassUnlit', this.CreateGrassUnLitMaterial());
+        this.materials.set('grassWetUnlit', this.CreateGrassWetUnLitMaterial());
         this.materials.set('waterUnlit', this.CreateWaterUnLitMaterial());
         this.materials.set('sandUnlit', this.CreateSandUnLitMaterial());
         this.materials.set('stoneUnlit', this.CreateStoneUnLitMaterial());
         this.materials.set('lowMountainUnlit', this.CreateLowMountainUnLitMaterial());
         this.materials.set('highMountainUnlit', this.CreateHighMountainUnLitMaterial());
+        this.materials.set('snowUnlit', this.CreateSnowUnLitMaterial());
         this.materials.set('PlayerDefaultUnlit', this.CreatePlayerDefaultUnLitMaterial());
 
         this.isInitialized = true;
@@ -47,6 +49,15 @@ export class MaterialManager{
         const mat = new B.StandardMaterial('Grass_Unlit_Mat', this.scene);
         mat.disableLighting = true;
         mat.emissiveColor = new B.Color3(0, 1, 0);
+
+        return mat;
+    }
+
+    public CreateGrassWetUnLitMaterial() : B.StandardMaterial {
+
+        const mat = new B.StandardMaterial('Grass_Wet_Unlit_Mat', this.scene);
+        mat.disableLighting = true;
+        mat.emissiveColor = new B.Color3(0, .7, 0);
 
         return mat;
     }
@@ -93,6 +104,15 @@ export class MaterialManager{
         const mat = new B.StandardMaterial('High_Mountain_Unlit_Mat', this.scene);
         mat.disableLighting = true;
         mat.emissiveColor = new B.Color3(.2, .2, .2);
+
+        return mat;
+    }
+
+    public CreateSnowUnLitMaterial() : B.StandardMaterial {
+
+        const mat = new B.StandardMaterial('Snow_Unlit_Mat', this.scene);
+        mat.disableLighting = true;
+        mat.emissiveColor = new B.Color3(1, 1, .8);
 
         return mat;
     }
