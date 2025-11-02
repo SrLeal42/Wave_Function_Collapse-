@@ -19,8 +19,8 @@ export class Cell {
     public collapsed: boolean;
     public chosenTile: TileDefinition | null;
   
-    public static cellSize = 50;
-    public plane: B.Mesh;
+    public static cellSize = 15; //50;
+    public mesh: B.Mesh;
 
     constructor(
         scene: B.Scene,
@@ -39,21 +39,21 @@ export class Cell {
         this.collapsed = false;
         this.chosenTile = null;
 
-        this.plane = B.MeshBuilder.CreatePlane(
+        this.mesh = B.MeshBuilder.CreatePlane(
         `cell_${x}_${y}`,
         { size: Cell.cellSize },
         scene
         );
 
-        this.plane.position.x = (x * Cell.cellSize)
-        this.plane.position.y = (y * Cell.cellSize)
-        this.plane.position.z = 0;
+        this.mesh.position.x = (x * Cell.cellSize)
+        this.mesh.position.y = (y * Cell.cellSize)
+        this.mesh.position.z = 0;
 
-        this.plane.material = MaterialInstance.GetMaterial('defaultUnlit');
-        // this.plane.material = (x + y) % 2 != 0? MaterialInstance.GetMaterial('defaultUnlit') : MaterialInstance.GetMaterial('sandUnlit');
+        this.mesh.material = MaterialInstance.GetMaterial('defaultUnlit');
+        // this.mesh.material = (x + y) % 2 != 0? MaterialInstance.GetMaterial('defaultUnlit') : MaterialInstance.GetMaterial('sandUnlit');
 
         // const index = Math.floor(Math.random() * possibleTiles.length);
-        // this.plane.material = MaterialInstance.GetMaterial(possibleTiles[index].matKey);
+        // this.mesh.material = MaterialInstance.GetMaterial(possibleTiles[index].matKey);
     }
 
 
@@ -97,8 +97,9 @@ export class Cell {
         this.possibleTiles = [this.chosenTile];
         this.collapsed = true;
 
-        this.plane.material = MaterialInstance.GetMaterial(this.chosenTile.matKey);
-
+        this.mesh.material = MaterialInstance.GetMaterial(this.chosenTile.matKey);
+        this.mesh.position.z = chosenTile.height ? chosenTile.height*-1 : 0;
+            
         return chosenTile;
 
     }
@@ -158,9 +159,9 @@ export class Cell {
 
         // Redefine o material visual
         if (this.collapsed && this.chosenTile) {
-            this.plane.material = MaterialInstance.GetMaterial(this.chosenTile.matKey);
+            this.mesh.material = MaterialInstance.GetMaterial(this.chosenTile.matKey);
         } else {
-            this.plane.material = MaterialInstance.GetMaterial('defaultUnlit');
+            this.mesh.material = MaterialInstance.GetMaterial('defaultUnlit');
         }
     }
     
@@ -188,7 +189,7 @@ export class Cell {
         this.collapsed = false;
         this.chosenTile = null;
 
-        this.plane.material = MaterialInstance.GetMaterial('defaultUnlit');
+        this.mesh.material = MaterialInstance.GetMaterial('defaultUnlit');
 
     }
 

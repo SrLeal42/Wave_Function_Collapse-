@@ -3,59 +3,104 @@
     
     "tiles": [
         {
-            "id": "grass", "matKey": "grassUnlit", "weight": 10,
+            "id": "grass", 
+            "matKey": "grassUnlit", 
+            "weight": 10,
+            "height": 0,
             "affinities": { 
-                "grass": 3.0, "sand": 1.5, "stone": 1.2 
+                "grass": 3.0, "stone": 1.5, "lowMountain": 1.5
             }
         },
         {
-            "id": "water", "matKey": "waterUnlit", "weight": 2,
+            "id": "water", 
+            "matKey": "waterUnlit", 
+            "weight": 5,
+            "height": 0,
             "affinities": { 
-                "water": 2, "sand": 1.5 
+                "water": 5, "sand": 1.5 
             }
         },
         {
-            "id": "sand", "matKey": "sandUnlit", "weight": 2,
+            "id": "sand", 
+            "matKey": "sandUnlit", 
+            "weight": 3,
+            "height": 0,
             "affinities": { 
-                "water": 1.5, "sand": 1.5, "grass": 3
+                "water": 6, "sand": 2, "grass": 1
             }
         },
         {
-            "id": "stone", "matKey": "stoneUnlit", "weight": 1,
+            "id": "stone", 
+            "matKey": "stoneUnlit", 
+            "weight": 1,
+            "height": 1,
             "affinities": { 
-                "stone": 1.0, "grass": 1.5
+                "stone": 1.3, "grass": 1.5
+            }
+        },
+        {
+            "id": "lowMountain", 
+            "matKey": "lowMountainUnlit", 
+            "weight": 1,
+            "height": 3,
+            "affinities": { 
+                "lowMountain": 10, "highMountain": 6, "grass": 2, "stone": 1.5
+            }
+        },
+        {
+            "id": "highMountain", 
+            "matKey": "highMountainUnlit", 
+            "weight": 5,
+            "height": 5,
+            "affinities": { 
+                "highMountain": 5, "lowMountain": 5
             }
         }
+        
     ],
 
     "rules": {
         
         "grass": {
-            "up": ["grass", "sand", "stone"],
-            "down": ["grass", "sand", "stone"],
-            "left": ["grass", "sand", "stone"],
-            "right": ["grass", "sand", "stone"]
+            "up": ["grass", "sand", "stone", "lowMountain"],
+            "down": ["grass", "sand", "stone", "lowMountain"],
+            "left": ["grass", "sand", "stone", "lowMountain"],
+            "right": ["grass", "sand", "stone", "lowMountain"]
         },
 
         "water": {
-            "up": ["water", "sand"],
-            "down": ["water", "sand"],
-            "left": ["water", "sand"],
-            "right": ["water", "sand"]
+            "up": ["water", "sand", "lowMountain"],
+            "down": ["water", "sand", "lowMountain"],
+            "left": ["water", "sand", "lowMountain"],
+            "right": ["water", "sand", "lowMountain"]
         },
 
         "sand": {
-            "up": ["grass", "water", "sand"],
-            "down": ["grass", "water", "sand"],
-            "left": ["grass", "water", "sand"],
-            "right": ["grass", "water", "sand"]
+            "up": ["grass", "water", "sand", "lowMountain"],
+            "down": ["grass", "water", "sand", "lowMountain"],
+            "left": ["grass", "water", "sand", "lowMountain"],
+            "right": ["grass", "water", "sand", "lowMountain"]
         },
 
         "stone": {
-            "up": ["grass", "stone"],
-            "down": ["grass", "stone"],
-            "left": ["grass", "stone"],
-            "right": ["grass", "stone"]
+            "up": ["grass", "stone", "lowMountain"],
+            "down": ["grass", "stone", "lowMountain"],
+            "left": ["grass", "stone", "lowMountain"],
+            "right": ["grass", "stone", "lowMountain"]
+        },
+
+        "lowMountain": {
+            "up": ["grass", "water", "sand", "stone", "lowMountain", "highMountain"],
+            "down": ["grass", "water", "sand", "stone", "lowMountain", "highMountain"],
+            "left": ["grass", "water", "sand", "stone", "lowMountain", "highMountain"],
+            "right": ["grass", "water", "sand", "stone", "lowMountain", "highMountain"]
+        },
+
+        "highMountain": {
+            "up": ["lowMountain", "highMountain"],
+            "down": ["lowMountain", "highMountain"],
+            "left": ["lowMountain", "highMountain"],
+            "right": ["lowMountain", "highMountain"]
         }
 
     }

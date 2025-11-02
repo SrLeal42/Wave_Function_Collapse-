@@ -11,16 +11,16 @@ export class Player {
 
     public model : B.Mesh;
 
-    public vel = 1;
+    public vel = .3;
 
     constructor(scene: B.Scene, x: number, y: number){
 
         this.scene = scene;
 
         this.pivot = new B.TransformNode("Player", scene);
-        this.pivot.position = new B.Vector3(x,y,0);
+        this.pivot.position = new B.Vector3(x,y,-15);
     
-        this.model = B.CreateSphere("Player_Model",{ diameter: 10 }, scene);
+        this.model = B.CreateSphere("Player_Model",{ diameter: 5 }, scene);
         this.model.material = MaterialInstance.GetMaterial("PlayerDefaultUnlit");
 
         this.model.parent = this.pivot;

@@ -103,7 +103,7 @@ export class WFC{
             const cell = this.grid.get(cellKey);
             
             if (cell){
-                cell.plane.dispose();
+                cell.mesh.dispose();
                 this.grid.delete(cellKey);
             }
         }
@@ -113,7 +113,7 @@ export class WFC{
         //     const cell = this.grid.get(cellKey);
             
         //     if (cell){
-        //         cell.plane.dispose();
+        //         cell.mesh.dispose();
         //         this.grid.delete(cellKey);
         //     }
 
@@ -144,49 +144,38 @@ export class WFC{
 
         const changeLog: WFCChange[] = []; 
 
-        // 1. Comece com um Set contendo TODOS os IDs de tile possíveis
         let allowedIDs = new Set(newCell.possibleTiles.map(t => t.id));
 
-        // 2. Itere sobre todas as direções para encontrar vizinhos
         for (const dir of DIRECTIONS) {
             const nx = newCell.x + dir.dx;
             const ny = newCell.y + dir.dy;
             const neighbor = this.grid.get(`${nx},${ny}`);
 
-            // Se não houver vizinho, ele não pode nos restringir. Continue.
             if (!neighbor)
                 continue;
 
-            // 3. Calcule o conjunto de IDs que ESTE vizinho permite
             const neighborAllows = new Set<string>();
             
-            // Para cada tile possível do vizinho...
             for (const tile of neighbor.possibleTiles) {
-                // ...pegue suas regras para a direção OPOSTA (virada para a newCell)
                 const rules = this.tileset.rules[tile.id];
-                const rulesForDir = rules[dir.opposite]; // Ex: vizinho 'up' -> regra 'down'
+                const rulesForDir = rules[dir.opposite]; 
                 
-                // Adicione todos os IDs permitidos por essa regra
                 rulesForDir.forEach(id => neighborAllows.add(id));
             }
 
-            // 4. FAÇA A INTERSEÇÃO.
-            // Mantenha em 'allowedIDs' apenas os IDs que
-            // também existem em 'neighborAllows'.
             allowedIDs = new Set(
                 [...allowedIDs].filter(id => neighborAllows.has(id))
             );
         }
 
-        // 5. Agora, 'allowedIDs' contém apenas tiles permitidos
-        // por TODOS os vizinhos. Aplique a restrição.
-        // console.log(`Nova célula (${x},${y}) restrita para:`, allowedIDs);
         const result = newCell.Constrain(allowedIDs, changeLog);
 
         if (!result.success) {
             console.error(`CREATECELL FALHOU: Contradição na célula (${x},${y})`);
             return false;
         }
+
+        this.Propagate(newCell, changeLog);
 
         return true;
     }

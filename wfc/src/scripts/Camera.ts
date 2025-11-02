@@ -18,8 +18,8 @@ export class Camera {
         this.engine = scene.getEngine() as B.Engine;
         this.scene = scene;
 
-        this.camera = new B.FreeCamera("MainCamera", new B.Vector3(0,0,-10), scene);
-        this.camera.mode = B.Camera.ORTHOGRAPHIC_CAMERA;
+        this.camera = new B.FreeCamera("MainCamera", new B.Vector3(0,0,-300), scene); // -10
+        // this.camera.mode = B.Camera.ORTHOGRAPHIC_CAMERA;
 
         this.camera.rotation.x = 0;
         this.camera.rotation.y = 0;

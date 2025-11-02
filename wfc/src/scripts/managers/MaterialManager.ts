@@ -23,6 +23,8 @@ export class MaterialManager{
         this.materials.set('waterUnlit', this.CreateWaterUnLitMaterial());
         this.materials.set('sandUnlit', this.CreateSandUnLitMaterial());
         this.materials.set('stoneUnlit', this.CreateStoneUnLitMaterial());
+        this.materials.set('lowMountainUnlit', this.CreateLowMountainUnLitMaterial());
+        this.materials.set('highMountainUnlit', this.CreateHighMountainUnLitMaterial());
         this.materials.set('PlayerDefaultUnlit', this.CreatePlayerDefaultUnLitMaterial());
 
         this.isInitialized = true;
@@ -70,9 +72,27 @@ export class MaterialManager{
 
     public CreateStoneUnLitMaterial() : B.StandardMaterial {
 
-        const mat = new B.StandardMaterial('Sand_Unlit_Mat', this.scene);
+        const mat = new B.StandardMaterial('Stone_Unlit_Mat', this.scene);
         mat.disableLighting = true;
         mat.emissiveColor = new B.Color3(.5, .5, .5);
+
+        return mat;
+    }
+
+    public CreateLowMountainUnLitMaterial() : B.StandardMaterial {
+
+        const mat = new B.StandardMaterial('Low_Mountain_Unlit_Mat', this.scene);
+        mat.disableLighting = true;
+        mat.emissiveColor = new B.Color3(.3, .3, .3);
+
+        return mat;
+    }
+
+    public CreateHighMountainUnLitMaterial() : B.StandardMaterial {
+
+        const mat = new B.StandardMaterial('High_Mountain_Unlit_Mat', this.scene);
+        mat.disableLighting = true;
+        mat.emissiveColor = new B.Color3(.2, .2, .2);
 
         return mat;
     }
