@@ -1,0 +1,253 @@
+{
+    "name": "Grasslands - Gerado pela IA",
+    "tiles": [
+        {
+            "id": "grass",
+            "matKey": "grassUnlit",
+            "height": 0,
+            "weight": 482,
+            "affinities": {
+                "grass": 126.3076923076923,
+                "grassWet": 17.53846153846154,
+                "lowMountain": 1
+            }
+        },
+        {
+            "id": "grassWet",
+            "matKey": "grassWetUnlit",
+            "height": 0,
+            "weight": 278,
+            "affinities": {
+                "grass": 114,
+                "grassWet": 367,
+                "sand": 66,
+                "lowMountain": 1
+            }
+        },
+        {
+            "id": "water",
+            "matKey": "waterUnlit",
+            "height": 0,
+            "weight": 889,
+            "affinities": {
+                "water": 85.17948717948718,
+                "sand": 3.102564102564102,
+                "lowMountain": 1
+            }
+        },
+        {
+            "id": "sand",
+            "matKey": "sandUnlit",
+            "height": 0,
+            "weight": 311,
+            "affinities": {
+                "grassWet": 33,
+                "water": 30.250000000000004,
+                "sand": 245,
+                "lowMountain": 1
+            }
+        },
+        {
+            "id": "stone",
+            "matKey": "stoneUnlit",
+            "height": 1,
+            "weight": 0,
+            "affinities": {}
+        },
+        {
+            "id": "lowMountain",
+            "matKey": "lowMountainUnlit",
+            "height": 3,
+            "weight": 140,
+            "affinities": {
+                "grass": 6.499999999999999,
+                "grassWet": 1,
+                "water": 19.5,
+                "sand": 2,
+                "lowMountain": 168.99999999999997,
+                "highMountain": 55.5
+            }
+        },
+        {
+            "id": "highMountain",
+            "matKey": "highMountainUnlit",
+            "height": 5,
+            "weight": 312,
+            "affinities": {
+                "lowMountain": 1.1326530612244898,
+                "highMountain": 10.551020408163264,
+                "snow": 1
+            }
+        },
+        {
+            "id": "snow",
+            "matKey": "snowUnlit",
+            "height": 5,
+            "weight": 88,
+            "affinities": {
+                "highMountain": 1,
+                "snow": 2.5918367346938775
+            }
+        }
+    ],
+    "rules": {
+        "grass": {
+            "up": [
+                "grassWet",
+                "grass"
+            ],
+            "down": [
+                "grass",
+                "grassWet",
+                "lowMountain"
+            ],
+            "left": [
+                "grassWet",
+                "grass"
+            ],
+            "right": [
+                "grass",
+                "grassWet"
+            ]
+        },
+        "grassWet": {
+            "up": [
+                "grassWet",
+                "sand",
+                "grass"
+            ],
+            "down": [
+                "grassWet",
+                "grass",
+                "sand",
+                "lowMountain"
+            ],
+            "left": [
+                "sand",
+                "grassWet",
+                "grass",
+                "lowMountain"
+            ],
+            "right": [
+                "grassWet",
+                "grass",
+                "sand"
+            ]
+        },
+        "water": {
+            "up": [
+                "water",
+                "sand"
+            ],
+            "down": [
+                "water",
+                "sand",
+                "lowMountain"
+            ],
+            "left": [
+                "water",
+                "sand",
+                "lowMountain"
+            ],
+            "right": [
+                "water",
+                "sand"
+            ]
+        },
+        "sand": {
+            "up": [
+                "sand",
+                "water",
+                "grassWet"
+            ],
+            "down": [
+                "water",
+                "sand",
+                "grassWet",
+                "lowMountain"
+            ],
+            "left": [
+                "water",
+                "sand",
+                "grassWet",
+                "lowMountain"
+            ],
+            "right": [
+                "sand",
+                "grassWet",
+                "water"
+            ]
+        },
+        "stone": {
+            "up": [],
+            "down": [],
+            "left": [],
+            "right": []
+        },
+        "lowMountain": {
+            "up": [
+                "grass",
+                "lowMountain",
+                "grassWet",
+                "highMountain",
+                "sand",
+                "water"
+            ],
+            "down": [
+                "highMountain",
+                "lowMountain"
+            ],
+            "left": [
+                "lowMountain",
+                "highMountain"
+            ],
+            "right": [
+                "lowMountain",
+                "grassWet",
+                "sand",
+                "highMountain",
+                "water"
+            ]
+        },
+        "highMountain": {
+            "up": [
+                "lowMountain",
+                "highMountain",
+                "snow"
+            ],
+            "down": [
+                "lowMountain",
+                "highMountain",
+                "snow"
+            ],
+            "left": [
+                "highMountain",
+                "lowMountain",
+                "snow"
+            ],
+            "right": [
+                "highMountain",
+                "lowMountain",
+                "snow"
+            ]
+        },
+        "snow": {
+            "up": [
+                "highMountain",
+                "snow"
+            ],
+            "down": [
+                "snow",
+                "highMountain"
+            ],
+            "left": [
+                "highMountain",
+                "snow"
+            ],
+            "right": [
+                "highMountain",
+                "snow"
+            ]
+        }
+    }
+}

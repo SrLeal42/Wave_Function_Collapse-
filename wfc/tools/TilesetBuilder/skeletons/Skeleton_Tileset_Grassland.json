@@ -1,0 +1,55 @@
+{
+    "name": "Grasslands - Gerado pela IA",
+    "legend": {
+      "#00FF00": "grass",
+      "#00A100": "grassWet",
+      "#0000FF": "water",
+      "#FFFF00": "sand",
+      "#808080": "stone",
+      "#A0522D": "lowMountain",
+      "#654321": "highMountain",
+      "#DBDBDB": "snow"
+    },
+    "tiles": [
+        {
+            "id": "grass", 
+            "matKey": "grassUnlit", 
+            "height": 0
+        },
+        {
+            "id": "grassWet", 
+            "matKey": "grassWetUnlit", 
+            "height": 0
+        },
+        {
+            "id": "water", 
+            "matKey": "waterUnlit", 
+            "height": 0
+        },
+        {
+            "id": "sand", 
+            "matKey": "sandUnlit", 
+            "height": 0
+        },
+        {
+            "id": "stone", 
+            "matKey": "stoneUnlit", 
+            "height": 1
+        },
+        {
+            "id": "lowMountain", 
+            "matKey": "lowMountainUnlit", 
+            "height": 3
+        },
+        {
+            "id": "highMountain", 
+            "matKey": "highMountainUnlit", 
+            "height": 5
+        },
+        {
+            "id": "snow", 
+            "matKey": "snowUnlit", 
+            "height": 5
+        }
+    ]
+}
