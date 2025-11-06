@@ -29,6 +29,8 @@ export class MaterialManager{
         this.materials.set('snowUnlit', this.CreateSnowUnLitMaterial());
         this.materials.set('PlayerDefaultUnlit', this.CreatePlayerDefaultUnLitMaterial());
 
+        this.materials.set('fundoUnlit', this.CreateFundoUnLitMaterial());
+        
         this.isInitialized = true;
 
     }
@@ -126,6 +128,18 @@ export class MaterialManager{
 
         return mat;
     }
+
+
+    public CreateFundoUnLitMaterial() : B.StandardMaterial {
+
+        const mat = new B.StandardMaterial('Fundo_Unlit_Mat', this.scene);
+        mat.disableLighting = true;
+        const emissiveTex = new B.Texture("./assets/textures/street/Fundo.png", this.scene);
+        mat.emissiveTexture = emissiveTex;
+
+        return mat;
+    }
+
 
 
     public GetMaterial(name : string) : B.StandardMaterial {

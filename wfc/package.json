@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@babylonjs/core": "^8.33.0",
+    "@babylonjs/loaders": "^8.34.1",
     "jimp": "^0.16.13",
     "vue": "^3.2.13"
   },

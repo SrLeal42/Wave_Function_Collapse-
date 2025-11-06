@@ -4,6 +4,7 @@ import { Camera } from "./Camera";
 
 import { MaterialInstance } from "./managers/MaterialManager";
 import { InputsInstance } from "./managers/InputsManager";
+import { ModelsInstance } from "./managers/ModelsManager";
 
 import { WFC } from "./wfc/WFC";
 import { Player } from "./Player/Player";
@@ -33,10 +34,17 @@ export class Scene{
 
         this.scene = scene;
 
-        await MaterialInstance.Initialize(scene);
+        // await MaterialInstance.Initialize(scene);
         await InputsInstance.Initialize(scene);
+        await ModelsInstance.Initialize(scene);
 
-        this.player = new Player(scene,0,0);
+        const model = await ModelsInstance.CreateInstance("fundo")!;
+
+        model.position = new B.Vector3(0,-10,0);
+        model.rotation = new B.Vector3(Math.PI/2, 0, 0);
+        model.scaling = new B.Vector3(15,0,15);
+
+        this.player = new Player(scene,10,10);
         this.camera = new Camera(scene, this.player);
 
         this.wfc = new WFC(scene, 11, 'generate', this.player);
