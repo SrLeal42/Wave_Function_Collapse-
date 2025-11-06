@@ -103,7 +103,7 @@ export class WFC{
             const cell = this.grid.get(cellKey);
             
             if (cell){
-                cell.mesh.dispose();
+                cell.meshNode.dispose();
                 this.grid.delete(cellKey);
             }
         }

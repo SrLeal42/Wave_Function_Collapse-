@@ -19,6 +19,7 @@ export class MaterialManager{
 
         this.materials.set('defaultUnlit', this.CreateDefaultUnLitMaterial());
 
+        // --- GRASSLAND
         this.materials.set('grassUnlit', this.CreateGrassUnLitMaterial());
         this.materials.set('grassWetUnlit', this.CreateGrassWetUnLitMaterial());
         this.materials.set('waterUnlit', this.CreateWaterUnLitMaterial());
@@ -29,6 +30,8 @@ export class MaterialManager{
         this.materials.set('snowUnlit', this.CreateSnowUnLitMaterial());
         this.materials.set('PlayerDefaultUnlit', this.CreatePlayerDefaultUnLitMaterial());
 
+
+        // --- STREET
         this.materials.set('fundoUnlit', this.CreateFundoUnLitMaterial());
         
         this.isInitialized = true;

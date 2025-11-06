@@ -3,7 +3,8 @@ import * as B from "@babylonjs/core";
 import { TileDefinition } from "../interfaces/TilesDefinition";
 import { WFCChange } from "../interfaces/WFCState";
 
-import { MaterialInstance } from "../managers/MaterialManager";
+// import { MaterialInstance } from "../managers/MaterialManager";
+import { ModelsInstance } from "../managers/ModelsManager";
 
 import { ChooseWeightedRandomBy, CollapsedNeighbors, Direction } from "../Utilities";
 
@@ -19,8 +20,8 @@ export class Cell {
     public collapsed: boolean;
     public chosenTile: TileDefinition | null;
   
-    public static cellSize = 15; //50;
-    public mesh: B.Mesh;
+    public static cellSize = 5; // 15; //50;
+    public meshNode!: B.TransformNode;
 
     constructor(
         scene: B.Scene,
@@ -39,21 +40,33 @@ export class Cell {
         this.collapsed = false;
         this.chosenTile = null;
 
-        this.mesh = B.MeshBuilder.CreatePlane(
-        `cell_${x}_${y}`,
-        { size: Cell.cellSize },
-        scene
-        );
+        this.ChangeMesh('default');
 
-        this.mesh.position.x = (x * Cell.cellSize)
-        this.mesh.position.y = (y * Cell.cellSize)
-        this.mesh.position.z = 0;
+        this.meshNode.position.x = (x * Cell.cellSize );
+        this.meshNode.position.y = (y * Cell.cellSize );
 
-        this.mesh.material = MaterialInstance.GetMaterial('defaultUnlit');
-        // this.mesh.material = (x + y) % 2 != 0? MaterialInstance.GetMaterial('defaultUnlit') : MaterialInstance.GetMaterial('sandUnlit');
+        // this.mesh = B.MeshBuilder.CreatePlane(
+        // `cell_${x}_${y}`,
+        // { size: Cell.cellSize },
+        // scene
+        // );
 
-        // const index = Math.floor(Math.random() * possibleTiles.length);
-        // this.mesh.material = MaterialInstance.GetMaterial(possibleTiles[index].matKey);
+        // this.mesh.position.x = (x * Cell.cellSize)
+        // this.mesh.position.y = (y * Cell.cellSize)
+        // this.mesh.position.z = 0;
+
+        // this.mesh.material = MaterialInstance.GetMaterial('defaultUnlit');
+
+    }
+
+
+    public ChangeMesh(key:string, x = 0, y = 0) : void {
+        if (this.meshNode)
+            this.meshNode.dispose();
+        this.meshNode = ModelsInstance.CreateInstance(key)!;
+        this.meshNode.scaling = new B.Vector3(Cell.cellSize, 0, Cell.cellSize);
+        this.meshNode.rotation = new B.Vector3(Math.PI/2, 0, 0);
+        this.meshNode.position = new B.Vector3((this.x * Cell.cellSize ), (this.y * Cell.cellSize ), 0);
     }
 
 
@@ -97,8 +110,9 @@ export class Cell {
         this.possibleTiles = [this.chosenTile];
         this.collapsed = true;
 
-        this.mesh.material = MaterialInstance.GetMaterial(this.chosenTile.matKey);
-        this.mesh.position.z = chosenTile.height ? chosenTile.height*-1 : 0;
+        // this.mesh.material = MaterialInstance.GetMaterial(this.chosenTile.matKey);
+        this.ChangeMesh(this.chosenTile.modelKey);
+        this.meshNode.position.z = chosenTile.height ? chosenTile.height*-1 : 0;
             
         return chosenTile;
 
@@ -159,9 +173,13 @@ export class Cell {
 
         // Redefine o material visual
         if (this.collapsed && this.chosenTile) {
-            this.mesh.material = MaterialInstance.GetMaterial(this.chosenTile.matKey);
+            this.ChangeMesh(this.chosenTile.modelKey);
+            this.meshNode.position.z = this.chosenTile.height ? this.chosenTile.height*-1 : 0;
+
         } else {
-            this.mesh.material = MaterialInstance.GetMaterial('defaultUnlit');
+            this.ChangeMesh('default');
+            this.meshNode.position.z = 0;
+            // this.mesh.material = MaterialInstance.GetMaterial('defaultUnlit');
         }
     }
     
@@ -189,11 +207,11 @@ export class Cell {
         this.collapsed = false;
         this.chosenTile = null;
 
-        this.mesh.material = MaterialInstance.GetMaterial('defaultUnlit');
+        this.ChangeMesh('default');
+
+        // this.mesh.material = MaterialInstance.GetMaterial('defaultUnlit');
 
     }
-
-
 
     get entropy(): number {
         return this.possibleTiles.length;

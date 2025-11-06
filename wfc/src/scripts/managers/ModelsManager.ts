@@ -22,6 +22,19 @@ export class ModelsManager{
 
         await MaterialInstance.Initialize(scene);
 
+        await this.LoadModel("default", "./assets/models/street/", "fundo.glb", "defaultUnlit");
+
+        // --- GRASSLAND
+        await this.LoadModel("grassUnlit", "./assets/models/street/", "fundo.glb", "grassUnlit");
+        await this.LoadModel("grassWetUnlit", "./assets/models/street/", "fundo.glb", "grassWetUnlit");
+        await this.LoadModel("waterUnlit", "./assets/models/street/", "fundo.glb", "waterUnlit");
+        await this.LoadModel("sandUnlit", "./assets/models/street/", "fundo.glb", "sandUnlit");
+        await this.LoadModel("stoneUnlit", "./assets/models/street/", "fundo.glb", "stoneUnlit");
+        await this.LoadModel("lowMountainUnlit", "./assets/models/street/", "fundo.glb", "lowMountainUnlit");
+        await this.LoadModel("highMountainUnlit", "./assets/models/street/", "fundo.glb", "highMountainUnlit");
+        await this.LoadModel("snowUnlit", "./assets/models/street/", "fundo.glb", "snowUnlit");
+
+        // --- STREET
         await this.LoadModel("fundo", "./assets/models/street/", "fundo.glb", "fundoUnlit");
  
         this.isInitialized = true;

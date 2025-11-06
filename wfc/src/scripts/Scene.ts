@@ -38,11 +38,11 @@ export class Scene{
         await InputsInstance.Initialize(scene);
         await ModelsInstance.Initialize(scene);
 
-        const model = await ModelsInstance.CreateInstance("fundo")!;
+        // const model = await ModelsInstance.CreateInstance("fundo")!;
 
-        model.position = new B.Vector3(0,-10,0);
-        model.rotation = new B.Vector3(Math.PI/2, 0, 0);
-        model.scaling = new B.Vector3(15,0,15);
+        // model.position = new B.Vector3(0,-10,0);
+        // model.rotation = new B.Vector3(Math.PI/2, 0, 0);
+        // model.scaling = new B.Vector3(15,0,15);
 
         this.player = new Player(scene,10,10);
         this.camera = new Camera(scene, this.player);

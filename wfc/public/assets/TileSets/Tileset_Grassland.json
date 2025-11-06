@@ -4,7 +4,8 @@
     "tiles": [
         {
             "id": "grass", 
-            "matKey": "grassUnlit", 
+            "matKey": "grassUnlit",
+            "modelKey": "grassUnlit",
             "weight": 10,
             "height": 0,
             "affinities": { 
@@ -13,7 +14,8 @@
         },
         {
             "id": "grassWet", 
-            "matKey": "grassWetUnlit", 
+            "matKey": "grassWetUnlit",
+            "modelKey": "grassWetUnlit",
             "weight": 2,
             "height": 0,
             "affinities": { 
@@ -22,7 +24,8 @@
         },
         {
             "id": "water", 
-            "matKey": "waterUnlit", 
+            "matKey": "waterUnlit",
+            "modelKey": "waterUnlit",
             "weight": 5,
             "height": 0,
             "affinities": { 
@@ -31,7 +34,8 @@
         },
         {
             "id": "sand", 
-            "matKey": "sandUnlit", 
+            "matKey": "sandUnlit",
+            "modelKey": "sandUnlit",
             "weight": 2,
             "height": 0,
             "affinities": { 
@@ -40,7 +44,8 @@
         },
         {
             "id": "stone", 
-            "matKey": "stoneUnlit", 
+            "matKey": "stoneUnlit",
+            "modelKey": "stoneUnlit",
             "weight": 1,
             "height": 1,
             "affinities": { 
@@ -49,7 +54,8 @@
         },
         {
             "id": "lowMountain", 
-            "matKey": "lowMountainUnlit", 
+            "matKey": "lowMountainUnlit",
+            "modelKey": "lowMountainUnlit",
             "weight": 1.3,
             "height": 3,
             "affinities": { 
@@ -58,7 +64,8 @@
         },
         {
             "id": "highMountain", 
-            "matKey": "highMountainUnlit", 
+            "matKey": "highMountainUnlit",
+            "modelKey": "highMountainUnlit",
             "weight": 1,
             "height": 5,
             "affinities": { 
@@ -67,7 +74,8 @@
         },
         {
             "id": "snow", 
-            "matKey": "snowUnlit", 
+            "matKey": "snowUnlit",
+            "modelKey": "snowUnlit",
             "weight": 1,
             "height": 5,
             "affinities": { 

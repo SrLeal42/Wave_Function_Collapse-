@@ -4,6 +4,7 @@
         {
             "id": "grass",
             "matKey": "grassUnlit",
+            "modelKey": "grassUnlit",
             "height": 0,
             "weight": 48,
             "affinities": {
@@ -16,6 +17,7 @@
         {
             "id": "grassWet",
             "matKey": "grassWetUnlit",
+            "modelKey": "grassWetUnlit",
             "height": 0,
             "weight": 7,
             "affinities": {
@@ -29,6 +31,7 @@
         {
             "id": "water",
             "matKey": "waterUnlit",
+            "modelKey": "waterUnlit",
             "height": 0,
             "weight": 20,
             "affinities": {
@@ -41,6 +44,7 @@
         {
             "id": "sand",
             "matKey": "sandUnlit",
+            "modelKey": "sandUnlit",
             "height": 0,
             "weight": 4,
             "affinities": {
@@ -54,6 +58,7 @@
         {
             "id": "stone",
             "matKey": "stoneUnlit",
+            "modelKey": "stoneUnlit",
             "height": 1,
             "weight": 3,
             "affinities": {
@@ -69,6 +74,7 @@
         {
             "id": "lowMountain",
             "matKey": "lowMountainUnlit",
+            "modelKey": "lowMountainUnlit",
             "height": 3,
             "weight": 6,
             "affinities": {
@@ -84,6 +90,7 @@
         {
             "id": "highMountain",
             "matKey": "highMountainUnlit",
+            "modelKey": "highMountainUnlit",
             "height": 5,
             "weight": 11,
             "affinities": {
@@ -96,6 +103,7 @@
         {
             "id": "snow",
             "matKey": "snowUnlit",
+            "modelKey": "snowUnlit",
             "height": 5,
             "weight": 7,
             "affinities": {
