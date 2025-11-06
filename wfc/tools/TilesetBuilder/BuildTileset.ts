@@ -7,6 +7,12 @@ const SKELETON_PATH = './tools/TilesetBuilder/skeletons/Skeleton_Tileset_Grassla
 const OUTPUT_JSON_PATH = './tools/TilesetBuilder/output/Generated_Tileset.json';
 // --------------------
 
+// --- CONSTANTES ---
+const MAX_WEIGHT = 100;
+const MIN_WEIGHT = 1;
+const MAX_AFFINITY_MULTIPLIER = 10;
+const MIN_AFFINITY_MULTIPLIER = 1;
+
 
 // --- Tipos ---
 // type Legend = { [hexColor: string]: string };
@@ -20,6 +26,26 @@ type Affinities = { [tileId: string]: { [neighborId: string]: number } };
 function IntToHex(color: number): string {
     const hex = (color >>> 8).toString(16).toUpperCase();
     return '#' + '0'.repeat(6 - hex.length) + hex;
+}
+
+/**
+ * Mapeia um valor de um range antigo para um novo range.
+ * (Ex: Mapeia 500 [de 100-5000] para 10 [de 1-100])
+ */
+function NormalizeWeight(weight: number, maxWeight: number, minWeight: number, max: number, min: number ): number {
+    if (weight === 0) return 0; // Não normaliza tiles que não existem
+    
+    // const min = 1;
+    // const max = 100;
+    
+    // Evita divisão por zero se todos os pesos forem iguais
+    if (maxWeight === minWeight) return min; 
+
+    const normalized = 
+        ((weight - minWeight) / (maxWeight - minWeight)) * (max - min) + min;
+    
+    // Retorna um número inteiro
+    return Math.round(normalized);
 }
 
 async function BuildTileset() {
@@ -68,15 +94,30 @@ async function BuildTileset() {
 
             for (const n of neighbors) {
                 if (n.x >= 0 && n.x < image.bitmap.width && n.y >= 0 && n.y < image.bitmap.height) {
+
                     const neighborHex = IntToHex(image.getPixelColor(n.x, n.y));
                     const neighborId = legend[neighborHex];
+
                     if (!neighborId) continue;
 
                     rules[centerId][n.dir].add(neighborId);
                     affinityCounts[centerId][neighborId]++;
+
                 }
             }
+
         }
+    }
+
+    const allWeights = Object.values(weights);
+    const nonZeroWeights = allWeights.filter(w => w > 0);
+
+    let maxWeight = 1;
+    let minWeight = 1;
+
+    if (nonZeroWeights.length > 0) {
+        maxWeight = Math.max(...nonZeroWeights);
+        minWeight = Math.min(...nonZeroWeights);
     }
 
     console.log("Calculando afinidades...");
@@ -93,21 +134,42 @@ async function BuildTileset() {
         const finalAffinities: { [key: string]: number } = {};
         const totalAffinity = Object.values(affinityCounts[id]).reduce((a, b) => a + b, 0);
 
+        let minProb = 1.0;
+        let maxProb = -Infinity;
+
         if (totalAffinity > 0) {
-            let minProb = 1.0;
+
+            
             for (const nId of tileIDs) {
                 const prob = affinityCounts[id][nId] / totalAffinity;
-                if (prob > 0 && prob < minProb) minProb = prob;
+
+                if (prob > 0 && prob < minProb) 
+                    minProb = prob;
+
+                if (prob > maxProb)
+                    maxProb = prob;
             }
+
             for (const nId of tileIDs) {
                 const prob = affinityCounts[id][nId] / totalAffinity;
-                if (prob > 0) finalAffinities[nId] = prob / minProb;
+                
+                if (prob > 0) {
+                    finalAffinities[nId] = 
+                        NormalizeWeight(prob, 
+                            maxProb, 
+                            minProb, 
+                            MAX_AFFINITY_MULTIPLIER, 
+                            MIN_AFFINITY_MULTIPLIER
+                        ) // prob / minProb;
+                    }
+            
             }
+
         }
 
         finalTileset.tiles.push({
             ...baseTile,
-            weight: weights[id],
+            weight: NormalizeWeight(weights[id], maxWeight, minWeight, MAX_WEIGHT, MIN_WEIGHT),
             affinities: finalAffinities,
         });
 

@@ -5,10 +5,10 @@
             "id": "grass",
             "matKey": "grassUnlit",
             "height": 0,
-            "weight": 482,
+            "weight": 50,
             "affinities": {
-                "grass": 126.3076923076923,
-                "grassWet": 17.53846153846154,
+                "grass": 10,
+                "grassWet": 2,
                 "lowMountain": 1
             }
         },
@@ -16,11 +16,11 @@
             "id": "grassWet",
             "matKey": "grassWetUnlit",
             "height": 0,
-            "weight": 278,
+            "weight": 24,
             "affinities": {
-                "grass": 114,
-                "grassWet": 367,
-                "sand": 66,
+                "grass": 3,
+                "grassWet": 8,
+                "sand": 2,
                 "lowMountain": 1
             }
         },
@@ -28,10 +28,10 @@
             "id": "water",
             "matKey": "waterUnlit",
             "height": 0,
-            "weight": 889,
+            "weight": 100,
             "affinities": {
-                "water": 85.17948717948718,
-                "sand": 3.102564102564102,
+                "water": 10,
+                "sand": 1,
                 "lowMountain": 1
             }
         },
@@ -39,11 +39,11 @@
             "id": "sand",
             "matKey": "sandUnlit",
             "height": 0,
-            "weight": 311,
+            "weight": 29,
             "affinities": {
-                "grassWet": 33,
-                "water": 30.250000000000004,
-                "sand": 245,
+                "grassWet": 2,
+                "water": 2,
+                "sand": 8,
                 "lowMountain": 1
             }
         },
@@ -58,35 +58,35 @@
             "id": "lowMountain",
             "matKey": "lowMountainUnlit",
             "height": 3,
-            "weight": 140,
+            "weight": 7,
             "affinities": {
-                "grass": 6.499999999999999,
+                "grass": 1,
                 "grassWet": 1,
-                "water": 19.5,
-                "sand": 2,
-                "lowMountain": 168.99999999999997,
-                "highMountain": 55.5
+                "water": 2,
+                "sand": 1,
+                "lowMountain": 7,
+                "highMountain": 3
             }
         },
         {
             "id": "highMountain",
             "matKey": "highMountainUnlit",
             "height": 5,
-            "weight": 312,
+            "weight": 29,
             "affinities": {
-                "lowMountain": 1.1326530612244898,
-                "highMountain": 10.551020408163264,
-                "snow": 1
+                "lowMountain": 2,
+                "highMountain": 9,
+                "snow": 2
             }
         },
         {
             "id": "snow",
             "matKey": "snowUnlit",
             "height": 5,
-            "weight": 88,
+            "weight": 1,
             "affinities": {
-                "highMountain": 1,
-                "snow": 2.5918367346938775
+                "highMountain": 4,
+                "snow": 8
             }
         }
     ],
