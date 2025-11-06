@@ -112,13 +112,13 @@ async function BuildTileset() {
     const allWeights = Object.values(weights);
     const nonZeroWeights = allWeights.filter(w => w > 0);
 
-    let maxWeight = 1;
+    let maxWeight = image.bitmap.height * image.bitmap.width; // 1;
     let minWeight = 1;
-
-    if (nonZeroWeights.length > 0) {
-        maxWeight = Math.max(...nonZeroWeights);
-        minWeight = Math.min(...nonZeroWeights);
-    }
+    
+    // if (nonZeroWeights.length > 0) {
+    //     maxWeight = Math.max(...nonZeroWeights);
+    //     minWeight = Math.min(...nonZeroWeights);
+    // }
 
     console.log("Calculando afinidades...");
 
