@@ -22,7 +22,7 @@ export class ModelsManager{
 
         await MaterialInstance.Initialize(scene);
 
-        await this.LoadModel("default", "./assets/models/street/", "fundo.glb", "defaultUnlit");
+        await this.LoadModel("defaultUnlit", "./assets/models/street/", "fundo.glb", "defaultUnlit");
 
         // --- GRASSLAND
         await this.LoadModel("grassUnlit", "./assets/models/street/", "fundo.glb", "grassUnlit");

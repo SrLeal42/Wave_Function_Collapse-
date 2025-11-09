@@ -211,7 +211,18 @@ export class WFC{
 
     public Step(): { success: boolean, finish: boolean } {
 
-        const cellToCollapse = this.FindCellWithLowestEntropy();
+        let cellToCollapse = this.FindCellWithLowestEntropy();
+
+        // Se a célula que puxamos não está mais no grid, ela é um "fantasma".
+        // Nós a descartamos e pegamos a próxima, até encontrar uma válida ou a fila acabar.
+        while (
+            cellToCollapse && 
+            !this.grid.has(`${cellToCollapse.x},${cellToCollapse.y}`)
+        ) {
+            // Célula "fantasma" detectada. Descarte-a.
+            cellToCollapse = this.FindCellWithLowestEntropy();
+        }
+        // console.log(cellToCollapse)
 
         if (!cellToCollapse) {
             // console.log(`WFC Concluído com sucesso!`);
@@ -227,7 +238,7 @@ export class WFC{
 
             this.stateStack.push({
                 changes: changeLog,
-                failedCell: cellToCollapse,
+                failedCell: cellToCollapse!,
                 failedTile: chosenTile!
             });
 

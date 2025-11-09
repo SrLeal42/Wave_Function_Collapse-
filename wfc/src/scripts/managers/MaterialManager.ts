@@ -150,7 +150,7 @@ export class MaterialManager{
             throw new Error("MaterialManager não foi inicializado. Chame initialize(scene) primeiro.");
 
         if (!this.materials.has(name))
-            throw new Error("Não há material com esse nome.");
+            throw new Error("Não há material com esse nome: " + name);
 
         return this.materials.get(name)!;
 

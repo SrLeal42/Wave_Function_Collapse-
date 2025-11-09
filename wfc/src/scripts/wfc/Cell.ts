@@ -3,7 +3,7 @@ import * as B from "@babylonjs/core";
 import { TileDefinition } from "../interfaces/TilesDefinition";
 import { WFCChange } from "../interfaces/WFCState";
 
-// import { MaterialInstance } from "../managers/MaterialManager";
+import { MaterialInstance } from "../managers/MaterialManager";
 import { ModelsInstance } from "../managers/ModelsManager";
 
 import { ChooseWeightedRandomBy, CollapsedNeighbors, Direction } from "../Utilities";
@@ -20,8 +20,10 @@ export class Cell {
     public collapsed: boolean;
     public chosenTile: TileDefinition | null;
   
-    public static cellSize = 5; // 15; //50;
+    public static cellSize = 10; // 15; //50;
+    public meshSize = Cell.cellSize * .5;
     public meshNode!: B.TransformNode;
+    // public meshNode!: B.Mesh;
 
     constructor(
         scene: B.Scene,
@@ -40,31 +42,32 @@ export class Cell {
         this.collapsed = false;
         this.chosenTile = null;
 
-        this.ChangeMesh('default');
+        this.ChangeMesh('defaultUnlit');
 
         this.meshNode.position.x = (x * Cell.cellSize );
         this.meshNode.position.y = (y * Cell.cellSize );
 
-        // this.mesh = B.MeshBuilder.CreatePlane(
+        // this.meshNode = B.MeshBuilder.CreatePlane(
         // `cell_${x}_${y}`,
         // { size: Cell.cellSize },
         // scene
         // );
 
-        // this.mesh.position.x = (x * Cell.cellSize)
-        // this.mesh.position.y = (y * Cell.cellSize)
-        // this.mesh.position.z = 0;
+        // this.meshNode.position.x = (x * Cell.cellSize)
+        // this.meshNode.position.y = (y * Cell.cellSize)
+        // this.meshNode.position.z = 0;
 
-        // this.mesh.material = MaterialInstance.GetMaterial('defaultUnlit');
+        // this.meshNode.material = MaterialInstance.GetMaterial('defaultUnlit');
 
     }
 
 
     public ChangeMesh(key:string, x = 0, y = 0) : void {
+        // this.meshNode.material = MaterialInstance.GetMaterial(key);
         if (this.meshNode)
             this.meshNode.dispose();
         this.meshNode = ModelsInstance.CreateInstance(key)!;
-        this.meshNode.scaling = new B.Vector3(Cell.cellSize, 0, Cell.cellSize);
+        this.meshNode.scaling = new B.Vector3(this.meshSize, 0, this.meshSize);
         this.meshNode.rotation = new B.Vector3(Math.PI/2, 0, 0);
         this.meshNode.position = new B.Vector3((this.x * Cell.cellSize ), (this.y * Cell.cellSize ), 0);
     }
@@ -177,7 +180,7 @@ export class Cell {
             this.meshNode.position.z = this.chosenTile.height ? this.chosenTile.height*-1 : 0;
 
         } else {
-            this.ChangeMesh('default');
+            this.ChangeMesh('defaultUnlit');
             this.meshNode.position.z = 0;
             // this.mesh.material = MaterialInstance.GetMaterial('defaultUnlit');
         }
@@ -207,7 +210,8 @@ export class Cell {
         this.collapsed = false;
         this.chosenTile = null;
 
-        this.ChangeMesh('default');
+        this.ChangeMesh('defaultUnlit');
+        this.meshNode.position.z = 0;
 
         // this.mesh.material = MaterialInstance.GetMaterial('defaultUnlit');
 
