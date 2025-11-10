@@ -7,7 +7,8 @@
       "#FF0000": "rightUpStreet",
       "#FFFF00": "rightDownStreet",
       "#0000FF": "leftUpStreet",
-      "#00FFFF": "leftDownStreet"
+      "#00FFFF": "leftDownStreet",
+      "#AAAAAA": "crossStreet"
 
     },
     "tiles": [
@@ -51,6 +52,12 @@
             "id": "leftDownStreet", 
             "matKey": "leftDownStreetUnlit",
             "modelKey": "leftDownStreet",
+            "height": 0
+        },
+        {
+            "id": "crossStreet", 
+            "matKey": "crossStreetUnlit",
+            "modelKey": "crossStreet",
             "height": 0
         }
     ]

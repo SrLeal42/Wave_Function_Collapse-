@@ -39,6 +39,7 @@ export class MaterialManager{
         this.materials.set('rightDownStreetUnlit', this.CreateRightDownStreetUnLitMaterial());
         this.materials.set('leftUpStreetUnlit', this.CreateLeftUpStreetUnLitMaterial());
         this.materials.set('leftDownStreetUnlit', this.CreateLeftDownStreetUnLitMaterial());
+        this.materials.set('crossStreetUnlit', this.CreateCrossStreetUnLitMaterial());
         
         this.isInitialized = true;
 
@@ -156,6 +157,9 @@ export class MaterialManager{
         const emissiveTex = new B.Texture("./assets/textures/street/LinhaRetaVertical.png", this.scene);
         mat.emissiveTexture = emissiveTex;
 
+        mat.emissiveTexture.wrapU = B.Texture.CLAMP_ADDRESSMODE;
+        mat.emissiveTexture.wrapV = B.Texture.CLAMP_ADDRESSMODE;
+
         return mat;
     }
 
@@ -166,6 +170,9 @@ export class MaterialManager{
         const emissiveTex = new B.Texture("./assets/textures/street/LinhaRetaHorizontal.png", this.scene);
         mat.emissiveTexture = emissiveTex;
 
+        mat.emissiveTexture.wrapU = B.Texture.CLAMP_ADDRESSMODE;
+        mat.emissiveTexture.wrapV = B.Texture.CLAMP_ADDRESSMODE;
+
         return mat;
     }
 
@@ -175,6 +182,9 @@ export class MaterialManager{
         mat.disableLighting = true;
         const emissiveTex = new B.Texture("./assets/textures/street/DireitaCima.png", this.scene);
         mat.emissiveTexture = emissiveTex;
+
+        mat.emissiveTexture.wrapU = B.Texture.CLAMP_ADDRESSMODE;
+        mat.emissiveTexture.wrapV = B.Texture.CLAMP_ADDRESSMODE;
 
         return mat;
     }
@@ -187,6 +197,9 @@ export class MaterialManager{
         const emissiveTex = new B.Texture("./assets/textures/street/DireitaBaixo.png", this.scene);
         mat.emissiveTexture = emissiveTex;
 
+        mat.emissiveTexture.wrapU = B.Texture.CLAMP_ADDRESSMODE;
+        mat.emissiveTexture.wrapV = B.Texture.CLAMP_ADDRESSMODE;
+
         return mat;
     }
 
@@ -198,6 +211,9 @@ export class MaterialManager{
         const emissiveTex = new B.Texture("./assets/textures/street/EsquerdaCima.png", this.scene);
         mat.emissiveTexture = emissiveTex;
 
+        mat.emissiveTexture.wrapU = B.Texture.CLAMP_ADDRESSMODE;
+        mat.emissiveTexture.wrapV = B.Texture.CLAMP_ADDRESSMODE;
+
         return mat;
     }
 
@@ -207,6 +223,22 @@ export class MaterialManager{
         mat.disableLighting = true;
         const emissiveTex = new B.Texture("./assets/textures/street/EsquerdaBaixo.png", this.scene);
         mat.emissiveTexture = emissiveTex;
+
+        mat.emissiveTexture.wrapU = B.Texture.CLAMP_ADDRESSMODE;
+        mat.emissiveTexture.wrapV = B.Texture.CLAMP_ADDRESSMODE;
+
+        return mat;
+    }
+
+    public CreateCrossStreetUnLitMaterial() : B.StandardMaterial {
+
+        const mat = new B.StandardMaterial('Estrada_Cruz_Unlit_Mat', this.scene);
+        mat.disableLighting = true;
+        const emissiveTex = new B.Texture("./assets/textures/street/Cruz.png", this.scene);
+        mat.emissiveTexture = emissiveTex;
+
+        mat.emissiveTexture.wrapU = B.Texture.CLAMP_ADDRESSMODE;
+        mat.emissiveTexture.wrapV = B.Texture.CLAMP_ADDRESSMODE;
 
         return mat;
     }

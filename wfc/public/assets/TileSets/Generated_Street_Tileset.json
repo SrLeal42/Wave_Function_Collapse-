@@ -6,7 +6,7 @@
             "matKey": "fundoUnlit",
             "modelKey": "fundo",
             "height": 0,
-            "weight": 86,
+            "weight": 71,
             "affinities": {
                 "fundo": 10,
                 "verticalStraightStreet": 1,
@@ -22,14 +22,15 @@
             "matKey": "verticalStraightStreetUnlit",
             "modelKey": "verticalStraightStreet",
             "height": 0,
-            "weight": 5,
+            "weight": 9,
             "affinities": {
                 "fundo": 10,
-                "verticalStraightStreet": 5,
+                "verticalStraightStreet": 6,
                 "rightUpStreet": 1,
                 "rightDownStreet": 1,
                 "leftUpStreet": 1,
-                "leftDownStreet": 1
+                "leftDownStreet": 1,
+                "crossStreet": 1
             }
         },
         {
@@ -37,14 +38,15 @@
             "matKey": "horizontalStraightStreetUnlit",
             "modelKey": "horizontalStraightStreet",
             "height": 0,
-            "weight": 5,
+            "weight": 8,
             "affinities": {
                 "fundo": 10,
-                "horizontalStraightStreet": 6,
+                "horizontalStraightStreet": 5,
                 "rightUpStreet": 1,
                 "rightDownStreet": 1,
                 "leftUpStreet": 1,
-                "leftDownStreet": 1
+                "leftDownStreet": 1,
+                "crossStreet": 1
             }
         },
         {
@@ -52,12 +54,12 @@
             "matKey": "rightUpStreetUnlit",
             "modelKey": "rightUpStreet",
             "height": 0,
-            "weight": 3,
+            "weight": 4,
             "affinities": {
                 "fundo": 10,
                 "verticalStraightStreet": 1,
-                "horizontalStraightStreet": 2,
-                "leftDownStreet": 3
+                "horizontalStraightStreet": 1,
+                "leftDownStreet": 4
             }
         },
         {
@@ -65,12 +67,12 @@
             "matKey": "rightDownStreetUnlit",
             "modelKey": "rightDownStreet",
             "height": 0,
-            "weight": 2,
+            "weight": 4,
             "affinities": {
                 "fundo": 10,
-                "verticalStraightStreet": 3,
-                "horizontalStraightStreet": 3,
-                "leftUpStreet": 1
+                "verticalStraightStreet": 1,
+                "horizontalStraightStreet": 1,
+                "leftUpStreet": 5
             }
         },
         {
@@ -78,12 +80,12 @@
             "matKey": "leftUpStreetUnlit",
             "modelKey": "leftUpStreet",
             "height": 0,
-            "weight": 2,
+            "weight": 4,
             "affinities": {
                 "fundo": 10,
-                "verticalStraightStreet": 4,
-                "horizontalStraightStreet": 3,
-                "rightDownStreet": 1
+                "verticalStraightStreet": 1,
+                "horizontalStraightStreet": 1,
+                "rightDownStreet": 5
             }
         },
         {
@@ -91,12 +93,23 @@
             "matKey": "leftDownStreetUnlit",
             "modelKey": "leftDownStreet",
             "height": 0,
-            "weight": 3,
+            "weight": 4,
             "affinities": {
                 "fundo": 10,
                 "verticalStraightStreet": 1,
-                "horizontalStraightStreet": 2,
-                "rightUpStreet": 3
+                "horizontalStraightStreet": 1,
+                "rightUpStreet": 5
+            }
+        },
+        {
+            "id": "crossStreet",
+            "matKey": "crossStreetUnlit",
+            "modelKey": "crossStreet",
+            "height": 0,
+            "weight": 1,
+            "affinities": {
+                "verticalStraightStreet": 1,
+                "horizontalStraightStreet": 1
             }
         }
     ],
@@ -130,13 +143,15 @@
         "verticalStraightStreet": {
             "up": [
                 "leftUpStreet",
+                "verticalStraightStreet",
                 "rightUpStreet",
-                "verticalStraightStreet"
+                "crossStreet"
             ],
             "down": [
+                "verticalStraightStreet",
                 "leftDownStreet",
                 "rightDownStreet",
-                "verticalStraightStreet"
+                "crossStreet"
             ],
             "left": [
                 "fundo"
@@ -155,12 +170,14 @@
             "left": [
                 "rightDownStreet",
                 "rightUpStreet",
-                "horizontalStraightStreet"
+                "horizontalStraightStreet",
+                "crossStreet"
             ],
             "right": [
                 "leftUpStreet",
                 "horizontalStraightStreet",
-                "leftDownStreet"
+                "leftDownStreet",
+                "crossStreet"
             ]
         },
         "rightUpStreet": {
@@ -225,6 +242,20 @@
             ],
             "right": [
                 "fundo"
+            ]
+        },
+        "crossStreet": {
+            "up": [
+                "verticalStraightStreet"
+            ],
+            "down": [
+                "verticalStraightStreet"
+            ],
+            "left": [
+                "horizontalStraightStreet"
+            ],
+            "right": [
+                "horizontalStraightStreet"
             ]
         }
     }
