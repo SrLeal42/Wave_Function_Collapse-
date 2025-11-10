@@ -1,0 +1,231 @@
+{
+    "name": "Street - Gerado pela IA",
+    "tiles": [
+        {
+            "id": "fundo",
+            "matKey": "fundoUnlit",
+            "modelKey": "fundo",
+            "height": 0,
+            "weight": 86,
+            "affinities": {
+                "fundo": 10,
+                "verticalStraightStreet": 1,
+                "horizontalStraightStreet": 1,
+                "rightUpStreet": 1,
+                "rightDownStreet": 1,
+                "leftUpStreet": 1,
+                "leftDownStreet": 1
+            }
+        },
+        {
+            "id": "verticalStraightStreet",
+            "matKey": "verticalStraightStreetUnlit",
+            "modelKey": "verticalStraightStreet",
+            "height": 0,
+            "weight": 5,
+            "affinities": {
+                "fundo": 10,
+                "verticalStraightStreet": 5,
+                "rightUpStreet": 1,
+                "rightDownStreet": 1,
+                "leftUpStreet": 1,
+                "leftDownStreet": 1
+            }
+        },
+        {
+            "id": "horizontalStraightStreet",
+            "matKey": "horizontalStraightStreetUnlit",
+            "modelKey": "horizontalStraightStreet",
+            "height": 0,
+            "weight": 5,
+            "affinities": {
+                "fundo": 10,
+                "horizontalStraightStreet": 6,
+                "rightUpStreet": 1,
+                "rightDownStreet": 1,
+                "leftUpStreet": 1,
+                "leftDownStreet": 1
+            }
+        },
+        {
+            "id": "rightUpStreet",
+            "matKey": "rightUpStreetUnlit",
+            "modelKey": "rightUpStreet",
+            "height": 0,
+            "weight": 3,
+            "affinities": {
+                "fundo": 10,
+                "verticalStraightStreet": 1,
+                "horizontalStraightStreet": 2,
+                "leftDownStreet": 3
+            }
+        },
+        {
+            "id": "rightDownStreet",
+            "matKey": "rightDownStreetUnlit",
+            "modelKey": "rightDownStreet",
+            "height": 0,
+            "weight": 2,
+            "affinities": {
+                "fundo": 10,
+                "verticalStraightStreet": 3,
+                "horizontalStraightStreet": 3,
+                "leftUpStreet": 1
+            }
+        },
+        {
+            "id": "leftUpStreet",
+            "matKey": "leftUpStreetUnlit",
+            "modelKey": "leftUpStreet",
+            "height": 0,
+            "weight": 2,
+            "affinities": {
+                "fundo": 10,
+                "verticalStraightStreet": 4,
+                "horizontalStraightStreet": 3,
+                "rightDownStreet": 1
+            }
+        },
+        {
+            "id": "leftDownStreet",
+            "matKey": "leftDownStreetUnlit",
+            "modelKey": "leftDownStreet",
+            "height": 0,
+            "weight": 3,
+            "affinities": {
+                "fundo": 10,
+                "verticalStraightStreet": 1,
+                "horizontalStraightStreet": 2,
+                "rightUpStreet": 3
+            }
+        }
+    ],
+    "rules": {
+        "fundo": {
+            "up": [
+                "fundo",
+                "rightDownStreet",
+                "horizontalStraightStreet",
+                "leftDownStreet"
+            ],
+            "down": [
+                "fundo",
+                "rightUpStreet",
+                "horizontalStraightStreet",
+                "leftUpStreet"
+            ],
+            "left": [
+                "fundo",
+                "leftUpStreet",
+                "verticalStraightStreet",
+                "leftDownStreet"
+            ],
+            "right": [
+                "fundo",
+                "rightDownStreet",
+                "rightUpStreet",
+                "verticalStraightStreet"
+            ]
+        },
+        "verticalStraightStreet": {
+            "up": [
+                "leftUpStreet",
+                "rightUpStreet",
+                "verticalStraightStreet"
+            ],
+            "down": [
+                "leftDownStreet",
+                "rightDownStreet",
+                "verticalStraightStreet"
+            ],
+            "left": [
+                "fundo"
+            ],
+            "right": [
+                "fundo"
+            ]
+        },
+        "horizontalStraightStreet": {
+            "up": [
+                "fundo"
+            ],
+            "down": [
+                "fundo"
+            ],
+            "left": [
+                "rightDownStreet",
+                "rightUpStreet",
+                "horizontalStraightStreet"
+            ],
+            "right": [
+                "leftUpStreet",
+                "horizontalStraightStreet",
+                "leftDownStreet"
+            ]
+        },
+        "rightUpStreet": {
+            "up": [
+                "fundo"
+            ],
+            "down": [
+                "leftDownStreet",
+                "verticalStraightStreet"
+            ],
+            "left": [
+                "fundo"
+            ],
+            "right": [
+                "horizontalStraightStreet",
+                "leftDownStreet"
+            ]
+        },
+        "rightDownStreet": {
+            "up": [
+                "verticalStraightStreet",
+                "leftUpStreet"
+            ],
+            "down": [
+                "fundo"
+            ],
+            "left": [
+                "fundo"
+            ],
+            "right": [
+                "horizontalStraightStreet",
+                "leftUpStreet"
+            ]
+        },
+        "leftUpStreet": {
+            "up": [
+                "fundo"
+            ],
+            "down": [
+                "verticalStraightStreet",
+                "rightDownStreet"
+            ],
+            "left": [
+                "horizontalStraightStreet",
+                "rightDownStreet"
+            ],
+            "right": [
+                "fundo"
+            ]
+        },
+        "leftDownStreet": {
+            "up": [
+                "rightUpStreet",
+                "verticalStraightStreet"
+            ],
+            "down": [
+                "fundo"
+            ],
+            "left": [
+                "rightUpStreet",
+                "horizontalStraightStreet"
+            ],
+            "right": [
+                "fundo"
+            ]
+        }
+    }
+}

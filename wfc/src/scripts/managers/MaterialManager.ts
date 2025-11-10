@@ -33,6 +33,12 @@ export class MaterialManager{
 
         // --- STREET
         this.materials.set('fundoUnlit', this.CreateFundoUnLitMaterial());
+        this.materials.set('verticalStraightStreetUnlit', this.CreateVerticalStraightStreetUnLitMaterial());
+        this.materials.set('horizontalStraightStreetUnlit', this.CreateHorizontalStraightStreetUnLitMaterial());
+        this.materials.set('rightUpStreetUnlit', this.CreateRightUpStreetUnLitMaterial());
+        this.materials.set('rightDownStreetUnlit', this.CreateRightDownStreetUnLitMaterial());
+        this.materials.set('leftUpStreetUnlit', this.CreateLeftUpStreetUnLitMaterial());
+        this.materials.set('leftDownStreetUnlit', this.CreateLeftDownStreetUnLitMaterial());
         
         this.isInitialized = true;
 
@@ -143,6 +149,67 @@ export class MaterialManager{
         return mat;
     }
 
+    public CreateVerticalStraightStreetUnLitMaterial() : B.StandardMaterial {
+
+        const mat = new B.StandardMaterial('Estrada_Linha_Reta_Vertical_Unlit_Mat', this.scene);
+        mat.disableLighting = true;
+        const emissiveTex = new B.Texture("./assets/textures/street/LinhaRetaVertical.png", this.scene);
+        mat.emissiveTexture = emissiveTex;
+
+        return mat;
+    }
+
+    public CreateHorizontalStraightStreetUnLitMaterial() : B.StandardMaterial {
+
+        const mat = new B.StandardMaterial('Estrada_Linha_Reta_Horizontal_Unlit_Mat', this.scene);
+        mat.disableLighting = true;
+        const emissiveTex = new B.Texture("./assets/textures/street/LinhaRetaHorizontal.png", this.scene);
+        mat.emissiveTexture = emissiveTex;
+
+        return mat;
+    }
+
+    public CreateRightUpStreetUnLitMaterial() : B.StandardMaterial {
+
+        const mat = new B.StandardMaterial('Estrada_Direita_Cima_Unlit_Mat', this.scene);
+        mat.disableLighting = true;
+        const emissiveTex = new B.Texture("./assets/textures/street/DireitaCima.png", this.scene);
+        mat.emissiveTexture = emissiveTex;
+
+        return mat;
+    }
+
+
+    public CreateRightDownStreetUnLitMaterial() : B.StandardMaterial {
+
+        const mat = new B.StandardMaterial('Estrada_Direita_Baixo_Unlit_Mat', this.scene);
+        mat.disableLighting = true;
+        const emissiveTex = new B.Texture("./assets/textures/street/DireitaBaixo.png", this.scene);
+        mat.emissiveTexture = emissiveTex;
+
+        return mat;
+    }
+
+
+    public CreateLeftUpStreetUnLitMaterial() : B.StandardMaterial {
+
+        const mat = new B.StandardMaterial('Estrada_Esquerda_Cima_Unlit_Mat', this.scene);
+        mat.disableLighting = true;
+        const emissiveTex = new B.Texture("./assets/textures/street/EsquerdaCima.png", this.scene);
+        mat.emissiveTexture = emissiveTex;
+
+        return mat;
+    }
+
+    public CreateLeftDownStreetUnLitMaterial() : B.StandardMaterial {
+
+        const mat = new B.StandardMaterial('Estrada_Esquerda_Baixo_Unlit_Mat', this.scene);
+        mat.disableLighting = true;
+        const emissiveTex = new B.Texture("./assets/textures/street/EsquerdaBaixo.png", this.scene);
+        mat.emissiveTexture = emissiveTex;
+
+        return mat;
+    }
 
 
     public GetMaterial(name : string) : B.StandardMaterial {

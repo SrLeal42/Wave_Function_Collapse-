@@ -36,6 +36,13 @@ export class ModelsManager{
 
         // --- STREET
         await this.LoadModel("fundo", "./assets/models/street/", "fundo.glb", "fundoUnlit");
+        await this.LoadModel("verticalStraightStreet", "./assets/models/street/", "fundo.glb", "verticalStraightStreetUnlit");
+        await this.LoadModel("horizontalStraightStreet", "./assets/models/street/", "fundo.glb", "horizontalStraightStreetUnlit");
+        await this.LoadModel("rightUpStreet", "./assets/models/street/", "fundo.glb", "rightUpStreetUnlit");
+        await this.LoadModel("rightDownStreet", "./assets/models/street/", "fundo.glb", "rightDownStreetUnlit");
+        await this.LoadModel("leftUpStreet", "./assets/models/street/", "fundo.glb", "leftUpStreetUnlit");
+        await this.LoadModel("leftDownStreet", "./assets/models/street/", "fundo.glb", "leftDownStreetUnlit");
+
  
         this.isInitialized = true;
 

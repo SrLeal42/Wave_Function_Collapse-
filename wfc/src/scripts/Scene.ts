@@ -47,7 +47,7 @@ export class Scene{
         this.player = new Player(scene,10,10);
         this.camera = new Camera(scene, this.player);
 
-        this.wfc = new WFC(scene, 11, 'generate', this.player);
+        this.wfc = new WFC(scene, 11, 'generate_Street', this.player);
         await this.wfc.Initialize();
         
         const pageTitle = document.querySelector("title")!;

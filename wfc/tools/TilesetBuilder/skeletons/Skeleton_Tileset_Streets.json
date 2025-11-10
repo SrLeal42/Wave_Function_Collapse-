@@ -1,0 +1,57 @@
+{
+    "name": "Street - Gerado pela IA",
+    "legend": {
+      "#00FF00": "fundo",
+      "#FFFFFF": "verticalStraightStreet",
+      "#000000": "horizontalStraightStreet",
+      "#FF0000": "rightUpStreet",
+      "#FFFF00": "rightDownStreet",
+      "#0000FF": "leftUpStreet",
+      "#00FFFF": "leftDownStreet"
+
+    },
+    "tiles": [
+        {
+            "id": "fundo", 
+            "matKey": "fundoUnlit",
+            "modelKey": "fundo",
+            "height": 0
+        },
+        {
+            "id": "verticalStraightStreet", 
+            "matKey": "verticalStraightStreetUnlit",
+            "modelKey": "verticalStraightStreet",
+            "height": 0
+        },
+        {
+            "id": "horizontalStraightStreet", 
+            "matKey": "horizontalStraightStreetUnlit",
+            "modelKey": "horizontalStraightStreet",
+            "height": 0
+        },
+        {
+            "id": "rightUpStreet", 
+            "matKey": "rightUpStreetUnlit",
+            "modelKey": "rightUpStreet",
+            "height": 0
+        },
+        {
+            "id": "rightDownStreet", 
+            "matKey": "rightDownStreetUnlit",
+            "modelKey": "rightDownStreet",
+            "height": 0
+        },
+        {
+            "id": "leftUpStreet", 
+            "matKey": "leftUpStreetUnlit",
+            "modelKey": "leftUpStreet",
+            "height": 0
+        },
+        {
+            "id": "leftDownStreet", 
+            "matKey": "leftDownStreetUnlit",
+            "modelKey": "leftDownStreet",
+            "height": 0
+        }
+    ]
+}

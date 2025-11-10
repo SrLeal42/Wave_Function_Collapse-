@@ -68,7 +68,7 @@ export class Cell {
             this.meshNode.dispose();
         this.meshNode = ModelsInstance.CreateInstance(key)!;
         this.meshNode.scaling = new B.Vector3(this.meshSize, 0, this.meshSize);
-        this.meshNode.rotation = new B.Vector3(Math.PI/2, 0, 0);
+        this.meshNode.rotation = new B.Vector3(-(Math.PI/2), 0, 0);
         this.meshNode.position = new B.Vector3((this.x * Cell.cellSize ), (this.y * Cell.cellSize ), 0);
     }
 
