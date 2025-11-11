@@ -1,9 +1,11 @@
 import * as B from "@babylonjs/core"; 
 
 import { Cell } from "./Cell";
-import { Tileset } from "../interfaces/TilesSet";
-import { TileDefinition } from "../interfaces/TilesDefinition";
-import { WFCState, WFCChange } from "../interfaces/WFCState";
+import { Tileset, TilesetNumeric } from "../interfaces/TilesSet";
+import { TileDefinitionNumeric } from "../interfaces/TilesDefinition";
+import { TileRulesNumeric } from "../interfaces/TilesRules";
+import { WFCState, WFCChange, WFCChangeNumeric, WFCStateNumeric } from "../interfaces/WFCState";
+import { AffinitiesNumeric } from "../interfaces/AffinitiesNumeric";
 
 import { Player } from "../Player/Player";
 
@@ -20,12 +22,22 @@ export class WFC{
     
     private disposeCellQueue: string[] = [];
 
+    private totalNumTiles = 0;
+
+    private tileData!: TileDefinitionNumeric[]; // Array de dados (modelKey, height)
+    private rules!: TileRulesNumeric; // Regras numéricas
+
+    private weights!: number[]; // Array de pesos (ex: [100, 30, 25])
+    private affinities!: AffinitiesNumeric; // Afinidades numéricas
+
+
     public renderDistance = 1;
 
     public tilesetName : string;
-    public tileset! : Tileset;
+    // public tileset! : Tileset;
+    public tilesetNumeric! : TilesetNumeric;
 
-    private stateStack: WFCState[] = [];
+    private stateStack: WFCStateNumeric[] = [];
 
     public player : Player;
 
@@ -49,7 +61,13 @@ export class WFC{
 
     public async Initialize() : Promise<void>{
 
-        this.tileset = await LoadTileset(this.tilesetName);
+        this.tilesetNumeric = await LoadTileset(this.tilesetName) as TilesetNumeric;
+
+        this.tileData = this.tilesetNumeric.tileData;
+        this.weights = this.tilesetNumeric.weights;
+        this.rules = this.tilesetNumeric.rules;
+        this.affinities = this.tilesetNumeric.affinities;
+        this.totalNumTiles = this.tileData.length;
 
         this.InitializeGrid();
 
@@ -134,7 +152,7 @@ export class WFC{
     private CreateCell(x: number, y: number, constrain = false) : boolean {
         const cellKey = `${x},${y}`;
 
-        const newCell = new Cell(this.scene, x, y, this.tileset.tiles);
+        const newCell = new Cell(this.scene, x, y, this.totalNumTiles);
         this.grid.set(cellKey, newCell);
 
         this.entropyQueue.insert(newCell);
@@ -142,25 +160,25 @@ export class WFC{
         if (!constrain)
             return true;
 
-        const changeLog: WFCChange[] = []; 
+        const changeLog: WFCChangeNumeric[] = [];
 
-        let allowedIDs = new Set(newCell.possibleTiles.map(t => t.id));
+        let allowedIDs = new Set<number>();
+        for(let i=0; i<this.totalNumTiles; i++) allowedIDs.add(i);
 
         for (const dir of DIRECTIONS) {
             const nx = newCell.x + dir.dx;
             const ny = newCell.y + dir.dy;
             const neighbor = this.grid.get(`${nx},${ny}`);
 
-            if (!neighbor)
-                continue;
+            if (!neighbor) continue;
 
-            const neighborAllows = new Set<string>();
+            const neighborAllows = new Set<number>();
             
-            for (const tile of neighbor.possibleTiles) {
-                const rules = this.tileset.rules[tile.id];
+            for (const tileID of neighbor.possibleTiles) {
+                const rules = this.rules[tileID]; // Acessa a regra numérica
                 const rulesForDir = rules[dir.opposite]; 
                 
-                rulesForDir.forEach(id => neighborAllows.add(id));
+                rulesForDir.forEach(id => neighborAllows.add(id)); // id já é um número
             }
 
             allowedIDs = new Set(
@@ -229,9 +247,17 @@ export class WFC{
             return { success: true, finish: true }; 
         }
 
-        const changeLog: WFCChange[] = []; 
+        const changeLog: WFCChangeNumeric[] = []; 
+        
+        const chosenTileID = this.CollapseCell(cellToCollapse, changeLog);
+        
+        // Se o colapso for bem-sucedido, o WFC atualiza o visual
+        if (chosenTileID !== null) {
+            const tileData = this.tileData[chosenTileID]; // Acessa o array de dados
+            cellToCollapse.ChangeMesh(tileData.modelKey);
+            cellToCollapse.meshNode.position.z = tileData.height ? tileData.height * -1 : 0;
+        }
 
-        const chosenTile = this.CollapseCell(cellToCollapse, changeLog); 
         const success = this.Propagate(cellToCollapse, changeLog);
 
         if (success) {
@@ -239,11 +265,11 @@ export class WFC{
             this.stateStack.push({
                 changes: changeLog,
                 failedCell: cellToCollapse!,
-                failedTile: chosenTile!
+                failedTile: chosenTileID!
             });
 
         } else {
-            console.warn(`Contradição detectada em (${cellToCollapse.x}, ${cellToCollapse.y}) ao tentar ${chosenTile!.id}.`);
+            console.warn(`Contradição detectada em (${cellToCollapse.x}, ${cellToCollapse.y}) ao tentar ${chosenTileID}.`);
 
             let rollbackSuccess = false;
             
@@ -253,7 +279,7 @@ export class WFC{
                 
                 this.RestoreState(lastGoodState.changes);
                 
-                const banLog: WFCChange[] = [];
+                const banLog: WFCChangeNumeric[] = [];
                 const result = lastGoodState.failedCell.BanTile(lastGoodState.failedTile, banLog);
                 this.entropyQueue.update(lastGoodState.failedCell);
 
@@ -299,8 +325,8 @@ export class WFC{
 
     private CollapseCell(
         cellToChange : Cell, 
-        changeLog: WFCChange[]
-    ) : TileDefinition | null {
+        changeLog: WFCChangeNumeric[]
+    ) : number | null {
         
         const neighbors: CollapsedNeighbors = {};
         for (const dir of DIRECTIONS) {
@@ -313,17 +339,20 @@ export class WFC{
             }
         }
 
-
-        const chosenTile = cellToChange.Collapse(neighbors, changeLog);
-        
+        const chosenTileID = cellToChange.Collapse(
+            neighbors, 
+            changeLog,
+            this.weights, // Injeta o array de pesos
+            this.affinities // Injeta o objeto de afinidades
+        );
         // this.Propagate(cellToChange);
 
-        return chosenTile;
+        return chosenTileID;
     }
 
     private Propagate(
         cellChanged : Cell, 
-        changeLog: WFCChange[]
+        changeLog: WFCChangeNumeric[]
     ) : boolean {
         
         const stack: Cell[] = [cellChanged];
@@ -352,13 +381,13 @@ export class WFC{
                 }
 
                 // 3. Calcular a lista de tiles VÁLIDOS para este vizinho
-                const allowedIDs = new Set<string>();
+                const allowedIDs = new Set<number>();
 
                 // Para cada tile possível na célula ATUAL...
-                for (const tile of possibleTiles) {
+                for (const tileID of possibleTiles) {
                     // ... pegue a regra para a direção que estamos olhando (ex: 'North') ...
                     // (Estou assumindo que 'tile.rules' existe e tem o formato { North: string[], ... })
-                    const rules = this.tileset.rules[tile.id];
+                    const rules = this.rules[tileID] // this.tileset.rules[tile.id];
                     const rulesForDir = rules[dir.name]; 
                     
                     // ... e adicione todos os IDs permitidos ao Set.
@@ -426,21 +455,29 @@ export class WFC{
     // }
 
 
-    private RestoreState(changes: WFCChange[]): void {
+    private RestoreState(changes: WFCChangeNumeric[]): void {
         console.warn("--- Iniciando Rollback (Otimizado) ---");
 
-        // Reverte as alterações na ORDEM OPOSTA em que foram feitas
         for (let i = changes.length - 1; i >= 0; i--) {
             const change = changes[i];
             const cell = change.cell;
             
             cell.RestoreTiles(change.oldTiles);
 
-            // Adiciona de volta à fila de entropia, pois seu estado mudou
+            if (cell.collapsed && cell.chosenTile !== null) {
+                const tileData = this.tileData[cell.chosenTile];
+                cell.ChangeMesh(tileData.modelKey);
+                cell.meshNode.position.z = tileData.height ? tileData.height * -1 : 0;
+            } else {
+                cell.ChangeMesh('defaultUnlit');
+                cell.meshNode.position.z = 0;
+            }
+
             if (!cell.collapsed) {
                 this.entropyQueue.insert(cell);
             }
         }
+
     }
 
 

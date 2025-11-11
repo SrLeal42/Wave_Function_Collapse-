@@ -1,262 +1,277 @@
 {
     "name": "Street - Gerado pela IA",
-    "tiles": [
+    "type": "numeric",
+    "idMap": {
+        "fundo": 0,
+        "verticalStraightStreet": 1,
+        "horizontalStraightStreet": 2,
+        "rightUpStreet": 3,
+        "rightDownStreet": 4,
+        "leftUpStreet": 5,
+        "leftDownStreet": 6,
+        "crossStreet": 7
+    },
+    "tileData": [
         {
-            "id": "fundo",
+            "id": 0,
             "matKey": "fundoUnlit",
             "modelKey": "fundo",
-            "height": 0,
-            "weight": 71,
-            "affinities": {
-                "fundo": 10,
-                "verticalStraightStreet": 1,
-                "horizontalStraightStreet": 1,
-                "rightUpStreet": 1,
-                "rightDownStreet": 1,
-                "leftUpStreet": 1,
-                "leftDownStreet": 1
-            }
+            "height": 0
         },
         {
-            "id": "verticalStraightStreet",
+            "id": 1,
             "matKey": "verticalStraightStreetUnlit",
             "modelKey": "verticalStraightStreet",
-            "height": 0,
-            "weight": 9,
-            "affinities": {
-                "fundo": 10,
-                "verticalStraightStreet": 6,
-                "rightUpStreet": 1,
-                "rightDownStreet": 1,
-                "leftUpStreet": 1,
-                "leftDownStreet": 1,
-                "crossStreet": 1
-            }
+            "height": 0
         },
         {
-            "id": "horizontalStraightStreet",
+            "id": 2,
             "matKey": "horizontalStraightStreetUnlit",
             "modelKey": "horizontalStraightStreet",
-            "height": 0,
-            "weight": 8,
-            "affinities": {
-                "fundo": 10,
-                "horizontalStraightStreet": 5,
-                "rightUpStreet": 1,
-                "rightDownStreet": 1,
-                "leftUpStreet": 1,
-                "leftDownStreet": 1,
-                "crossStreet": 1
-            }
+            "height": 0
         },
         {
-            "id": "rightUpStreet",
+            "id": 3,
             "matKey": "rightUpStreetUnlit",
             "modelKey": "rightUpStreet",
-            "height": 0,
-            "weight": 4,
-            "affinities": {
-                "fundo": 10,
-                "verticalStraightStreet": 1,
-                "horizontalStraightStreet": 1,
-                "leftDownStreet": 4
-            }
+            "height": 0
         },
         {
-            "id": "rightDownStreet",
+            "id": 4,
             "matKey": "rightDownStreetUnlit",
             "modelKey": "rightDownStreet",
-            "height": 0,
-            "weight": 4,
-            "affinities": {
-                "fundo": 10,
-                "verticalStraightStreet": 1,
-                "horizontalStraightStreet": 1,
-                "leftUpStreet": 5
-            }
+            "height": 0
         },
         {
-            "id": "leftUpStreet",
+            "id": 5,
             "matKey": "leftUpStreetUnlit",
             "modelKey": "leftUpStreet",
-            "height": 0,
-            "weight": 4,
-            "affinities": {
-                "fundo": 10,
-                "verticalStraightStreet": 1,
-                "horizontalStraightStreet": 1,
-                "rightDownStreet": 5
-            }
+            "height": 0
         },
         {
-            "id": "leftDownStreet",
+            "id": 6,
             "matKey": "leftDownStreetUnlit",
             "modelKey": "leftDownStreet",
-            "height": 0,
-            "weight": 4,
-            "affinities": {
-                "fundo": 10,
-                "verticalStraightStreet": 1,
-                "horizontalStraightStreet": 1,
-                "rightUpStreet": 5
-            }
+            "height": 0
         },
         {
-            "id": "crossStreet",
+            "id": 7,
             "matKey": "crossStreetUnlit",
             "modelKey": "crossStreet",
-            "height": 0,
-            "weight": 1,
-            "affinities": {
-                "verticalStraightStreet": 1,
-                "horizontalStraightStreet": 1
-            }
+            "height": 0
         }
     ],
+    "weights": [
+        71,
+        9,
+        8,
+        4,
+        4,
+        4,
+        4,
+        1
+    ],
     "rules": {
-        "fundo": {
+        "0": {
             "up": [
-                "fundo",
-                "rightDownStreet",
-                "horizontalStraightStreet",
-                "leftDownStreet"
+                0,
+                4,
+                2,
+                6
             ],
             "down": [
-                "fundo",
-                "rightUpStreet",
-                "horizontalStraightStreet",
-                "leftUpStreet"
+                0,
+                3,
+                2,
+                5
             ],
             "left": [
-                "fundo",
-                "leftUpStreet",
-                "verticalStraightStreet",
-                "leftDownStreet"
+                0,
+                5,
+                1,
+                6
             ],
             "right": [
-                "fundo",
-                "rightDownStreet",
-                "rightUpStreet",
-                "verticalStraightStreet"
+                0,
+                4,
+                3,
+                1
             ]
         },
-        "verticalStraightStreet": {
+        "1": {
             "up": [
-                "leftUpStreet",
-                "verticalStraightStreet",
-                "rightUpStreet",
-                "crossStreet"
+                5,
+                1,
+                3,
+                7
             ],
             "down": [
-                "verticalStraightStreet",
-                "leftDownStreet",
-                "rightDownStreet",
-                "crossStreet"
+                1,
+                6,
+                4,
+                7
             ],
             "left": [
-                "fundo"
+                0
             ],
             "right": [
-                "fundo"
+                0
             ]
         },
-        "horizontalStraightStreet": {
+        "2": {
             "up": [
-                "fundo"
+                0
             ],
             "down": [
-                "fundo"
+                0
             ],
             "left": [
-                "rightDownStreet",
-                "rightUpStreet",
-                "horizontalStraightStreet",
-                "crossStreet"
+                4,
+                3,
+                2,
+                7
             ],
             "right": [
-                "leftUpStreet",
-                "horizontalStraightStreet",
-                "leftDownStreet",
-                "crossStreet"
+                5,
+                2,
+                6,
+                7
             ]
         },
-        "rightUpStreet": {
+        "3": {
             "up": [
-                "fundo"
+                0
             ],
             "down": [
-                "leftDownStreet",
-                "verticalStraightStreet"
+                6,
+                1
             ],
             "left": [
-                "fundo"
+                0
             ],
             "right": [
-                "horizontalStraightStreet",
-                "leftDownStreet"
+                2,
+                6
             ]
         },
-        "rightDownStreet": {
+        "4": {
             "up": [
-                "verticalStraightStreet",
-                "leftUpStreet"
+                1,
+                5
             ],
             "down": [
-                "fundo"
+                0
             ],
             "left": [
-                "fundo"
+                0
             ],
             "right": [
-                "horizontalStraightStreet",
-                "leftUpStreet"
+                2,
+                5
             ]
         },
-        "leftUpStreet": {
+        "5": {
             "up": [
-                "fundo"
+                0
             ],
             "down": [
-                "verticalStraightStreet",
-                "rightDownStreet"
+                1,
+                4
             ],
             "left": [
-                "horizontalStraightStreet",
-                "rightDownStreet"
+                2,
+                4
             ],
             "right": [
-                "fundo"
+                0
             ]
         },
-        "leftDownStreet": {
+        "6": {
             "up": [
-                "rightUpStreet",
-                "verticalStraightStreet"
+                3,
+                1
             ],
             "down": [
-                "fundo"
+                0
             ],
             "left": [
-                "rightUpStreet",
-                "horizontalStraightStreet"
+                3,
+                2
             ],
             "right": [
-                "fundo"
+                0
             ]
         },
-        "crossStreet": {
+        "7": {
             "up": [
-                "verticalStraightStreet"
+                1
             ],
             "down": [
-                "verticalStraightStreet"
+                1
             ],
             "left": [
-                "horizontalStraightStreet"
+                2
             ],
             "right": [
-                "horizontalStraightStreet"
+                2
             ]
+        }
+    },
+    "affinities": {
+        "0": {
+            "0": 10,
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "5": 1,
+            "6": 1
+        },
+        "1": {
+            "0": 10,
+            "1": 6,
+            "3": 1,
+            "4": 1,
+            "5": 1,
+            "6": 1,
+            "7": 1
+        },
+        "2": {
+            "0": 10,
+            "2": 5,
+            "3": 1,
+            "4": 1,
+            "5": 1,
+            "6": 1,
+            "7": 1
+        },
+        "3": {
+            "0": 10,
+            "1": 1,
+            "2": 1,
+            "6": 4
+        },
+        "4": {
+            "0": 10,
+            "1": 1,
+            "2": 1,
+            "5": 5
+        },
+        "5": {
+            "0": 10,
+            "1": 1,
+            "2": 1,
+            "4": 5
+        },
+        "6": {
+            "0": 10,
+            "1": 1,
+            "2": 1,
+            "3": 5
+        },
+        "7": {
+            "1": 1,
+            "2": 1
         }
     }
 }

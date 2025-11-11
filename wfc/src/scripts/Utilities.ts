@@ -1,9 +1,9 @@
 
 import { TILESET_REGISTRY } from "./wfc/TilesetRegistry";
-import { Tileset } from "./interfaces/TilesSet";
+import { Tileset, TilesetNumeric } from "./interfaces/TilesSet";
 import { Cell } from "./wfc/Cell";
 
-export async function LoadTileset(name: string): Promise<Tileset> {
+export async function LoadTileset(name: string): Promise<Tileset | TilesetNumeric> {
   const path = TILESET_REGISTRY.get(name);
   if (!path) {
     throw new Error(`Tileset "${name}" não encontrado no registro.`);
@@ -14,7 +14,15 @@ export async function LoadTileset(name: string): Promise<Tileset> {
     throw new Error(`Erro ao carregar tileset "${name}": ${response.statusText}`);
   }
 
-  return (await response.json()) as Tileset;
+  const json = await response.json();
+
+  if (json.type === "numeric")
+    return json as TilesetNumeric;
+  else
+    return json as Tileset;
+
+
+  // return (await response.json()) as Tileset;
 }
 
 export type Direction = 'up' | 'down' | 'right' | 'left';

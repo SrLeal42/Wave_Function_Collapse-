@@ -1,9 +1,10 @@
 import * as B from "@babylonjs/core"; 
 
-import { TileDefinition } from "../interfaces/TilesDefinition";
-import { WFCChange } from "../interfaces/WFCState";
+// import { TileDefinition } from "../interfaces/TilesDefinition";
+import { AffinitiesNumeric } from "../interfaces/AffinitiesNumeric";
+import { WFCChange, WFCChangeNumeric } from "../interfaces/WFCState";
 
-import { MaterialInstance } from "../managers/MaterialManager";
+// import { MaterialInstance } from "../managers/MaterialManager";
 import { ModelsInstance } from "../managers/ModelsManager";
 
 import { ChooseWeightedRandomBy, CollapsedNeighbors, Direction } from "../Utilities";
@@ -15,10 +16,10 @@ export class Cell {
     public x: number;
     public y: number;
 
-    public possibleTilesStart: TileDefinition[];
-    public possibleTiles: TileDefinition[];
+    public possibleTilesStart: Set<number>;
+    public possibleTiles: Set<number>;
     public collapsed: boolean;
-    public chosenTile: TileDefinition | null;
+    public chosenTile: number | null;
   
     public static cellSize = 10; // 15; //50;
     public meshSize = Cell.cellSize * .5;
@@ -29,7 +30,7 @@ export class Cell {
         scene: B.Scene,
         x: number,
         y: number,
-        possibleTiles: TileDefinition[],
+        totalNumTiles: number,
     ) {
 
         this.scene = scene;
@@ -37,8 +38,14 @@ export class Cell {
         this.x = x;
         this.y = y;
 
-        this.possibleTilesStart = [...possibleTiles];
-        this.possibleTiles = [...possibleTiles];
+        const allPossibleNumericIDs = new Set<number>();
+        for (let i = 0; i < totalNumTiles; i++) {
+            allPossibleNumericIDs.add(i);
+        }
+
+        this.possibleTilesStart = new Set(allPossibleNumericIDs);
+        this.possibleTiles = new Set(allPossibleNumericIDs);
+
         this.collapsed = false;
         this.chosenTile = null;
 
@@ -75,27 +82,31 @@ export class Cell {
 
     public Collapse(
         neighbors: CollapsedNeighbors, 
-        changeLog : WFCChange[]
-    ) : TileDefinition | null{
+        changeLog : WFCChangeNumeric[],
+        allWeights: number[],
+        allAffinities: AffinitiesNumeric
+    ) : number | null{
     
-        if (this.collapsed || this.possibleTiles.length === 0) return null;
+        if (this.collapsed || this.possibleTiles.size === 0) return null;
 
-        const getDynamicWeight = (tile: TileDefinition): number => {
-            let dynamicWeight = tile.weight ?? 1;
+        const getDynamicWeight = (tileId: number): number => {
+            let dynamicWeight = allWeights[tileId] ?? 1;
+
+            const affinitiesForThisTile = allAffinities[tileId];
+            if (!affinitiesForThisTile) {
+                return Math.max(0.1, dynamicWeight);
+            }
             
             for (const dir in neighbors) {
                 const neighborCell = neighbors[dir as Direction];
                 
                 if (neighborCell && neighborCell.chosenTile) {
-                    const neighborTile = neighborCell.chosenTile;
-
-                    // if (neighborTile.id === tile.id) 
-                    //     dynamicWeight *= 2;
-
-                    if (!tile.affinities) 
-                        continue;
+                    const neighborTileID = neighborCell.chosenTile;
                     
-                    const multiplier = tile.affinities[neighborTile.id] ? tile.affinities[neighborTile.id] : 1;
+                    const multiplier = affinitiesForThisTile[neighborTileID]
+                        ? affinitiesForThisTile[neighborTileID]
+                        : 1;
+                        
                     dynamicWeight *= multiplier;
                     
                 }
@@ -104,49 +115,52 @@ export class Cell {
             return Math.max(0.1, dynamicWeight);
         };
 
-
-        const chosenTile = ChooseWeightedRandomBy(this.possibleTiles, getDynamicWeight);
+        // Converte o Set de possibilidades para um Array para o sorteio
+        const possibleTilesArray = Array.from(this.possibleTiles);
+        const chosenTileID = ChooseWeightedRandomBy(possibleTilesArray, getDynamicWeight);
 
         changeLog.push({ cell: this, oldTiles: this.possibleTiles });
 
-        this.chosenTile = chosenTile;
-        this.possibleTiles = [this.chosenTile];
+        this.chosenTile = chosenTileID;
+        this.possibleTiles = new Set([chosenTileID]);
         this.collapsed = true;
 
         // this.mesh.material = MaterialInstance.GetMaterial(this.chosenTile.matKey);
-        this.ChangeMesh(this.chosenTile.modelKey);
-        this.meshNode.position.z = chosenTile.height ? chosenTile.height*-1 : 0;
+        // this.ChangeMesh(this.chosenTile.modelKey);
+        // this.meshNode.position.z = chosenTile.height ? chosenTile.height*-1 : 0;
             
-        return chosenTile;
+        return chosenTileID;
 
     }
 
     public Constrain(
-        allowedTileIDs: Set<string>,
-        changeLog: WFCChange[]
+        allowedTileIDs: Set<number>,
+        changeLog: WFCChangeNumeric[]
     ) : { success : boolean, changed : boolean} {
 
-        const initialCount = this.possibleTiles.length;
-        // const setAllowedTileIDs = new Set(allowedTileIDs);
+        const initialCount = this.possibleTiles.size;
+        let changed = false;
 
-        const newPossibleTiles = this.possibleTiles.filter(tile => {
-            return allowedTileIDs.has(tile.id);
-        });
-
-        const newCount = newPossibleTiles.length;
-        const changed = newCount < initialCount;
-
-        if (changed) {
-            changeLog.push({ cell: this, oldTiles: this.possibleTiles });
-            this.possibleTiles = newPossibleTiles;
+        for (const tileID of this.possibleTiles) {
+            if (!allowedTileIDs.has(tileID)) {
+                if (!changed) {
+                    // Se esta é a primeira mudança, registre o estado "antigo"
+                    changeLog.push({ cell: this, oldTiles: new Set(this.possibleTiles) });
+                    changed = true;
+                }
+                this.possibleTiles.delete(tileID);
+            }
         }
+
+        const newCount = this.possibleTiles.size;
+        // const changed = newCount < initialCount;
 
         if (newCount === 0 && initialCount > 0) {
             console.error(`Contradição na célula (${this.x}, ${this.y})!`);
             return { success: false, changed: true};
         }
 
-        return { success: true, changed: newCount < initialCount};
+        return { success: true, changed: changed};
     }
 
     // public Constrain(allowedTiles: TileDefinition[]) : { success : boolean, changed : boolean} {
@@ -169,35 +183,33 @@ export class Cell {
     // }
 
 
-    public RestoreTiles(tiles: TileDefinition[]): void {
-        this.possibleTiles = [...tiles]; // Restaura uma cópia
-        this.collapsed = (tiles.length === 1);
-        this.chosenTile = (tiles.length === 1) ? tiles[0] : null;
+    public RestoreTiles(tiles: Set<number>): void {
+        this.possibleTiles = new Set(tiles); // Restaura uma cópia
+        this.collapsed = (tiles.size === 1);
+        this.chosenTile = (tiles.size === 1) ? tiles[0] : null;
 
-        // Redefine o material visual
-        if (this.collapsed && this.chosenTile) {
-            this.ChangeMesh(this.chosenTile.modelKey);
-            this.meshNode.position.z = this.chosenTile.height ? this.chosenTile.height*-1 : 0;
-
+        if (this.collapsed) {
+            // Pega o único item do Set
+            this.chosenTile = this.possibleTiles.values().next().value ? this.possibleTiles.values().next().value! : null;
         } else {
-            this.ChangeMesh('defaultUnlit');
-            this.meshNode.position.z = 0;
-            // this.mesh.material = MaterialInstance.GetMaterial('defaultUnlit');
+            this.chosenTile = null;
         }
+
     }
     
 
     public BanTile(
-        tileToBan: TileDefinition,
-        changeLog: WFCChange[]
+        tileToBan: number,
+        changeLog: WFCChangeNumeric[]
     ): { success: boolean, changed: boolean } {
         
-        const idToBan = tileToBan.id;
-        const currentPossibleIDs = new Set(this.possibleTiles.map(t => t.id));
-
-        if (currentPossibleIDs.has(idToBan)) {
-            currentPossibleIDs.delete(idToBan);
-            return this.Constrain(currentPossibleIDs, changeLog);
+        if (this.possibleTiles.has(tileToBan)) {
+            // Crie um novo Set sem o tile banido
+            const newPossibleIDs = new Set(this.possibleTiles);
+            newPossibleIDs.delete(tileToBan);
+            
+            // Chame Constrain com o novo set (que registrará a mudança)
+            return this.Constrain(newPossibleIDs, changeLog);
         }
         
         return { success: true, changed: false };
@@ -218,7 +230,7 @@ export class Cell {
     }
 
     get entropy(): number {
-        return this.possibleTiles.length;
+        return this.possibleTiles.size;
     }
 
 

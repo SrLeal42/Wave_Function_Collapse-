@@ -6,3 +6,12 @@ export interface TileRules {
     right: string[];
   };
 }
+
+export interface TileRulesNumeric {
+  [tileId: string]: {
+    up: number[];
+    down: number[];
+    left: number[];
+    right: number[];
+  };
+}

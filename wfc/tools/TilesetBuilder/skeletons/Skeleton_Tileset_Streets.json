@@ -1,5 +1,6 @@
 {
     "name": "Street - Gerado pela IA",
+    "type": "numeric",
     "legend": {
       "#00FF00": "fundo",
       "#FFFFFF": "verticalStraightStreet",
