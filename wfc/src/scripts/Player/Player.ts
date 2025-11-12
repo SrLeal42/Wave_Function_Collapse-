@@ -13,15 +13,17 @@ export class Player {
 
     public vel = .3;
 
-    constructor(scene: B.Scene, x: number, y: number){
+    constructor(scene: B.Scene, x: number, y: number, z: number, diameter = 5, vel = .3){
 
         this.scene = scene;
 
         this.pivot = new B.TransformNode("Player", scene);
-        this.pivot.position = new B.Vector3(x,y,-15);
+        this.pivot.position = new B.Vector3(x,y,z);
     
-        this.model = B.CreateSphere("Player_Model",{ diameter: 5 }, scene);
+        this.model = B.CreateSphere("Player_Model",{ diameter: diameter }, scene);
         this.model.material = MaterialInstance.GetMaterial("PlayerDefaultUnlit");
+
+        this.vel = vel;
 
         this.model.parent = this.pivot;
     }

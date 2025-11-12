@@ -13,19 +13,23 @@ export class Run{
 
     public sceneClass! : Scene;
 
-    constructor(canvas : HTMLCanvasElement) {
+    public wfcModel : boolean; // false = SimpleTiled / true = Overlapping
+
+    constructor(canvas : HTMLCanvasElement, wfcModel:boolean) {
 
         this.canvas = canvas;
 
         this.engine = new B.Engine(this.canvas, true);
         
+        this.wfcModel = wfcModel;
+
         this.Initialize();
         
     }
 
     public async Initialize() : Promise<void> {
 
-        this.sceneClass = new Scene(this.engine, this.canvas);
+        this.sceneClass = new Scene(this.engine, this.canvas, this.wfcModel);
 
         this.scene = await this.sceneClass.CreateScene();
         

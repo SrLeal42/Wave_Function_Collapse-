@@ -1,26 +1,17 @@
 <template>
-  <div class="placeholder-container">
-    <h1>Página do WFC Overlapping</h1>
-    <p>Este componente irá conter o algoritmo de Overlapping WFC.</p>
-  </div>
+  <canvas class="renderCanvas"></canvas>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { Run } from '@/scripts/Run';
 
 export default defineComponent({
   name: 'WFC-Overlapping',
   mounted() {
-    console.log("Página Overlapping Montada!");
-    // Futuramente, você pode carregar um 'RunOverlapping.ts' aqui
+    const canvas = document.querySelector(".renderCanvas") as HTMLCanvasElement;
+
+    const run = new Run(canvas, true);
   }
 });
 </script>
-
-<style scoped>
-.placeholder-container {
-  padding: 40px;
-  text-align: center;
-  color: white;
-}
-</style>

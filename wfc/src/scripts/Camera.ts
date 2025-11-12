@@ -13,14 +13,16 @@ export class Camera {
 
     public player : Player;
 
-    constructor(scene : B.Scene, player: Player){
+    constructor(scene : B.Scene, player: Player, orthographicCam: boolean){
 
         this.engine = scene.getEngine() as B.Engine;
         this.scene = scene;
 
         this.camera = new B.FreeCamera("MainCamera", new B.Vector3(0,0,-300), scene); // -10
         // this.camera.fov = .8;
-        // this.camera.mode = B.Camera.ORTHOGRAPHIC_CAMERA;
+        if (orthographicCam){
+            this.camera.mode = B.Camera.ORTHOGRAPHIC_CAMERA;
+        }
 
         this.camera.rotation.x = 0;
         this.camera.rotation.y = 0;

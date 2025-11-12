@@ -16,7 +16,7 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/',
-    redirect: '/simple-tiled'
+    redirect: '/overlapping'
   }
 ];
 

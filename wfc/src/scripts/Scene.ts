@@ -2,11 +2,11 @@ import * as B from "@babylonjs/core";
 
 import { Camera } from "./Camera";
 
-import { MaterialInstance } from "./managers/MaterialManager";
 import { InputsInstance } from "./managers/InputsManager";
 import { ModelsInstance } from "./managers/ModelsManager";
 
-import { WFC } from "./wfc/WFC";
+import { WFCSimpleTiled } from "./wfc/WFCSimpleTiled";
+import { WFCOverlapping } from "./wfc/WFCOverlapping";
 import { Player } from "./Player/Player";
 
 export class Scene{
@@ -17,16 +17,19 @@ export class Scene{
 
     public camera? : Camera;
 
-    public wfc? : WFC;
+    public wfcModel : boolean; // false = SimpleTiled / true = Overlapping
+    public wfc? : WFCSimpleTiled | WFCOverlapping;
     public player? : Player;
 
     public animation = false;
     public intervalAnimation? : number;
 
-    constructor(engine : B.Engine, canvas : HTMLCanvasElement){
+    constructor(engine : B.Engine, canvas : HTMLCanvasElement, wfcModel: boolean){
 
         this.engine = engine;
         this.canvas = canvas;
+
+        this.wfcModel = wfcModel;
     }
 
     public async CreateScene() : Promise<B.Scene> {
@@ -34,27 +37,35 @@ export class Scene{
 
         this.scene = scene;
 
-        // await MaterialInstance.Initialize(scene);
+        // await MaterialInstance.Initialize(scene); // Isso é inicializado no ModelManager
         await InputsInstance.Initialize(scene);
         await ModelsInstance.Initialize(scene);
 
-        // const model = await ModelsInstance.CreateInstance("fundo")!;
-
-        // model.position = new B.Vector3(0,-10,0);
-        // model.rotation = new B.Vector3(Math.PI/2, 0, 0);
-        // model.scaling = new B.Vector3(15,0,15);
-
-        this.player = new Player(scene,10,10);
-        this.camera = new Camera(scene, this.player);
-
-        this.wfc = new WFC(scene, 11, 'generate_Street', this.player);
-        await this.wfc.Initialize();
-        
         const pageTitle = document.querySelector("title")!;
 
         scene.onBeforeRenderObservable.add(() => {
-
             pageTitle.innerHTML = `WFC | ${this.engine.getFps().toFixed(2).toString()}`;
+        });
+
+        if (this.wfcModel)
+            await this.CreateWFCOverlapping(scene);
+        else
+            await this.CreateWFCSimpleTiled(scene);
+
+
+        return scene;
+    }
+
+
+    public async CreateWFCSimpleTiled(scene: B.Scene) : Promise<void> {
+
+        this.player = new Player(scene,10,10,-15, 5);
+        this.camera = new Camera(scene, this.player, this.wfcModel);
+
+        this.wfc = new WFCSimpleTiled(scene, 11, 'generate_Street', this.player);
+        await this.wfc.Initialize();
+        
+        scene.onBeforeRenderObservable.add(() => {
 
             if (InputsInstance.Space && !this.animation)
                 this.wfc!.Step();
@@ -85,7 +96,50 @@ export class Scene{
         });
 
 
-        return scene;
     }
+
+
+    public async CreateWFCOverlapping(scene: B.Scene) : Promise<void> {
+
+        this.player = new Player(scene,10,10,-2, 10, .7);
+        this.camera = new Camera(scene, this.player, this.wfcModel);
+
+        this.wfc = new WFCOverlapping(scene, 11, 'generate_Street', this.player);
+        await this.wfc.Initialize();
+        
+        scene.onBeforeRenderObservable.add(() => {
+
+            if (InputsInstance.Space && !this.animation)
+                this.wfc!.Step();
+
+            if (InputsInstance.Animation){
+                this.animation = !this.animation;
+                
+                if(this.animation){
+                    this.intervalAnimation = setInterval(() => {
+                        this.wfc!.Step();
+                    }, 0);
+                } else {
+                    clearInterval(this.intervalAnimation);
+                }
+            }
+
+            if (InputsInstance.Reset){
+                this.animation = false;
+                clearInterval(this.intervalAnimation);
+                this.wfc!.Reset();
+            }
+
+            this.player!.Move();
+            this.camera!.Move();
+
+            this.wfc!.Update(this.player!.pivot.position);
+
+        });
+
+
+    }
+
+
 
 }

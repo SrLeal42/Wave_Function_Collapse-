@@ -13,7 +13,7 @@ import { PriorityQueue } from "./PriorityQueue";
 import { LoadTileset, DIRECTIONS, type CollapsedNeighbors } from "../Utilities";
 
 
-export class WFC{
+export class WFCOverlapping{
 
     public scene : B.Scene;
 
@@ -53,6 +53,8 @@ export class WFC{
         this.entropyQueue = new PriorityQueue();
         
         this.player = player;
+
+        Cell.cellSize = 35;
 
         // this.Initialize();
 

@@ -9,11 +9,11 @@ import { defineComponent } from 'vue';
 import { Run } from '@/scripts/Run';
 
 export default defineComponent({
-  name: 'WFC',
+  name: 'WFCSimpleTiled',
   mounted(){
     const canvas = document.querySelector(".renderCanvas") as HTMLCanvasElement;
 
-    const run = new Run(canvas);
+    const run = new Run(canvas, false);
   }
 });
 </script>
