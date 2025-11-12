@@ -1,0 +1,35 @@
+{
+    "name": "Flowers",
+    "legend": {
+      "#00FF00": "green",
+      "#FF0000": "red",
+      "#FFFFFF": "white",
+      "#009000": "darkGreen"
+    },
+    "tiles": [
+      {
+        "id": "green", 
+        "matKey": "greenUnlit",
+        "modelKey": "fundo",
+        "height": 0
+      },
+      {
+        "id": "red", 
+        "matKey": "redUnlit",
+        "modelKey": "fundo",
+        "height": 0
+      },
+      {
+        "id": "white", 
+        "matKey": "whiteUnlit",
+        "modelKey": "fundo",
+        "height": 0
+      },
+      {
+        "id": "darkGreen", 
+        "matKey": "darkGreenUnlit",
+        "modelKey": "fundo",
+        "height": 0
+      }
+    ]
+}

@@ -22,14 +22,16 @@ export class WFCOverlapping{
     
     private disposeCellQueue: string[] = [];
 
-    private totalNumTiles = 0;
+    private N!: number;
+    private centerIndex!: number;
 
-    private tileData!: TileDefinitionNumeric[]; // Array de dados (modelKey, height)
-    private rules!: TileRulesNumeric; // Regras numéricas
+    private patternData!: string[][][];
+    private tileLegend!: { [id: string]: { modelKey: string, height: number } };
 
-    private weights!: number[]; // Array de pesos (ex: [100, 30, 25])
-    private affinities!: AffinitiesNumeric; // Afinidades numéricas
+    private totalNumPatterns = 0;
 
+    private rules!: TileRulesNumeric;
+    private weights!: number[]; 
 
     public renderDistance = 1;
 
@@ -40,6 +42,7 @@ export class WFCOverlapping{
     private stateStack: WFCStateNumeric[] = [];
 
     public player : Player;
+
 
 
     constructor(scene : B.Scene, renderDistance : number, tilesetName : string, player: Player){
@@ -54,8 +57,6 @@ export class WFCOverlapping{
         
         this.player = player;
 
-        Cell.cellSize = 35;
-
         // this.Initialize();
 
     }
@@ -63,16 +64,21 @@ export class WFCOverlapping{
 
     public async Initialize() : Promise<void>{
 
-        this.tilesetNumeric = await LoadTileset(this.tilesetName) as TilesetNumeric;
+        const overlappingModel = await LoadTileset(this.tilesetName);
 
-        this.tileData = this.tilesetNumeric.tileData;
-        this.weights = this.tilesetNumeric.weights;
-        this.rules = this.tilesetNumeric.rules;
-        this.affinities = this.tilesetNumeric.affinities;
-        this.totalNumTiles = this.tileData.length;
+        this.N = overlappingModel.N;
+        this.centerIndex = Math.floor(this.N / 2);
+
+        this.tileLegend = overlappingModel.tileLegend;
+
+        this.patternData = overlappingModel.patternData;
+        this.weights = overlappingModel.weights;
+        this.rules = overlappingModel.rules;
+
+        this.totalNumPatterns = this.patternData.length;
 
         this.InitializeGrid();
-
+        
         this.Step();
         
     }
@@ -154,7 +160,7 @@ export class WFCOverlapping{
     private CreateCell(x: number, y: number, constrain = false) : boolean {
         const cellKey = `${x},${y}`;
 
-        const newCell = new Cell(this.scene, x, y, this.totalNumTiles);
+        const newCell = new Cell(this.scene, x, y, this.totalNumPatterns);
         this.grid.set(cellKey, newCell);
 
         this.entropyQueue.insert(newCell);
@@ -165,7 +171,7 @@ export class WFCOverlapping{
         const changeLog: WFCChangeNumeric[] = [];
 
         let allowedIDs = new Set<number>();
-        for(let i=0; i<this.totalNumTiles; i++) allowedIDs.add(i);
+        for(let i=0; i<this.totalNumPatterns; i++) allowedIDs.add(i);
 
         for (const dir of DIRECTIONS) {
             const nx = newCell.x + dir.dx;
@@ -250,12 +256,20 @@ export class WFCOverlapping{
         }
 
         const changeLog: WFCChangeNumeric[] = []; 
-        
-        const chosenTileID = this.CollapseCell(cellToCollapse, changeLog);
-        
-        // Se o colapso for bem-sucedido, o WFC atualiza o visual
-        if (chosenTileID !== null) {
-            const tileData = this.tileData[chosenTileID]; // Acessa o array de dados
+
+        const chosenPatternID = this.CollapseCell(cellToCollapse, changeLog);
+
+        if (chosenPatternID !== null) {
+            // 1. Pega o padrão N×N (ex: [["grass", "sand"], ...])
+            const pattern = this.patternData[chosenPatternID]; 
+            
+            // 2. Pega o tile do centro do padrão
+            const centerTileName = pattern[this.centerIndex][this.centerIndex]; 
+            
+            // 3. Usa a legenda para encontrar os dados do modelo
+            const tileData = this.tileLegend[centerTileName]; 
+            
+            // 4. Renderiza
             cellToCollapse.ChangeMesh(tileData.modelKey);
             cellToCollapse.meshNode.position.z = tileData.height ? tileData.height * -1 : 0;
         }
@@ -267,11 +281,11 @@ export class WFCOverlapping{
             this.stateStack.push({
                 changes: changeLog,
                 failedCell: cellToCollapse!,
-                failedTile: chosenTileID!
+                failedTile: chosenPatternID!
             });
 
         } else {
-            console.warn(`Contradição detectada em (${cellToCollapse.x}, ${cellToCollapse.y}) ao tentar ${chosenTileID}.`);
+            console.warn(`Contradição detectada em (${cellToCollapse.x}, ${cellToCollapse.y}) ao tentar ${chosenPatternID}.`);
 
             let rollbackSuccess = false;
             
@@ -344,10 +358,9 @@ export class WFCOverlapping{
         const chosenTileID = cellToChange.Collapse(
             neighbors, 
             changeLog,
-            this.weights, // Injeta o array de pesos
-            this.affinities // Injeta o objeto de afinidades
+            this.weights, 
+            {}
         );
-        // this.Propagate(cellToChange);
 
         return chosenTileID;
     }
@@ -465,9 +478,13 @@ export class WFCOverlapping{
             const cell = change.cell;
             
             cell.RestoreTiles(change.oldTiles);
-
+            
             if (cell.collapsed && cell.chosenTile !== null) {
-                const tileData = this.tileData[cell.chosenTile];
+                const chosenPatternID = cell.chosenTile;
+                const pattern = this.patternData[chosenPatternID];
+                const centerTileName = pattern[this.centerIndex][this.centerIndex];
+                const tileData = this.tileLegend[centerTileName];
+                
                 cell.ChangeMesh(tileData.modelKey);
                 cell.meshNode.position.z = tileData.height ? tileData.height * -1 : 0;
             } else {

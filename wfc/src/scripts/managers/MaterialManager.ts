@@ -42,6 +42,13 @@ export class MaterialManager{
         this.materials.set('leftDownStreetUnlit', this.CreateTexturedUnlitMaterial('Estrada_Esquerda_Baixo_Unlit_Mat', "./assets/textures/street/EsquerdaBaixo.png"));
         this.materials.set('crossStreetUnlit', this.CreateTexturedUnlitMaterial('Estrada_Cruz_Unlit_Mat', "./assets/textures/street/Cruz.png"));
         
+        // --- FLOWERS
+        this.materials.set('greenUnlit', this.CreateSimpleUnlitMaterial('Green_Unlit_Mat', new B.Color3(0, 1, 0)));
+        this.materials.set('whiteUnlit', this.CreateSimpleUnlitMaterial('White_Unlit_Mat', new B.Color3(1, 1, 1)));
+        this.materials.set('redUnlit', this.CreateSimpleUnlitMaterial('Red_Unlit_Mat', new B.Color3(1, 0, 0)));
+        this.materials.set('darkGreenUnlit', this.CreateSimpleUnlitMaterial('Dark_Green_Unlit_Mat', new B.Color3(0, .5, 0)));
+
+
         this.isInitialized = true;
 
     }

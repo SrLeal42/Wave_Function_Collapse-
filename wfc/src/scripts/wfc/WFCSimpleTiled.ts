@@ -54,8 +54,6 @@ export class WFCSimpleTiled{
         
         this.player = player;
 
-        Cell.cellSize = 10;
-
         // this.Initialize();
 
     }

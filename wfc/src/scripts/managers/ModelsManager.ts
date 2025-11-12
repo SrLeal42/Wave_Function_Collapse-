@@ -44,6 +44,11 @@ export class ModelsManager{
         await this.LoadModel("leftDownStreet", "./assets/models/street/", "fundo.glb", "leftDownStreetUnlit");
         await this.LoadModel("crossStreet", "./assets/models/street/", "fundo.glb", "crossStreetUnlit");
 
+        // --- FLOWERS
+        await this.LoadModel("greenUnlit", "./assets/models/street/", "fundo.glb", "greenUnlit");
+        await this.LoadModel("whiteUnlit", "./assets/models/street/", "fundo.glb", "whiteUnlit");
+        await this.LoadModel("redUnlit", "./assets/models/street/", "fundo.glb", "redUnlit");
+        await this.LoadModel("darkGreenUnlit", "./assets/models/street/", "fundo.glb", "darkGreenUnlit");
  
         this.isInitialized = true;
 
