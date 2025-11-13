@@ -10,25 +10,25 @@
       {
         "id": "green", 
         "matKey": "greenUnlit",
-        "modelKey": "fundo",
+        "modelKey": "greenUnlit",
         "height": 0
       },
       {
         "id": "red", 
         "matKey": "redUnlit",
-        "modelKey": "fundo",
+        "modelKey": "redUnlit",
         "height": 0
       },
       {
         "id": "white", 
         "matKey": "whiteUnlit",
-        "modelKey": "fundo",
+        "modelKey": "whiteUnlit",
         "height": 0
       },
       {
         "id": "darkGreen", 
         "matKey": "darkGreenUnlit",
-        "modelKey": "fundo",
+        "modelKey": "darkGreenUnlit",
         "height": 0
       }
     ]

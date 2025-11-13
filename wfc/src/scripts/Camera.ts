@@ -11,9 +11,9 @@ export class Camera {
 
     public zoom = 1;
 
-    public player : Player;
+    public player : Player | null;
 
-    constructor(scene : B.Scene, player: Player, orthographicCam: boolean){
+    constructor(scene : B.Scene, player: Player | null, orthographicCam: boolean){
 
         this.engine = scene.getEngine() as B.Engine;
         this.scene = scene;
@@ -46,6 +46,9 @@ export class Camera {
     }
 
     public Move() : void {
+
+        if(!this.player)
+            return;
 
         this.camera.position.x = this.player.pivot.position.x;
         this.camera.position.y = this.player.pivot.position.y;

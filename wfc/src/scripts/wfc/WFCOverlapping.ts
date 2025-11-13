@@ -33,6 +33,7 @@ export class WFCOverlapping{
     private rules!: TileRulesNumeric;
     private weights!: number[]; 
 
+    public cellSize: number;
     public renderDistance = 1;
 
     public tilesetName : string;
@@ -41,14 +42,16 @@ export class WFCOverlapping{
 
     private stateStack: WFCStateNumeric[] = [];
 
-    public player : Player;
+    public player : Player | null;
 
 
 
-    constructor(scene : B.Scene, renderDistance : number, tilesetName : string, player: Player){
+    constructor(scene : B.Scene, renderDistance : number, cellSize: number, tilesetName : string, player: Player | null){
     
         this.scene = scene;
         
+        this.cellSize = cellSize;
+
         this.renderDistance = renderDistance;
         
         this.tilesetName = tilesetName;
@@ -95,9 +98,9 @@ export class WFCOverlapping{
     }
 
 
-    public Update(playerPosition: B.Vector3) : void {
+    public Update(playerPosition: B.Vector3 | undefined) : void {
 
-        const playerCell = this.GetCellCoordinates(playerPosition);
+        const playerCell = playerPosition ? this.GetCellCoordinates(playerPosition) : this.GetCellCoordinates(new B.Vector3(0,0,0));
 
         this.grid.forEach((cell, cellKey) => {
             // const [cellX, cellY] = [cell.x!, cell.y!];
@@ -151,8 +154,8 @@ export class WFCOverlapping{
 
 
     public GetCellCoordinates(position: B.Vector3): { x: number, y: number } {
-        const x = Math.floor((position.x + Cell.cellSize * .5) / Cell.cellSize);
-        const y = Math.floor((position.y + Cell.cellSize * .5) / Cell.cellSize);
+        const x = Math.floor((position.x + this.cellSize * .5) / this.cellSize);
+        const y = Math.floor((position.y + this.cellSize * .5) / this.cellSize);
         return { x, y };
     }
 
@@ -160,7 +163,7 @@ export class WFCOverlapping{
     private CreateCell(x: number, y: number, constrain = false) : boolean {
         const cellKey = `${x},${y}`;
 
-        const newCell = new Cell(this.scene, x, y, this.totalNumPatterns);
+        const newCell = new Cell(this.scene, x, y, this.totalNumPatterns, this.cellSize);
         this.grid.set(cellKey, newCell);
 
         this.entropyQueue.insert(newCell);

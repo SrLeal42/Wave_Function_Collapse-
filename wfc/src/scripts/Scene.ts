@@ -62,7 +62,7 @@ export class Scene{
         this.player = new Player(scene, 10,10,-15);
         this.camera = new Camera(scene, this.player, false);
 
-        this.wfc = new WFCSimpleTiled(scene, 11, 'generate_Street', this.player);
+        this.wfc = new WFCSimpleTiled(scene, 11, 10, 'generate_Street', this.player);
         await this.wfc.Initialize();
         
         scene.onBeforeRenderObservable.add(() => {
@@ -101,10 +101,10 @@ export class Scene{
 
     public async CreateWFCOverlapping(scene: B.Scene) : Promise<void> {
 
-        this.player = new Player(scene, 10,10,-15);
-        this.camera = new Camera(scene, this.player, false);
+        // this.player = new Player(scene, 10,10,-15);
+        this.camera = new Camera(scene, null, false);
 
-        this.wfc = new WFCOverlapping(scene, 11, 'generate_Pattern_Flowers', this.player);
+        this.wfc = new WFCOverlapping(scene, 15, 6, 'generate_Pattern_Flowers', null);
         await this.wfc.Initialize();
         
         scene.onBeforeRenderObservable.add(() => {
@@ -130,10 +130,10 @@ export class Scene{
                 this.wfc!.Reset();
             }
 
-            this.player!.Move();
-            this.camera!.Move();
+            // this.player!.Move();
+            // this.camera!.Move();
 
-            this.wfc!.Update(this.player!.pivot.position);
+            this.wfc!.Update(undefined);
 
         });
 

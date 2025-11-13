@@ -21,8 +21,8 @@ export class Cell {
     public collapsed: boolean;
     public chosenTile: number | null;
   
-    public static cellSize = 10; // 15; //50;
-    public meshSize = Cell.cellSize * .5;
+    public cellSize = 10; // 15; //50;
+    public meshSize = this.cellSize * .5;
     public meshNode!: B.TransformNode;
     // public meshNode!: B.Mesh;
 
@@ -31,6 +31,7 @@ export class Cell {
         x: number,
         y: number,
         totalNumTiles: number,
+        cellSize: number,
     ) {
 
         this.scene = scene;
@@ -51,8 +52,11 @@ export class Cell {
 
         this.ChangeMesh('defaultUnlit');
 
-        this.meshNode.position.x = (x * Cell.cellSize );
-        this.meshNode.position.y = (y * Cell.cellSize );
+        this.cellSize = cellSize;
+        this.meshSize = cellSize * .5;
+
+        this.meshNode.position.x = (x * this.cellSize );
+        this.meshNode.position.y = (y * this.cellSize );
 
         // this.meshNode = B.MeshBuilder.CreatePlane(
         // `cell_${x}_${y}`,
@@ -76,7 +80,7 @@ export class Cell {
         this.meshNode = ModelsInstance.CreateInstance(key)!;
         this.meshNode.scaling = new B.Vector3(this.meshSize, 0, this.meshSize);
         this.meshNode.rotation = new B.Vector3(-(Math.PI/2), 0, 0);
-        this.meshNode.position = new B.Vector3((this.x * Cell.cellSize ), (this.y * Cell.cellSize ), 0);
+        this.meshNode.position = new B.Vector3((this.x * this.cellSize ), (this.y * this.cellSize ), 0);
     }
 
 
