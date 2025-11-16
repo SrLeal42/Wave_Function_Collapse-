@@ -3,7 +3,7 @@ import Jimp from "jimp";
 
 // --- CONFIGURAÇÃO ---
 const INPUT_IMAGE_PATH = './tools/OverlappingPatternBuilder/input/input-pattern.png';
-const SKELETON_PATH = './tools/OverlappingPatternBuilder/skeletons/Skeleton_Pattern_Flowers.json';
+const SKELETON_PATH = './tools/OverlappingPatternBuilder/skeletons/Skeleton_Pattern_Colors.json';
 const OUTPUT_JSON_PATH = './tools/OverlappingPatternBuilder/output/Generated_Overlapping_Pattern.json';
 // --------------------
 

@@ -18,7 +18,10 @@
     { "key": "whiteUnlit", "type": "simple", "color": [1, 1, 1] },
     { "key": "redUnlit", "type": "simple", "color": [1, 0, 0] },
     { "key": "blackUnlit", "type": "simple", "color": [0, 0, 0] },
-    { "key": "CianoUnlit", "type": "simple", "color": [0, 1, 0.8] },
+    { "key": "cianoUnlit", "type": "simple", "color": [0, 1, 1] },
+    { "key": "yellowUnlit", "type": "simple", "color": [1, 1, 0] },
+    { "key": "pinkUnlit", "type": "simple", "color": [1, 0, 1] },
+    { "key": "blueUnlit", "type": "simple", "color": [0, 0, 1] },
 
     { "key": "fundoUnlit", "type": "textured", "path": "./assets/textures/street/Fundo.png" },
     { "key": "verticalStraightStreetUnlit", "type": "textured", "path": "./assets/textures/street/LinhaRetaVertical.png" },
@@ -52,10 +55,16 @@
     { "key": "leftUpStreet", "modelKey": "baseTile", "materialKey": "leftUpStreetUnlit" },
     { "key": "leftDownStreet", "modelKey": "baseTile", "materialKey": "leftDownStreetUnlit" },
     { "key": "crossStreet", "modelKey": "baseTile", "materialKey": "crossStreetUnlit" },
-    
+
     { "key": "greenUnlit", "modelKey": "baseTile", "materialKey": "greenUnlit" },
     { "key": "whiteUnlit", "modelKey": "baseTile", "materialKey": "whiteUnlit" },
     { "key": "redUnlit", "modelKey": "baseTile", "materialKey": "redUnlit" },
-    { "key": "darkGreenUnlit", "modelKey": "baseTile", "materialKey": "darkGreenUnlit" }
+    { "key": "darkGreenUnlit", "modelKey": "baseTile", "materialKey": "darkGreenUnlit" },
+    { "key": "blackUnlit", "modelKey": "baseTile", "materialKey": "blackUnlit" },
+    { "key": "cianoUnlit", "modelKey": "baseTile", "materialKey": "cianoUnlit" },
+    { "key": "yellowUnlit", "modelKey": "baseTile", "materialKey": "yellowUnlit" },
+    { "key": "pinkUnlit", "modelKey": "baseTile", "materialKey": "pinkUnlit" },
+    { "key": "blueUnlit", "modelKey": "baseTile", "materialKey": "blueUnlit" }
+
   ]
 }

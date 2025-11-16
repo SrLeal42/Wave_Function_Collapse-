@@ -1,0 +1,8756 @@
+{
+    "name": "Colors",
+    "N": 3,
+    "tileLegend": {
+        "green": {
+            "matKey": "greenUnlit",
+            "modelKey": "greenUnlit",
+            "height": 0
+        },
+        "red": {
+            "matKey": "redUnlit",
+            "modelKey": "redUnlit",
+            "height": 0
+        },
+        "white": {
+            "matKey": "whiteUnlit",
+            "modelKey": "whiteUnlit",
+            "height": 0
+        },
+        "darkGreen": {
+            "matKey": "darkGreenUnlit",
+            "modelKey": "darkGreenUnlit",
+            "height": 0
+        },
+        "black": {
+            "matKey": "blackUnlit",
+            "modelKey": "blackUnlit",
+            "height": 0
+        },
+        "ciano": {
+            "matKey": "cianoUnlit",
+            "modelKey": "cianoUnlit",
+            "height": 0
+        },
+        "yellow": {
+            "matKey": "yellowUnlit",
+            "modelKey": "yellowUnlit",
+            "height": 0
+        },
+        "pink": {
+            "matKey": "pinkUnlit",
+            "modelKey": "pinkUnlit",
+            "height": 0
+        },
+        "blue": {
+            "matKey": "blueUnlit",
+            "modelKey": "blueUnlit",
+            "height": 0
+        }
+    },
+    "idMap": {
+        "[[\"pink\",\"pink\",\"pink\"],[\"pink\",\"pink\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"]]": 0,
+        "[[\"pink\",\"pink\",\"pink\"],[\"pink\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"]]": 1,
+        "[[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"red\"]]": 2,
+        "[[\"pink\",\"pink\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"red\",\"red\"]]": 3,
+        "[[\"pink\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"],[\"red\",\"red\",\"red\"]]": 4,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"],[\"red\",\"red\",\"ciano\"]]": 5,
+        "[[\"ciano\",\"ciano\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"],[\"red\",\"ciano\",\"pink\"]]": 6,
+        "[[\"ciano\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"pink\",\"pink\"]]": 7,
+        "[[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"pink\",\"pink\"]]": 8,
+        "[[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"pink\"],[\"pink\",\"pink\",\"ciano\"]]": 9,
+        "[[\"pink\",\"pink\",\"ciano\"],[\"ciano\",\"pink\",\"pink\"],[\"pink\",\"ciano\",\"ciano\"]]": 10,
+        "[[\"pink\",\"ciano\",\"ciano\"],[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"]]": 11,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"]]": 12,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"pink\",\"ciano\"],[\"ciano\",\"ciano\",\"pink\"]]": 13,
+        "[[\"ciano\",\"ciano\",\"pink\"],[\"pink\",\"ciano\",\"ciano\"],[\"ciano\",\"pink\",\"pink\"]]": 14,
+        "[[\"ciano\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"pink\",\"pink\"]]": 15,
+        "[[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"pink\"],[\"pink\",\"pink\",\"pink\"]]": 16,
+        "[[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"pink\",\"pink\"],[\"pink\",\"pink\",\"pink\"]]": 17,
+        "[[\"pink\",\"pink\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"pink\",\"pink\"]]": 18,
+        "[[\"pink\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"pink\",\"pink\"]]": 19,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"red\"],[\"pink\",\"pink\",\"red\"]]": 20,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"red\",\"red\"],[\"pink\",\"red\",\"darkGreen\"]]": 21,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"red\",\"red\",\"red\"],[\"red\",\"darkGreen\",\"red\"]]": 22,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"red\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"ciano\"]]": 23,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"red\",\"ciano\",\"pink\"],[\"red\",\"ciano\",\"ciano\"]]": 24,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"]]": 25,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"pink\"]]": 26,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"pink\",\"pink\"]]": 27,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"pink\",\"pink\"],[\"pink\",\"pink\",\"ciano\"]]": 28,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"pink\",\"pink\"],[\"pink\",\"ciano\",\"ciano\"]]": 29,
+        "[[\"ciano\",\"ciano\",\"pink\"],[\"pink\",\"pink\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"]]": 30,
+        "[[\"ciano\",\"pink\",\"pink\"],[\"pink\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"]]": 31,
+        "[[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"]]": 32,
+        "[[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"pink\"]]": 33,
+        "[[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"pink\",\"pink\"]]": 34,
+        "[[\"pink\",\"pink\",\"ciano\"],[\"ciano\",\"ciano\",\"pink\"],[\"pink\",\"pink\",\"pink\"]]": 35,
+        "[[\"pink\",\"ciano\",\"ciano\"],[\"ciano\",\"pink\",\"pink\"],[\"pink\",\"pink\",\"pink\"]]": 36,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"pink\",\"pink\"],[\"pink\",\"pink\",\"pink\"]]": 37,
+        "[[\"ciano\",\"ciano\",\"pink\"],[\"pink\",\"pink\",\"pink\"],[\"pink\",\"ciano\",\"ciano\"]]": 38,
+        "[[\"ciano\",\"pink\",\"pink\"],[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"]]": 39,
+        "[[\"ciano\",\"ciano\",\"red\"],[\"pink\",\"pink\",\"red\"],[\"ciano\",\"ciano\",\"red\"]]": 40,
+        "[[\"ciano\",\"red\",\"red\"],[\"pink\",\"red\",\"darkGreen\"],[\"ciano\",\"red\",\"darkGreen\"]]": 41,
+        "[[\"red\",\"red\",\"red\"],[\"red\",\"darkGreen\",\"red\"],[\"red\",\"darkGreen\",\"red\"]]": 42,
+        "[[\"red\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"pink\"]]": 43,
+        "[[\"red\",\"ciano\",\"pink\"],[\"red\",\"ciano\",\"ciano\"],[\"red\",\"pink\",\"pink\"]]": 44,
+        "[[\"pink\",\"pink\",\"pink\"],[\"pink\",\"pink\",\"ciano\"],[\"pink\",\"pink\",\"ciano\"]]": 45,
+        "[[\"pink\",\"pink\",\"pink\"],[\"pink\",\"ciano\",\"ciano\"],[\"pink\",\"ciano\",\"ciano\"]]": 46,
+        "[[\"pink\",\"pink\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"pink\"]]": 47,
+        "[[\"pink\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"pink\",\"pink\"]]": 48,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"pink\",\"ciano\"]]": 49,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"pink\"],[\"pink\",\"ciano\",\"ciano\"]]": 50,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"red\"]]": 51,
+        "[[\"ciano\",\"ciano\",\"pink\"],[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"red\",\"red\"]]": 52,
+        "[[\"ciano\",\"pink\",\"pink\"],[\"pink\",\"pink\",\"pink\"],[\"red\",\"red\",\"red\"]]": 53,
+        "[[\"pink\",\"pink\",\"pink\"],[\"pink\",\"pink\",\"pink\"],[\"red\",\"red\",\"red\"]]": 54,
+        "[[\"pink\",\"pink\",\"pink\"],[\"pink\",\"pink\",\"ciano\"],[\"red\",\"red\",\"ciano\"]]": 55,
+        "[[\"pink\",\"pink\",\"pink\"],[\"pink\",\"ciano\",\"ciano\"],[\"red\",\"ciano\",\"ciano\"]]": 56,
+        "[[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"pink\",\"ciano\"]]": 57,
+        "[[\"pink\",\"pink\",\"red\"],[\"ciano\",\"ciano\",\"red\"],[\"pink\",\"ciano\",\"red\"]]": 58,
+        "[[\"pink\",\"red\",\"darkGreen\"],[\"ciano\",\"red\",\"darkGreen\"],[\"ciano\",\"red\",\"yellow\"]]": 59,
+        "[[\"red\",\"darkGreen\",\"red\"],[\"red\",\"darkGreen\",\"red\"],[\"red\",\"yellow\",\"red\"]]": 60,
+        "[[\"darkGreen\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"pink\"],[\"yellow\",\"red\",\"ciano\"]]": 61,
+        "[[\"red\",\"ciano\",\"ciano\"],[\"red\",\"pink\",\"pink\"],[\"red\",\"ciano\",\"ciano\"]]": 62,
+        "[[\"ciano\",\"ciano\",\"pink\"],[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"]]": 63,
+        "[[\"pink\",\"pink\",\"ciano\"],[\"pink\",\"pink\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"]]": 64,
+        "[[\"pink\",\"ciano\",\"ciano\"],[\"pink\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"]]": 65,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"]]": 66,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"pink\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"]]": 67,
+        "[[\"ciano\",\"ciano\",\"pink\"],[\"pink\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"]]": 68,
+        "[[\"ciano\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"red\"],[\"ciano\",\"ciano\",\"red\"]]": 69,
+        "[[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"red\",\"red\"],[\"ciano\",\"red\",\"darkGreen\"]]": 70,
+        "[[\"pink\",\"pink\",\"pink\"],[\"red\",\"red\",\"red\"],[\"red\",\"darkGreen\",\"darkGreen\"]]": 71,
+        "[[\"pink\",\"pink\",\"pink\"],[\"red\",\"red\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"]]": 72,
+        "[[\"pink\",\"pink\",\"ciano\"],[\"red\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"ciano\"]]": 73,
+        "[[\"pink\",\"ciano\",\"ciano\"],[\"red\",\"ciano\",\"ciano\"],[\"red\",\"ciano\",\"pink\"]]": 74,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"pink\",\"pink\"]]": 75,
+        "[[\"ciano\",\"ciano\",\"red\"],[\"pink\",\"ciano\",\"red\"],[\"ciano\",\"ciano\",\"red\"]]": 76,
+        "[[\"ciano\",\"red\",\"darkGreen\"],[\"ciano\",\"red\",\"yellow\"],[\"ciano\",\"red\",\"darkGreen\"]]": 77,
+        "[[\"red\",\"darkGreen\",\"red\"],[\"red\",\"yellow\",\"red\"],[\"red\",\"darkGreen\",\"red\"]]": 78,
+        "[[\"darkGreen\",\"red\",\"pink\"],[\"yellow\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"ciano\"]]": 79,
+        "[[\"red\",\"pink\",\"pink\"],[\"red\",\"ciano\",\"ciano\"],[\"red\",\"ciano\",\"ciano\"]]": 80,
+        "[[\"ciano\",\"ciano\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"pink\",\"pink\"]]": 81,
+        "[[\"pink\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"pink\",\"ciano\"]]": 82,
+        "[[\"ciano\",\"ciano\",\"red\"],[\"ciano\",\"ciano\",\"red\"],[\"pink\",\"ciano\",\"red\"]]": 83,
+        "[[\"ciano\",\"red\",\"red\"],[\"ciano\",\"red\",\"darkGreen\"],[\"ciano\",\"red\",\"darkGreen\"]]": 84,
+        "[[\"red\",\"red\",\"red\"],[\"red\",\"darkGreen\",\"darkGreen\"],[\"red\",\"darkGreen\",\"darkGreen\"]]": 85,
+        "[[\"red\",\"red\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"]]": 86,
+        "[[\"red\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"red\"]]": 87,
+        "[[\"red\",\"ciano\",\"ciano\"],[\"red\",\"ciano\",\"pink\"],[\"red\",\"red\",\"red\"]]": 88,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"pink\",\"pink\"],[\"red\",\"red\",\"red\"]]": 89,
+        "[[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"ciano\",\"ciano\"]]": 90,
+        "[[\"pink\",\"pink\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"]]": 91,
+        "[[\"pink\",\"ciano\",\"red\"],[\"ciano\",\"ciano\",\"red\"],[\"ciano\",\"ciano\",\"red\"]]": 92,
+        "[[\"ciano\",\"red\",\"yellow\"],[\"ciano\",\"red\",\"darkGreen\"],[\"ciano\",\"red\",\"darkGreen\"]]": 93,
+        "[[\"red\",\"yellow\",\"red\"],[\"red\",\"darkGreen\",\"red\"],[\"red\",\"darkGreen\",\"red\"]]": 94,
+        "[[\"yellow\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"red\"]]": 95,
+        "[[\"red\",\"ciano\",\"ciano\"],[\"red\",\"ciano\",\"ciano\"],[\"red\",\"red\",\"red\"]]": 96,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"],[\"red\",\"red\",\"red\"]]": 97,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"pink\"],[\"red\",\"ciano\",\"ciano\"]]": 98,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"pink\"]]": 99,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"pink\",\"ciano\"],[\"pink\",\"ciano\",\"ciano\"]]": 100,
+        "[[\"ciano\",\"red\",\"darkGreen\"],[\"ciano\",\"red\",\"darkGreen\"],[\"ciano\",\"red\",\"yellow\"]]": 101,
+        "[[\"red\",\"darkGreen\",\"darkGreen\"],[\"red\",\"darkGreen\",\"darkGreen\"],[\"red\",\"yellow\",\"darkGreen\"]]": 102,
+        "[[\"darkGreen\",\"darkGreen\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"],[\"yellow\",\"darkGreen\",\"red\"]]": 103,
+        "[[\"darkGreen\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"red\"],[\"darkGreen\",\"red\",\"darkGreen\"]]": 104,
+        "[[\"red\",\"ciano\",\"pink\"],[\"red\",\"red\",\"red\"],[\"red\",\"darkGreen\",\"darkGreen\"]]": 105,
+        "[[\"ciano\",\"pink\",\"pink\"],[\"red\",\"red\",\"red\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"]]": 106,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"pink\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"red\"]]": 107,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"red\",\"red\"]]": 108,
+        "[[\"ciano\",\"ciano\",\"red\"],[\"ciano\",\"ciano\",\"red\"],[\"red\",\"red\",\"red\"]]": 109,
+        "[[\"ciano\",\"red\",\"darkGreen\"],[\"ciano\",\"red\",\"darkGreen\"],[\"red\",\"red\",\"darkGreen\"]]": 110,
+        "[[\"red\",\"darkGreen\",\"red\"],[\"red\",\"darkGreen\",\"red\"],[\"red\",\"darkGreen\",\"red\"]]": 111,
+        "[[\"red\",\"ciano\",\"ciano\"],[\"red\",\"red\",\"red\"],[\"red\",\"darkGreen\",\"darkGreen\"]]": 112,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"red\",\"red\",\"red\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"]]": 113,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"red\",\"red\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"]]": 114,
+        "[[\"ciano\",\"ciano\",\"pink\"],[\"red\",\"ciano\",\"ciano\"],[\"red\",\"ciano\",\"ciano\"]]": 115,
+        "[[\"ciano\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"]]": 116,
+        "[[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"]]": 117,
+        "[[\"pink\",\"pink\",\"pink\"],[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"]]": 118,
+        "[[\"pink\",\"pink\",\"ciano\"],[\"pink\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"ciano\"]]": 119,
+        "[[\"red\",\"darkGreen\",\"darkGreen\"],[\"red\",\"yellow\",\"darkGreen\"],[\"red\",\"darkGreen\",\"darkGreen\"]]": 120,
+        "[[\"darkGreen\",\"darkGreen\",\"red\"],[\"yellow\",\"darkGreen\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"]]": 121,
+        "[[\"darkGreen\",\"red\",\"red\"],[\"darkGreen\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"darkGreen\"]]": 122,
+        "[[\"red\",\"red\",\"red\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"]]": 123,
+        "[[\"pink\",\"ciano\",\"ciano\"],[\"ciano\",\"ciano\",\"red\"],[\"ciano\",\"pink\",\"red\"]]": 124,
+        "[[\"ciano\",\"ciano\",\"red\"],[\"red\",\"red\",\"red\"],[\"red\",\"darkGreen\",\"red\"]]": 125,
+        "[[\"ciano\",\"red\",\"darkGreen\"],[\"red\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"yellow\"]]": 126,
+        "[[\"darkGreen\",\"red\",\"red\"],[\"darkGreen\",\"red\",\"darkGreen\"],[\"yellow\",\"red\",\"darkGreen\"]]": 127,
+        "[[\"ciano\",\"ciano\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"],[\"red\",\"red\",\"red\"]]": 128,
+        "[[\"ciano\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"],[\"red\",\"red\",\"ciano\"]]": 129,
+        "[[\"pink\",\"pink\",\"pink\"],[\"ciano\",\"ciano\",\"ciano\"],[\"red\",\"ciano\",\"red\"]]": 130,
+        "[[\"ciano\",\"red\",\"yellow\"],[\"ciano\",\"red\",\"darkGreen\"],[\"red\",\"red\",\"darkGreen\"]]": 131,
+        "[[\"red\",\"yellow\",\"darkGreen\"],[\"red\",\"darkGreen\",\"darkGreen\"],[\"red\",\"darkGreen\",\"darkGreen\"]]": 132,
+        "[[\"yellow\",\"darkGreen\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"]]": 133,
+        "[[\"darkGreen\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"darkGreen\"]]": 134,
+        "[[\"red\",\"darkGreen\",\"darkGreen\"],[\"red\",\"darkGreen\",\"darkGreen\"],[\"red\",\"darkGreen\",\"darkGreen\"]]": 135,
+        "[[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"yellow\"]]": 136,
+        "[[\"ciano\",\"ciano\",\"red\"],[\"ciano\",\"pink\",\"red\"],[\"ciano\",\"ciano\",\"red\"]]": 137,
+        "[[\"red\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"yellow\"],[\"darkGreen\",\"red\",\"darkGreen\"]]": 138,
+        "[[\"darkGreen\",\"red\",\"darkGreen\"],[\"yellow\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"yellow\"]]": 139,
+        "[[\"red\",\"darkGreen\",\"darkGreen\"],[\"red\",\"darkGreen\",\"darkGreen\"],[\"red\",\"yellow\",\"yellow\"]]": 140,
+        "[[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"yellow\",\"yellow\",\"darkGreen\"]]": 141,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"red\",\"ciano\",\"red\"],[\"red\",\"ciano\",\"red\"]]": 142,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"ciano\",\"red\",\"red\"],[\"ciano\",\"red\",\"darkGreen\"]]": 143,
+        "[[\"ciano\",\"ciano\",\"ciano\"],[\"red\",\"red\",\"red\"],[\"red\",\"darkGreen\",\"darkGreen\"]]": 144,
+        "[[\"ciano\",\"ciano\",\"red\"],[\"red\",\"red\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"]]": 145,
+        "[[\"ciano\",\"red\",\"darkGreen\"],[\"red\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"darkGreen\"]]": 146,
+        "[[\"red\",\"darkGreen\",\"darkGreen\"],[\"red\",\"darkGreen\",\"darkGreen\"],[\"red\",\"darkGreen\",\"yellow\"]]": 147,
+        "[[\"darkGreen\",\"darkGreen\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"],[\"darkGreen\",\"yellow\",\"red\"]]": 148,
+        "[[\"darkGreen\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"darkGreen\"],[\"yellow\",\"red\",\"darkGreen\"]]": 149,
+        "[[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"yellow\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"]]": 150,
+        "[[\"ciano\",\"pink\",\"red\"],[\"ciano\",\"ciano\",\"red\"],[\"pink\",\"ciano\",\"red\"]]": 151,
+        "[[\"darkGreen\",\"red\",\"yellow\"],[\"darkGreen\",\"red\",\"darkGreen\"],[\"yellow\",\"red\",\"darkGreen\"]]": 152,
+        "[[\"yellow\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"yellow\"],[\"darkGreen\",\"red\",\"darkGreen\"]]": 153,
+        "[[\"red\",\"darkGreen\",\"darkGreen\"],[\"red\",\"yellow\",\"yellow\"],[\"red\",\"darkGreen\",\"darkGreen\"]]": 154,
+        "[[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"yellow\",\"yellow\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"]]": 155,
+        "[[\"red\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"ciano\"]]": 156,
+        "[[\"red\",\"ciano\",\"red\"],[\"red\",\"ciano\",\"red\"],[\"red\",\"ciano\",\"red\"]]": 157,
+        "[[\"ciano\",\"red\",\"red\"],[\"ciano\",\"red\",\"darkGreen\"],[\"ciano\",\"red\",\"yellow\"]]": 158,
+        "[[\"red\",\"red\",\"red\"],[\"red\",\"darkGreen\",\"darkGreen\"],[\"red\",\"yellow\",\"darkGreen\"]]": 159,
+        "[[\"red\",\"red\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"],[\"yellow\",\"darkGreen\",\"red\"]]": 160,
+        "[[\"red\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"darkGreen\"]]": 161,
+        "[[\"red\",\"darkGreen\",\"darkGreen\"],[\"red\",\"darkGreen\",\"yellow\"],[\"red\",\"darkGreen\",\"darkGreen\"]]": 162,
+        "[[\"darkGreen\",\"darkGreen\",\"red\"],[\"darkGreen\",\"yellow\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"]]": 163,
+        "[[\"darkGreen\",\"darkGreen\",\"yellow\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"yellow\",\"darkGreen\",\"darkGreen\"]]": 164,
+        "[[\"red\",\"yellow\",\"yellow\"],[\"red\",\"darkGreen\",\"darkGreen\"],[\"red\",\"darkGreen\",\"darkGreen\"]]": 165,
+        "[[\"yellow\",\"yellow\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"]]": 166,
+        "[[\"darkGreen\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"yellow\"]]": 167,
+        "[[\"darkGreen\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"pink\"]]": 168,
+        "[[\"red\",\"ciano\",\"red\"],[\"red\",\"ciano\",\"red\"],[\"red\",\"pink\",\"red\"]]": 169,
+        "[[\"ciano\",\"red\",\"darkGreen\"],[\"ciano\",\"red\",\"yellow\"],[\"pink\",\"red\",\"darkGreen\"]]": 170,
+        "[[\"red\",\"darkGreen\",\"yellow\"],[\"red\",\"darkGreen\",\"darkGreen\"],[\"red\",\"darkGreen\",\"darkGreen\"]]": 171,
+        "[[\"darkGreen\",\"yellow\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"]]": 172,
+        "[[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"yellow\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"]]": 173,
+        "[[\"pink\",\"ciano\",\"red\"],[\"ciano\",\"ciano\",\"red\"],[\"red\",\"red\",\"red\"]]": 174,
+        "[[\"darkGreen\",\"red\",\"darkGreen\"],[\"yellow\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"darkGreen\"]]": 175,
+        "[[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"yellow\",\"yellow\"]]": 176,
+        "[[\"darkGreen\",\"darkGreen\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"],[\"yellow\",\"yellow\",\"red\"]]": 177,
+        "[[\"darkGreen\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"yellow\"],[\"yellow\",\"red\",\"darkGreen\"]]": 178,
+        "[[\"darkGreen\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"pink\"],[\"darkGreen\",\"red\",\"ciano\"]]": 179,
+        "[[\"red\",\"ciano\",\"red\"],[\"red\",\"pink\",\"red\"],[\"red\",\"ciano\",\"red\"]]": 180,
+        "[[\"ciano\",\"red\",\"yellow\"],[\"pink\",\"red\",\"darkGreen\"],[\"ciano\",\"red\",\"darkGreen\"]]": 181,
+        "[[\"red\",\"yellow\",\"darkGreen\"],[\"red\",\"darkGreen\",\"darkGreen\"],[\"red\",\"darkGreen\",\"yellow\"]]": 182,
+        "[[\"yellow\",\"darkGreen\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"],[\"darkGreen\",\"yellow\",\"red\"]]": 183,
+        "[[\"yellow\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"]]": 184,
+        "[[\"darkGreen\",\"red\",\"yellow\"],[\"darkGreen\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"darkGreen\"]]": 185,
+        "[[\"yellow\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"darkGreen\"]]": 186,
+        "[[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"yellow\",\"yellow\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"]]": 187,
+        "[[\"darkGreen\",\"darkGreen\",\"red\"],[\"yellow\",\"yellow\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"]]": 188,
+        "[[\"darkGreen\",\"red\",\"yellow\"],[\"yellow\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"darkGreen\"]]": 189,
+        "[[\"darkGreen\",\"red\",\"pink\"],[\"darkGreen\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"ciano\"]]": 190,
+        "[[\"red\",\"pink\",\"red\"],[\"red\",\"ciano\",\"red\"],[\"red\",\"ciano\",\"red\"]]": 191,
+        "[[\"pink\",\"red\",\"darkGreen\"],[\"ciano\",\"red\",\"darkGreen\"],[\"ciano\",\"red\",\"darkGreen\"]]": 192,
+        "[[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"yellow\",\"darkGreen\",\"darkGreen\"]]": 193,
+        "[[\"red\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"yellow\"]]": 194,
+        "[[\"darkGreen\",\"yellow\",\"yellow\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"]]": 195,
+        "[[\"yellow\",\"yellow\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"]]": 196,
+        "[[\"darkGreen\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"ciano\"],[\"yellow\",\"red\",\"ciano\"]]": 197,
+        "[[\"ciano\",\"red\",\"darkGreen\"],[\"ciano\",\"red\",\"darkGreen\"],[\"ciano\",\"red\",\"darkGreen\"]]": 198,
+        "[[\"darkGreen\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"yellow\"],[\"darkGreen\",\"red\",\"darkGreen\"]]": 199,
+        "[[\"darkGreen\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"darkGreen\"],[\"yellow\",\"red\",\"yellow\"]]": 200,
+        "[[\"darkGreen\",\"red\",\"ciano\"],[\"yellow\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"red\"]]": 201,
+        "[[\"red\",\"ciano\",\"red\"],[\"red\",\"ciano\",\"red\"],[\"red\",\"red\",\"red\"]]": 202,
+        "[[\"ciano\",\"red\",\"darkGreen\"],[\"ciano\",\"red\",\"darkGreen\"],[\"red\",\"red\",\"yellow\"]]": 203,
+        "[[\"yellow\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"yellow\"]]": 204,
+        "[[\"darkGreen\",\"red\",\"darkGreen\"],[\"yellow\",\"red\",\"yellow\"],[\"darkGreen\",\"red\",\"darkGreen\"]]": 205,
+        "[[\"yellow\",\"red\",\"ciano\"],[\"darkGreen\",\"red\",\"red\"],[\"darkGreen\",\"red\",\"darkGreen\"]]": 206,
+        "[[\"red\",\"ciano\",\"red\"],[\"red\",\"red\",\"red\"],[\"red\",\"darkGreen\",\"red\"]]": 207,
+        "[[\"ciano\",\"red\",\"darkGreen\"],[\"red\",\"red\",\"yellow\"],[\"darkGreen\",\"red\",\"darkGreen\"]]": 208,
+        "[[\"yellow\",\"red\",\"yellow\"],[\"darkGreen\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"darkGreen\"]]": 209,
+        "[[\"red\",\"red\",\"yellow\"],[\"darkGreen\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"darkGreen\"]]": 210,
+        "[[\"darkGreen\",\"darkGreen\",\"yellow\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"]]": 211,
+        "[[\"yellow\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"darkGreen\"],[\"darkGreen\",\"red\",\"yellow\"]]": 212,
+        "[[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"],[\"darkGreen\",\"darkGreen\",\"darkGreen\"]]": 213,
+        "[[\"darkGreen\",\"darkGreen\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"]]": 214,
+        "[[\"red\",\"darkGreen\",\"yellow\"],[\"red\",\"darkGreen\",\"darkGreen\"],[\"red\",\"yellow\",\"darkGreen\"]]": 215,
+        "[[\"darkGreen\",\"yellow\",\"red\"],[\"darkGreen\",\"darkGreen\",\"red\"],[\"yellow\",\"darkGreen\",\"red\"]]": 216
+    },
+    "patternData": [
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "red",
+                "red"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "red",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "ciano",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ],
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ],
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ],
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ],
+            [
+                "pink",
+                "pink",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "red",
+                "red"
+            ],
+            [
+                "pink",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "ciano",
+                "pink"
+            ],
+            [
+                "red",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ],
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ],
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ],
+            [
+                "pink",
+                "pink",
+                "red"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "red",
+                "red"
+            ],
+            [
+                "pink",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "red",
+                "red"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "red",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "red",
+                "ciano",
+                "pink"
+            ],
+            [
+                "red",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "pink",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ],
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "red",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ],
+            [
+                "red",
+                "red",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "red"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ],
+            [
+                "pink",
+                "ciano",
+                "red"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "ciano",
+                "red",
+                "yellow"
+            ]
+        ],
+        [
+            [
+                "red",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "red",
+                "yellow",
+                "red"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "pink"
+            ],
+            [
+                "yellow",
+                "red",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "red",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "pink",
+                "pink"
+            ],
+            [
+                "red",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ],
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "red",
+                "red"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ],
+            [
+                "red",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "ciano",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ],
+            [
+                "pink",
+                "ciano",
+                "red"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "ciano",
+                "red",
+                "yellow"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "red",
+                "yellow",
+                "red"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "pink"
+            ],
+            [
+                "yellow",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "red",
+                "pink",
+                "pink"
+            ],
+            [
+                "red",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ],
+            [
+                "pink",
+                "ciano",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "red",
+                "red"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "red",
+                "red"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "red",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "red",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "red"
+            ]
+        ],
+        [
+            [
+                "red",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "ciano",
+                "pink"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "ciano",
+                "red"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "red",
+                "yellow"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "yellow",
+                "red"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "yellow",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "red"
+            ]
+        ],
+        [
+            [
+                "red",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ],
+            [
+                "red",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ],
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "ciano",
+                "red",
+                "yellow"
+            ]
+        ],
+        [
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "yellow",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "yellow",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "ciano",
+                "pink"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "red",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "red",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ],
+            [
+                "red",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "ciano"
+            ],
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "yellow",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "yellow",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "red",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ],
+            [
+                "ciano",
+                "pink",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "yellow"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "yellow",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "red",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "pink",
+                "pink"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "ciano",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "red",
+                "yellow"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "yellow",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "yellow",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "yellow"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ],
+            [
+                "ciano",
+                "pink",
+                "red"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ]
+        ],
+        [
+            [
+                "red",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "yellow"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "yellow",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "yellow"
+            ]
+        ],
+        [
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "yellow",
+                "yellow"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "yellow",
+                "yellow",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "ciano",
+                "red"
+            ],
+            [
+                "red",
+                "ciano",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "ciano",
+                "red",
+                "red"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "ciano"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "yellow"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "yellow",
+                "red"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "yellow",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "yellow"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "pink",
+                "red"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ],
+            [
+                "pink",
+                "ciano",
+                "red"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "yellow"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "yellow",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "yellow",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "yellow"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "yellow",
+                "yellow"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "yellow",
+                "yellow",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "red",
+                "ciano",
+                "red"
+            ],
+            [
+                "red",
+                "ciano",
+                "red"
+            ],
+            [
+                "red",
+                "ciano",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "red",
+                "red"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "ciano",
+                "red",
+                "yellow"
+            ]
+        ],
+        [
+            [
+                "red",
+                "red",
+                "red"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "yellow",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "red",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "yellow",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "red",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "yellow"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "yellow",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "darkGreen",
+                "yellow"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "yellow",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "yellow",
+                "yellow"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "yellow",
+                "yellow",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "yellow"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "pink"
+            ]
+        ],
+        [
+            [
+                "red",
+                "ciano",
+                "red"
+            ],
+            [
+                "red",
+                "ciano",
+                "red"
+            ],
+            [
+                "red",
+                "pink",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "ciano",
+                "red",
+                "yellow"
+            ],
+            [
+                "pink",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "darkGreen",
+                "yellow"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "yellow",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "yellow",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "ciano",
+                "red"
+            ],
+            [
+                "ciano",
+                "ciano",
+                "red"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "yellow",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "yellow",
+                "yellow"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "yellow",
+                "yellow",
+                "red"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "yellow"
+            ],
+            [
+                "yellow",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "pink"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "red",
+                "ciano",
+                "red"
+            ],
+            [
+                "red",
+                "pink",
+                "red"
+            ],
+            [
+                "red",
+                "ciano",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "red",
+                "yellow"
+            ],
+            [
+                "pink",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "yellow",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "yellow"
+            ]
+        ],
+        [
+            [
+                "yellow",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "yellow",
+                "red"
+            ]
+        ],
+        [
+            [
+                "yellow",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "yellow"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "yellow",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "yellow",
+                "yellow"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "yellow",
+                "yellow",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "yellow"
+            ],
+            [
+                "yellow",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "pink"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "red",
+                "pink",
+                "red"
+            ],
+            [
+                "red",
+                "ciano",
+                "red"
+            ],
+            [
+                "red",
+                "ciano",
+                "red"
+            ]
+        ],
+        [
+            [
+                "pink",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "yellow",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "yellow"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "yellow",
+                "yellow"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "yellow",
+                "yellow",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ],
+            [
+                "yellow",
+                "red",
+                "ciano"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "yellow"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "yellow",
+                "red",
+                "yellow"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "ciano"
+            ],
+            [
+                "yellow",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "red"
+            ]
+        ],
+        [
+            [
+                "red",
+                "ciano",
+                "red"
+            ],
+            [
+                "red",
+                "ciano",
+                "red"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "red",
+                "yellow"
+            ]
+        ],
+        [
+            [
+                "yellow",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "yellow"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "yellow",
+                "red",
+                "yellow"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "yellow",
+                "red",
+                "ciano"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "ciano",
+                "red"
+            ],
+            [
+                "red",
+                "red",
+                "red"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "ciano",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "red",
+                "yellow"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "yellow",
+                "red",
+                "yellow"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "red",
+                "red",
+                "yellow"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "darkGreen",
+                "yellow"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "yellow",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "red",
+                "yellow"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ]
+        ],
+        [
+            [
+                "red",
+                "darkGreen",
+                "yellow"
+            ],
+            [
+                "red",
+                "darkGreen",
+                "darkGreen"
+            ],
+            [
+                "red",
+                "yellow",
+                "darkGreen"
+            ]
+        ],
+        [
+            [
+                "darkGreen",
+                "yellow",
+                "red"
+            ],
+            [
+                "darkGreen",
+                "darkGreen",
+                "red"
+            ],
+            [
+                "yellow",
+                "darkGreen",
+                "red"
+            ]
+        ]
+    ],
+    "weights": [
+        9,
+        1,
+        1,
+        9,
+        9,
+        9,
+        1,
+        1,
+        39,
+        1,
+        1,
+        1,
+        39,
+        1,
+        1,
+        16,
+        9,
+        9,
+        9,
+        1,
+        1,
+        9,
+        1,
+        16,
+        1,
+        9,
+        1,
+        9,
+        16,
+        1,
+        1,
+        1,
+        31,
+        1,
+        1,
+        1,
+        1,
+        9,
+        1,
+        9,
+        1,
+        9,
+        16,
+        1,
+        1,
+        1,
+        1,
+        9,
+        9,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        9,
+        77,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        9,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        16,
+        16,
+        77,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        24,
+        16,
+        9,
+        1,
+        1,
+        1,
+        1,
+        9,
+        1,
+        62,
+        1,
+        9,
+        9,
+        1,
+        1,
+        1,
+        1,
+        62,
+        70,
+        16,
+        1,
+        1,
+        1,
+        1,
+        9,
+        1,
+        62,
+        9,
+        1,
+        9,
+        1,
+        1,
+        1,
+        1,
+        1,
+        77,
+        92,
+        16,
+        9,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        9,
+        39,
+        39,
+        100,
+        70,
+        9,
+        1,
+        1,
+        47,
+        16,
+        16,
+        1,
+        1,
+        1,
+        9,
+        9,
+        54,
+        39,
+        77,
+        16,
+        1,
+        31,
+        47,
+        16,
+        16,
+        1,
+        9,
+        1,
+        1,
+        9,
+        1,
+        70,
+        70,
+        1,
+        9,
+        9,
+        16,
+        1,
+        1,
+        1,
+        54,
+        47,
+        16,
+        1,
+        54,
+        9,
+        9,
+        1,
+        1,
+        1,
+        1,
+        24,
+        39,
+        1,
+        54,
+        39,
+        9,
+        9,
+        1,
+        1,
+        1,
+        1,
+        9,
+        1,
+        9,
+        9,
+        1,
+        1,
+        39,
+        31,
+        1,
+        1,
+        1,
+        1,
+        31,
+        1,
+        1,
+        1,
+        9,
+        1,
+        9,
+        16,
+        9,
+        9,
+        1,
+        9
+    ],
+    "rules": {
+        "0": {
+            "up": [
+                28
+            ],
+            "down": [
+                3,
+                18,
+                47,
+                91
+            ],
+            "left": [
+                39,
+                117,
+                118
+            ],
+            "right": [
+                1,
+                119
+            ]
+        },
+        "1": {
+            "up": [
+                29,
+                38
+            ],
+            "down": [
+                4,
+                19,
+                48,
+                82
+            ],
+            "left": [
+                0
+            ],
+            "right": [
+                2,
+                32,
+                33,
+                47,
+                91
+            ]
+        },
+        "2": {
+            "up": [
+                11,
+                12,
+                39,
+                63,
+                118
+            ],
+            "down": [
+                20
+            ],
+            "left": [
+                1,
+                31,
+                32,
+                46,
+                56,
+                80,
+                90
+            ],
+            "right": [
+                3
+            ]
+        },
+        "3": {
+            "up": [
+                0,
+                30,
+                64,
+                67
+            ],
+            "down": [
+                21,
+                143
+            ],
+            "left": [
+                2,
+                130
+            ],
+            "right": [
+                4,
+                174
+            ]
+        },
+        "4": {
+            "up": [
+                1,
+                31,
+                65,
+                68,
+                119
+            ],
+            "down": [
+                22,
+                113,
+                114,
+                144
+            ],
+            "left": [
+                3
+            ],
+            "right": [
+                5,
+                97,
+                109,
+                128
+            ]
+        },
+        "5": {
+            "up": [
+                32,
+                91
+            ],
+            "down": [
+                23
+            ],
+            "left": [
+                4,
+                96,
+                97,
+                108
+            ],
+            "right": [
+                6,
+                98
+            ]
+        },
+        "6": {
+            "up": [
+                66,
+                116
+            ],
+            "down": [
+                24
+            ],
+            "left": [
+                5
+            ],
+            "right": [
+                7
+            ]
+        },
+        "7": {
+            "up": [
+                25,
+                117
+            ],
+            "down": [
+                25,
+                51,
+                89,
+                99
+            ],
+            "left": [
+                6
+            ],
+            "right": [
+                8,
+                9,
+                16,
+                18,
+                35,
+                57
+            ]
+        },
+        "8": {
+            "up": [
+                11,
+                12,
+                39,
+                63,
+                118
+            ],
+            "down": [
+                12,
+                26,
+                27,
+                28,
+                29,
+                37
+            ],
+            "left": [
+                7,
+                8,
+                15,
+                34
+            ],
+            "right": [
+                8,
+                9,
+                16,
+                18,
+                35,
+                57
+            ]
+        },
+        "9": {
+            "up": [
+                26
+            ],
+            "down": [
+                30
+            ],
+            "left": [
+                7,
+                8,
+                15,
+                34
+            ],
+            "right": [
+                10
+            ]
+        },
+        "10": {
+            "up": [],
+            "down": [
+                31
+            ],
+            "left": [
+                9
+            ],
+            "right": [
+                11
+            ]
+        },
+        "11": {
+            "up": [],
+            "down": [
+                2,
+                8,
+                32,
+                33,
+                34,
+                57,
+                90,
+                130
+            ],
+            "left": [
+                10
+            ],
+            "right": [
+                12,
+                13,
+                26,
+                30,
+                40,
+                63,
+                67
+            ]
+        },
+        "12": {
+            "up": [
+                8,
+                15,
+                18,
+                19,
+                81
+            ],
+            "down": [
+                2,
+                8,
+                32,
+                33,
+                34,
+                57,
+                90,
+                130
+            ],
+            "left": [
+                11,
+                12,
+                25,
+                29,
+                62
+            ],
+            "right": [
+                12,
+                13,
+                26,
+                30,
+                40,
+                63,
+                67
+            ]
+        },
+        "13": {
+            "up": [
+                49,
+                57,
+                82
+            ],
+            "down": [
+                35
+            ],
+            "left": [
+                11,
+                12,
+                25,
+                29,
+                62
+            ],
+            "right": [
+                14
+            ]
+        },
+        "14": {
+            "up": [
+                50
+            ],
+            "down": [
+                36
+            ],
+            "left": [
+                13
+            ],
+            "right": [
+                15
+            ]
+        },
+        "15": {
+            "up": [
+                25,
+                117
+            ],
+            "down": [
+                12,
+                26,
+                27,
+                28,
+                29,
+                37
+            ],
+            "left": [
+                14,
+                44,
+                81
+            ],
+            "right": [
+                8,
+                9,
+                16,
+                18,
+                35,
+                57
+            ]
+        },
+        "16": {
+            "up": [
+                26
+            ],
+            "down": [
+                38,
+                52,
+                63
+            ],
+            "left": [
+                7,
+                8,
+                15,
+                34
+            ],
+            "right": [
+                17
+            ]
+        },
+        "17": {
+            "up": [
+                27
+            ],
+            "down": [
+                39,
+                53
+            ],
+            "left": [
+                16
+            ],
+            "right": [
+                45
+            ]
+        },
+        "18": {
+            "up": [
+                0,
+                30,
+                64,
+                67
+            ],
+            "down": [
+                12,
+                26,
+                27,
+                28,
+                29,
+                37
+            ],
+            "left": [
+                7,
+                8,
+                15,
+                34
+            ],
+            "right": [
+                19,
+                82
+            ]
+        },
+        "19": {
+            "up": [
+                1,
+                31,
+                65,
+                68,
+                119
+            ],
+            "down": [
+                12,
+                26,
+                27,
+                28,
+                29,
+                37
+            ],
+            "left": [
+                18
+            ],
+            "right": [
+                20,
+                49,
+                81
+            ]
+        },
+        "20": {
+            "up": [
+                2
+            ],
+            "down": [
+                40
+            ],
+            "left": [
+                19,
+                48,
+                75
+            ],
+            "right": [
+                21
+            ]
+        },
+        "21": {
+            "up": [
+                3,
+                108
+            ],
+            "down": [
+                41
+            ],
+            "left": [
+                20,
+                124
+            ],
+            "right": [
+                22,
+                125,
+                144
+            ]
+        },
+        "22": {
+            "up": [
+                4,
+                97,
+                128
+            ],
+            "down": [
+                42
+            ],
+            "left": [
+                21,
+                143
+            ],
+            "right": [
+                23
+            ]
+        },
+        "23": {
+            "up": [
+                5,
+                129
+            ],
+            "down": [
+                43,
+                87,
+                156
+            ],
+            "left": [
+                22,
+                114
+            ],
+            "right": [
+                24,
+                115,
+                142
+            ]
+        },
+        "24": {
+            "up": [
+                6
+            ],
+            "down": [
+                44
+            ],
+            "left": [
+                23
+            ],
+            "right": [
+                25,
+                51,
+                99,
+                137
+            ]
+        },
+        "25": {
+            "up": [
+                7,
+                34,
+                48,
+                75
+            ],
+            "down": [
+                7,
+                15,
+                129
+            ],
+            "left": [
+                24,
+                50,
+                66,
+                98
+            ],
+            "right": [
+                12,
+                13,
+                26,
+                30,
+                40,
+                63,
+                67
+            ]
+        },
+        "26": {
+            "up": [
+                8,
+                15,
+                18,
+                19,
+                81
+            ],
+            "down": [
+                9,
+                16
+            ],
+            "left": [
+                11,
+                12,
+                25,
+                29,
+                62
+            ],
+            "right": [
+                27
+            ]
+        },
+        "27": {
+            "up": [
+                8,
+                15,
+                18,
+                19,
+                81
+            ],
+            "down": [
+                17,
+                117
+            ],
+            "left": [
+                26,
+                99
+            ],
+            "right": [
+                28,
+                37
+            ]
+        },
+        "28": {
+            "up": [
+                8,
+                15,
+                18,
+                19,
+                81
+            ],
+            "down": [
+                0,
+                45,
+                55
+            ],
+            "left": [
+                27,
+                36,
+                37
+            ],
+            "right": [
+                29,
+                38,
+                100
+            ]
+        },
+        "29": {
+            "up": [
+                8,
+                15,
+                18,
+                19,
+                81
+            ],
+            "down": [
+                1,
+                46,
+                56
+            ],
+            "left": [
+                28
+            ],
+            "right": [
+                12,
+                13,
+                26,
+                30,
+                40,
+                63,
+                67
+            ]
+        },
+        "30": {
+            "up": [
+                9
+            ],
+            "down": [
+                3,
+                18,
+                47,
+                91
+            ],
+            "left": [
+                11,
+                12,
+                25,
+                29,
+                62
+            ],
+            "right": [
+                31
+            ]
+        },
+        "31": {
+            "up": [
+                10
+            ],
+            "down": [
+                4,
+                19,
+                48,
+                82
+            ],
+            "left": [
+                30
+            ],
+            "right": [
+                2,
+                32,
+                33,
+                47,
+                91
+            ]
+        },
+        "32": {
+            "up": [
+                11,
+                12,
+                39,
+                63,
+                118
+            ],
+            "down": [
+                5,
+                49,
+                75,
+                97,
+                108
+            ],
+            "left": [
+                1,
+                31,
+                32,
+                46,
+                56,
+                80,
+                90
+            ],
+            "right": [
+                2,
+                32,
+                33,
+                47,
+                91
+            ]
+        },
+        "33": {
+            "up": [
+                11,
+                12,
+                39,
+                63,
+                118
+            ],
+            "down": [
+                50,
+                66,
+                98
+            ],
+            "left": [
+                1,
+                31,
+                32,
+                46,
+                56,
+                80,
+                90
+            ],
+            "right": [
+                34
+            ]
+        },
+        "34": {
+            "up": [
+                11,
+                12,
+                39,
+                63,
+                118
+            ],
+            "down": [
+                25,
+                51,
+                89,
+                99
+            ],
+            "left": [
+                33
+            ],
+            "right": [
+                8,
+                9,
+                16,
+                18,
+                35,
+                57
+            ]
+        },
+        "35": {
+            "up": [
+                13
+            ],
+            "down": [
+                38,
+                52,
+                63
+            ],
+            "left": [
+                7,
+                8,
+                15,
+                34
+            ],
+            "right": [
+                36
+            ]
+        },
+        "36": {
+            "up": [
+                14
+            ],
+            "down": [
+                39,
+                53
+            ],
+            "left": [
+                35
+            ],
+            "right": [
+                28,
+                37
+            ]
+        },
+        "37": {
+            "up": [
+                8,
+                15,
+                18,
+                19,
+                81
+            ],
+            "down": [
+                54,
+                118
+            ],
+            "left": [
+                27,
+                36,
+                37
+            ],
+            "right": [
+                28,
+                37
+            ]
+        },
+        "38": {
+            "up": [
+                16,
+                35
+            ],
+            "down": [
+                1,
+                46,
+                56
+            ],
+            "left": [
+                28
+            ],
+            "right": [
+                39
+            ]
+        },
+        "39": {
+            "up": [
+                17,
+                36
+            ],
+            "down": [
+                2,
+                8,
+                32,
+                33,
+                34,
+                57,
+                90,
+                130
+            ],
+            "left": [
+                38,
+                63
+            ],
+            "right": [
+                0,
+                64,
+                118
+            ]
+        },
+        "40": {
+            "up": [
+                20
+            ],
+            "down": [
+                58
+            ],
+            "left": [
+                11,
+                12,
+                25,
+                29,
+                62
+            ],
+            "right": [
+                41,
+                181
+            ]
+        },
+        "41": {
+            "up": [
+                21
+            ],
+            "down": [
+                59,
+                192
+            ],
+            "left": [
+                40,
+                137,
+                180
+            ],
+            "right": [
+                42,
+                85
+            ]
+        },
+        "42": {
+            "up": [
+                22,
+                125,
+                207
+            ],
+            "down": [
+                60,
+                111
+            ],
+            "left": [
+                41,
+                84,
+                122,
+                127
+            ],
+            "right": [
+                43,
+                87,
+                138,
+                156,
+                161,
+                194,
+                210
+            ]
+        },
+        "43": {
+            "up": [
+                23,
+                73
+            ],
+            "down": [
+                61,
+                179
+            ],
+            "left": [
+                42,
+                86,
+                160
+            ],
+            "right": [
+                44,
+                169
+            ]
+        },
+        "44": {
+            "up": [
+                24
+            ],
+            "down": [
+                62
+            ],
+            "left": [
+                43,
+                168
+            ],
+            "right": [
+                15
+            ]
+        },
+        "45": {
+            "up": [
+                28
+            ],
+            "down": [
+                64
+            ],
+            "left": [
+                17
+            ],
+            "right": [
+                46
+            ]
+        },
+        "46": {
+            "up": [
+                29,
+                38
+            ],
+            "down": [
+                65
+            ],
+            "left": [
+                45
+            ],
+            "right": [
+                2,
+                32,
+                33,
+                47,
+                91
+            ]
+        },
+        "47": {
+            "up": [
+                0,
+                30,
+                64,
+                67
+            ],
+            "down": [
+                50,
+                66,
+                98
+            ],
+            "left": [
+                1,
+                31,
+                32,
+                46,
+                56,
+                80,
+                90
+            ],
+            "right": [
+                48,
+                124
+            ]
+        },
+        "48": {
+            "up": [
+                1,
+                31,
+                65,
+                68,
+                119
+            ],
+            "down": [
+                25,
+                51,
+                89,
+                99
+            ],
+            "left": [
+                47
+            ],
+            "right": [
+                20,
+                49,
+                81
+            ]
+        },
+        "49": {
+            "up": [
+                32,
+                91
+            ],
+            "down": [
+                13,
+                67,
+                100
+            ],
+            "left": [
+                19,
+                48,
+                75
+            ],
+            "right": [
+                50,
+                83
+            ]
+        },
+        "50": {
+            "up": [
+                33,
+                47
+            ],
+            "down": [
+                14,
+                68
+            ],
+            "left": [
+                49,
+                82
+            ],
+            "right": [
+                25,
+                51,
+                99,
+                137
+            ]
+        },
+        "51": {
+            "up": [
+                7,
+                34,
+                48,
+                75
+            ],
+            "down": [
+                69
+            ],
+            "left": [
+                24,
+                50,
+                66,
+                98
+            ],
+            "right": [
+                52
+            ]
+        },
+        "52": {
+            "up": [
+                16,
+                35
+            ],
+            "down": [
+                70
+            ],
+            "left": [
+                51
+            ],
+            "right": [
+                53
+            ]
+        },
+        "53": {
+            "up": [
+                17,
+                36
+            ],
+            "down": [
+                71,
+                72
+            ],
+            "left": [
+                52
+            ],
+            "right": [
+                54,
+                55
+            ]
+        },
+        "54": {
+            "up": [
+                37
+            ],
+            "down": [
+                71,
+                72
+            ],
+            "left": [
+                53,
+                54
+            ],
+            "right": [
+                54,
+                55
+            ]
+        },
+        "55": {
+            "up": [
+                28
+            ],
+            "down": [
+                73
+            ],
+            "left": [
+                53,
+                54
+            ],
+            "right": [
+                56
+            ]
+        },
+        "56": {
+            "up": [
+                29,
+                38
+            ],
+            "down": [
+                74
+            ],
+            "left": [
+                55
+            ],
+            "right": [
+                2,
+                32,
+                33,
+                47,
+                91
+            ]
+        },
+        "57": {
+            "up": [
+                11,
+                12,
+                39,
+                63,
+                118
+            ],
+            "down": [
+                13,
+                67,
+                100
+            ],
+            "left": [
+                7,
+                8,
+                15,
+                34
+            ],
+            "right": [
+                58,
+                90
+            ]
+        },
+        "58": {
+            "up": [
+                40
+            ],
+            "down": [
+                76
+            ],
+            "left": [
+                57
+            ],
+            "right": [
+                59,
+                192
+            ]
+        },
+        "59": {
+            "up": [
+                41,
+                181
+            ],
+            "down": [
+                77,
+                170
+            ],
+            "left": [
+                58,
+                151,
+                191
+            ],
+            "right": [
+                60,
+                102,
+                140,
+                215
+            ]
+        },
+        "60": {
+            "up": [
+                42,
+                94,
+                111
+            ],
+            "down": [
+                78
+            ],
+            "left": [
+                59,
+                101,
+                126,
+                139,
+                167,
+                194,
+                200,
+                203,
+                212
+            ],
+            "right": [
+                61,
+                127,
+                149,
+                152,
+                178,
+                197,
+                200
+            ]
+        },
+        "61": {
+            "up": [
+                43,
+                168
+            ],
+            "down": [
+                79
+            ],
+            "left": [
+                60,
+                148,
+                177,
+                183
+            ],
+            "right": [
+                62,
+                180
+            ]
+        },
+        "62": {
+            "up": [
+                44
+            ],
+            "down": [
+                80
+            ],
+            "left": [
+                61,
+                179
+            ],
+            "right": [
+                12,
+                13,
+                26,
+                30,
+                40,
+                63,
+                67
+            ]
+        },
+        "63": {
+            "up": [
+                16,
+                35
+            ],
+            "down": [
+                2,
+                8,
+                32,
+                33,
+                34,
+                57,
+                90,
+                130
+            ],
+            "left": [
+                11,
+                12,
+                25,
+                29,
+                62
+            ],
+            "right": [
+                39
+            ]
+        },
+        "64": {
+            "up": [
+                45
+            ],
+            "down": [
+                3,
+                18,
+                47,
+                91
+            ],
+            "left": [
+                39,
+                117,
+                118
+            ],
+            "right": [
+                65
+            ]
+        },
+        "65": {
+            "up": [
+                46
+            ],
+            "down": [
+                4,
+                19,
+                48,
+                82
+            ],
+            "left": [
+                64
+            ],
+            "right": [
+                66
+            ]
+        },
+        "66": {
+            "up": [
+                33,
+                47
+            ],
+            "down": [
+                6,
+                81,
+                128
+            ],
+            "left": [
+                65
+            ],
+            "right": [
+                25,
+                51,
+                99,
+                137
+            ]
+        },
+        "67": {
+            "up": [
+                49,
+                57,
+                82
+            ],
+            "down": [
+                3,
+                18,
+                47,
+                91
+            ],
+            "left": [
+                11,
+                12,
+                25,
+                29,
+                62
+            ],
+            "right": [
+                68,
+                76,
+                107
+            ]
+        },
+        "68": {
+            "up": [
+                50
+            ],
+            "down": [
+                4,
+                19,
+                48,
+                82
+            ],
+            "left": [
+                67,
+                100
+            ],
+            "right": [
+                69,
+                116
+            ]
+        },
+        "69": {
+            "up": [
+                51
+            ],
+            "down": [
+                83,
+                109
+            ],
+            "left": [
+                68,
+                115
+            ],
+            "right": [
+                70
+            ]
+        },
+        "70": {
+            "up": [
+                52
+            ],
+            "down": [
+                84,
+                158
+            ],
+            "left": [
+                69
+            ],
+            "right": [
+                71
+            ]
+        },
+        "71": {
+            "up": [
+                53,
+                54
+            ],
+            "down": [
+                85,
+                159
+            ],
+            "left": [
+                70
+            ],
+            "right": [
+                72
+            ]
+        },
+        "72": {
+            "up": [
+                53,
+                54
+            ],
+            "down": [
+                86,
+                160
+            ],
+            "left": [
+                71,
+                106
+            ],
+            "right": [
+                73
+            ]
+        },
+        "73": {
+            "up": [
+                55
+            ],
+            "down": [
+                43,
+                87,
+                156
+            ],
+            "left": [
+                72
+            ],
+            "right": [
+                74
+            ]
+        },
+        "74": {
+            "up": [
+                56
+            ],
+            "down": [
+                88
+            ],
+            "left": [
+                73
+            ],
+            "right": [
+                75
+            ]
+        },
+        "75": {
+            "up": [
+                32,
+                91
+            ],
+            "down": [
+                25,
+                51,
+                89,
+                99
+            ],
+            "left": [
+                74
+            ],
+            "right": [
+                20,
+                49,
+                81
+            ]
+        },
+        "76": {
+            "up": [
+                58,
+                83,
+                151
+            ],
+            "down": [
+                92,
+                174
+            ],
+            "left": [
+                67,
+                100
+            ],
+            "right": [
+                77,
+                84,
+                93,
+                101,
+                158,
+                198
+            ]
+        },
+        "77": {
+            "up": [
+                59,
+                101,
+                158
+            ],
+            "down": [
+                93,
+                131
+            ],
+            "left": [
+                76,
+                83,
+                92,
+                157
+            ],
+            "right": [
+                78,
+                120,
+                154
+            ]
+        },
+        "78": {
+            "up": [
+                60
+            ],
+            "down": [
+                94
+            ],
+            "left": [
+                77,
+                138,
+                153,
+                170,
+                178,
+                199,
+                205,
+                208
+            ],
+            "right": [
+                79,
+                139,
+                175,
+                189,
+                201,
+                205
+            ]
+        },
+        "79": {
+            "up": [
+                61
+            ],
+            "down": [
+                95
+            ],
+            "left": [
+                78,
+                163,
+                188
+            ],
+            "right": [
+                80,
+                191
+            ]
+        },
+        "80": {
+            "up": [
+                62
+            ],
+            "down": [
+                96
+            ],
+            "left": [
+                79,
+                190
+            ],
+            "right": [
+                2,
+                32,
+                33,
+                47,
+                91
+            ]
+        },
+        "81": {
+            "up": [
+                66,
+                116
+            ],
+            "down": [
+                12,
+                26,
+                27,
+                28,
+                29,
+                37
+            ],
+            "left": [
+                19,
+                48,
+                75
+            ],
+            "right": [
+                15
+            ]
+        },
+        "82": {
+            "up": [
+                1,
+                31,
+                65,
+                68,
+                119
+            ],
+            "down": [
+                13,
+                67,
+                100
+            ],
+            "left": [
+                18
+            ],
+            "right": [
+                50,
+                83
+            ]
+        },
+        "83": {
+            "up": [
+                69,
+                92
+            ],
+            "down": [
+                76
+            ],
+            "left": [
+                49,
+                82
+            ],
+            "right": [
+                77,
+                84,
+                93,
+                101,
+                158,
+                198
+            ]
+        },
+        "84": {
+            "up": [
+                70,
+                143
+            ],
+            "down": [
+                101,
+                110,
+                198,
+                203
+            ],
+            "left": [
+                76,
+                83,
+                92,
+                157
+            ],
+            "right": [
+                42,
+                85
+            ]
+        },
+        "85": {
+            "up": [
+                71,
+                105,
+                112,
+                144
+            ],
+            "down": [
+                102,
+                135,
+                140,
+                147
+            ],
+            "left": [
+                41,
+                84,
+                122,
+                127
+            ],
+            "right": [
+                86,
+                123
+            ]
+        },
+        "86": {
+            "up": [
+                72,
+                114,
+                145
+            ],
+            "down": [
+                103,
+                148,
+                177,
+                214
+            ],
+            "left": [
+                85,
+                123
+            ],
+            "right": [
+                43,
+                87,
+                138,
+                156,
+                161,
+                194,
+                210
+            ]
+        },
+        "87": {
+            "up": [
+                23,
+                73
+            ],
+            "down": [
+                104
+            ],
+            "left": [
+                42,
+                86,
+                160
+            ],
+            "right": [
+                88,
+                96,
+                202
+            ]
+        },
+        "88": {
+            "up": [
+                74
+            ],
+            "down": [
+                105
+            ],
+            "left": [
+                87,
+                95,
+                201
+            ],
+            "right": [
+                89
+            ]
+        },
+        "89": {
+            "up": [
+                7,
+                34,
+                48,
+                75
+            ],
+            "down": [
+                106
+            ],
+            "left": [
+                88
+            ],
+            "right": []
+        },
+        "90": {
+            "up": [
+                11,
+                12,
+                39,
+                63,
+                118
+            ],
+            "down": [
+                107
+            ],
+            "left": [
+                57
+            ],
+            "right": [
+                2,
+                32,
+                33,
+                47,
+                91
+            ]
+        },
+        "91": {
+            "up": [
+                0,
+                30,
+                64,
+                67
+            ],
+            "down": [
+                5,
+                49,
+                75,
+                97,
+                108
+            ],
+            "left": [
+                1,
+                31,
+                32,
+                46,
+                56,
+                80,
+                90
+            ],
+            "right": [
+                92
+            ]
+        },
+        "92": {
+            "up": [
+                76
+            ],
+            "down": [
+                83,
+                109
+            ],
+            "left": [
+                91,
+                119
+            ],
+            "right": [
+                77,
+                84,
+                93,
+                101,
+                158,
+                198
+            ]
+        },
+        "93": {
+            "up": [
+                77
+            ],
+            "down": [
+                101,
+                110,
+                198,
+                203
+            ],
+            "left": [
+                76,
+                83,
+                92,
+                157
+            ],
+            "right": [
+                94,
+                132,
+                165,
+                182
+            ]
+        },
+        "94": {
+            "up": [
+                78
+            ],
+            "down": [
+                60,
+                111
+            ],
+            "left": [
+                93,
+                131,
+                152,
+                181,
+                185,
+                189,
+                209,
+                210
+            ],
+            "right": [
+                95,
+                153,
+                186,
+                206,
+                209,
+                212
+            ]
+        },
+        "95": {
+            "up": [
+                79
+            ],
+            "down": [
+                104
+            ],
+            "left": [
+                94,
+                172,
+                196,
+                216
+            ],
+            "right": [
+                88,
+                96,
+                202
+            ]
+        },
+        "96": {
+            "up": [
+                80,
+                115
+            ],
+            "down": [
+                112
+            ],
+            "left": [
+                87,
+                95,
+                201
+            ],
+            "right": [
+                5,
+                97,
+                109,
+                128
+            ]
+        },
+        "97": {
+            "up": [
+                32,
+                91
+            ],
+            "down": [
+                22,
+                113,
+                114,
+                144
+            ],
+            "left": [
+                4,
+                96,
+                97,
+                108
+            ],
+            "right": [
+                5,
+                97,
+                109,
+                128
+            ]
+        },
+        "98": {
+            "up": [
+                33,
+                47
+            ],
+            "down": [
+                115
+            ],
+            "left": [
+                5
+            ],
+            "right": [
+                25,
+                51,
+                99,
+                137
+            ]
+        },
+        "99": {
+            "up": [
+                7,
+                34,
+                48,
+                75
+            ],
+            "down": [
+                116
+            ],
+            "left": [
+                24,
+                50,
+                66,
+                98
+            ],
+            "right": [
+                27
+            ]
+        },
+        "100": {
+            "up": [
+                49,
+                57,
+                82
+            ],
+            "down": [
+                119
+            ],
+            "left": [
+                28
+            ],
+            "right": [
+                68,
+                76,
+                107
+            ]
+        },
+        "101": {
+            "up": [
+                84,
+                93,
+                192,
+                198
+            ],
+            "down": [
+                77,
+                170
+            ],
+            "left": [
+                76,
+                83,
+                92,
+                157
+            ],
+            "right": [
+                60,
+                102,
+                140,
+                215
+            ]
+        },
+        "102": {
+            "up": [
+                85,
+                132,
+                135,
+                165,
+                171
+            ],
+            "down": [
+                120
+            ],
+            "left": [
+                59,
+                101,
+                126,
+                139,
+                167,
+                194,
+                200,
+                203,
+                212
+            ],
+            "right": [
+                103,
+                164,
+                193
+            ]
+        },
+        "103": {
+            "up": [
+                86,
+                133,
+                172,
+                196,
+                214
+            ],
+            "down": [
+                121
+            ],
+            "left": [
+                102,
+                141
+            ],
+            "right": [
+                104,
+                122,
+                134,
+                167,
+                168,
+                179,
+                185,
+                190,
+                199
+            ]
+        },
+        "104": {
+            "up": [
+                87,
+                95
+            ],
+            "down": [
+                122,
+                127
+            ],
+            "left": [
+                103,
+                111,
+                121,
+                133,
+                214
+            ],
+            "right": [
+                105,
+                112,
+                207
+            ]
+        },
+        "105": {
+            "up": [
+                88
+            ],
+            "down": [
+                85,
+                159
+            ],
+            "left": [
+                104,
+                206
+            ],
+            "right": [
+                106
+            ]
+        },
+        "106": {
+            "up": [
+                89
+            ],
+            "down": [
+                123
+            ],
+            "left": [
+                105
+            ],
+            "right": [
+                72
+            ]
+        },
+        "107": {
+            "up": [
+                90
+            ],
+            "down": [
+                124
+            ],
+            "left": [
+                67,
+                100
+            ],
+            "right": [
+                108
+            ]
+        },
+        "108": {
+            "up": [
+                32,
+                91
+            ],
+            "down": [
+                21,
+                143
+            ],
+            "left": [
+                107
+            ],
+            "right": [
+                5,
+                97,
+                109,
+                128
+            ]
+        },
+        "109": {
+            "up": [
+                69,
+                92
+            ],
+            "down": [
+                125,
+                145
+            ],
+            "left": [
+                4,
+                96,
+                97,
+                108
+            ],
+            "right": [
+                110,
+                131,
+                203
+            ]
+        },
+        "110": {
+            "up": [
+                84,
+                93,
+                192,
+                198
+            ],
+            "down": [
+                126,
+                146
+            ],
+            "left": [
+                109,
+                174,
+                202
+            ],
+            "right": [
+                111,
+                135,
+                147,
+                162,
+                171
+            ]
+        },
+        "111": {
+            "up": [
+                42,
+                94,
+                111
+            ],
+            "down": [
+                60,
+                111
+            ],
+            "left": [
+                110,
+                134,
+                146,
+                149,
+                161,
+                175,
+                186,
+                192,
+                198
+            ],
+            "right": [
+                104,
+                122,
+                134,
+                167,
+                168,
+                179,
+                185,
+                190,
+                199
+            ]
+        },
+        "112": {
+            "up": [
+                96
+            ],
+            "down": [
+                85,
+                159
+            ],
+            "left": [
+                104,
+                206
+            ],
+            "right": [
+                113,
+                114,
+                145
+            ]
+        },
+        "113": {
+            "up": [
+                4,
+                97,
+                128
+            ],
+            "down": [
+                123
+            ],
+            "left": [
+                112,
+                113,
+                144
+            ],
+            "right": [
+                113,
+                114,
+                145
+            ]
+        },
+        "114": {
+            "up": [
+                4,
+                97,
+                128
+            ],
+            "down": [
+                86,
+                160
+            ],
+            "left": [
+                112,
+                113,
+                144
+            ],
+            "right": [
+                23
+            ]
+        },
+        "115": {
+            "up": [
+                98
+            ],
+            "down": [
+                96
+            ],
+            "left": [
+                23
+            ],
+            "right": [
+                69,
+                116
+            ]
+        },
+        "116": {
+            "up": [
+                99
+            ],
+            "down": [
+                6,
+                81,
+                128
+            ],
+            "left": [
+                68,
+                115
+            ],
+            "right": [
+                117
+            ]
+        },
+        "117": {
+            "up": [
+                27
+            ],
+            "down": [
+                7,
+                15,
+                129
+            ],
+            "left": [
+                116
+            ],
+            "right": [
+                0,
+                64,
+                118
+            ]
+        },
+        "118": {
+            "up": [
+                37
+            ],
+            "down": [
+                2,
+                8,
+                32,
+                33,
+                34,
+                57,
+                90,
+                130
+            ],
+            "left": [
+                39,
+                117,
+                118
+            ],
+            "right": [
+                0,
+                64,
+                118
+            ]
+        },
+        "119": {
+            "up": [
+                100
+            ],
+            "down": [
+                4,
+                19,
+                48,
+                82
+            ],
+            "left": [
+                0
+            ],
+            "right": [
+                92
+            ]
+        },
+        "120": {
+            "up": [
+                102,
+                159,
+                215
+            ],
+            "down": [
+                132,
+                182
+            ],
+            "left": [
+                77,
+                138,
+                153,
+                170,
+                178,
+                199,
+                205,
+                208
+            ],
+            "right": [
+                121,
+                173
+            ]
+        },
+        "121": {
+            "up": [
+                103,
+                160,
+                216
+            ],
+            "down": [
+                133,
+                183
+            ],
+            "left": [
+                120,
+                155
+            ],
+            "right": [
+                104,
+                122,
+                134,
+                167,
+                168,
+                179,
+                185,
+                190,
+                199
+            ]
+        },
+        "122": {
+            "up": [
+                104,
+                206
+            ],
+            "down": [
+                134,
+                149,
+                167,
+                200
+            ],
+            "left": [
+                103,
+                111,
+                121,
+                133,
+                214
+            ],
+            "right": [
+                42,
+                85
+            ]
+        },
+        "123": {
+            "up": [
+                106,
+                113
+            ],
+            "down": [
+                136,
+                141,
+                176,
+                193,
+                213
+            ],
+            "left": [
+                85,
+                123
+            ],
+            "right": [
+                86,
+                123
+            ]
+        },
+        "124": {
+            "up": [
+                107
+            ],
+            "down": [
+                137
+            ],
+            "left": [
+                47
+            ],
+            "right": [
+                21
+            ]
+        },
+        "125": {
+            "up": [
+                109,
+                174
+            ],
+            "down": [
+                42
+            ],
+            "left": [
+                21,
+                143
+            ],
+            "right": [
+                126,
+                146,
+                208
+            ]
+        },
+        "126": {
+            "up": [
+                110,
+                131
+            ],
+            "down": [
+                138
+            ],
+            "left": [
+                125,
+                145,
+                207
+            ],
+            "right": [
+                60,
+                102,
+                140,
+                215
+            ]
+        },
+        "127": {
+            "up": [
+                104,
+                206
+            ],
+            "down": [
+                139,
+                175
+            ],
+            "left": [
+                60,
+                148,
+                177,
+                183
+            ],
+            "right": [
+                42,
+                85
+            ]
+        },
+        "128": {
+            "up": [
+                66,
+                116
+            ],
+            "down": [
+                22,
+                113,
+                114,
+                144
+            ],
+            "left": [
+                4,
+                96,
+                97,
+                108
+            ],
+            "right": [
+                129
+            ]
+        },
+        "129": {
+            "up": [
+                25,
+                117
+            ],
+            "down": [
+                23
+            ],
+            "left": [
+                128
+            ],
+            "right": [
+                130
+            ]
+        },
+        "130": {
+            "up": [
+                11,
+                12,
+                39,
+                63,
+                118
+            ],
+            "down": [
+                142
+            ],
+            "left": [
+                129
+            ],
+            "right": [
+                3
+            ]
+        },
+        "131": {
+            "up": [
+                77
+            ],
+            "down": [
+                126,
+                146
+            ],
+            "left": [
+                109,
+                174,
+                202
+            ],
+            "right": [
+                94,
+                132,
+                165,
+                182
+            ]
+        },
+        "132": {
+            "up": [
+                120
+            ],
+            "down": [
+                102,
+                135,
+                140,
+                147
+            ],
+            "left": [
+                93,
+                131,
+                152,
+                181,
+                185,
+                189,
+                209,
+                210
+            ],
+            "right": [
+                133,
+                184,
+                204
+            ]
+        },
+        "133": {
+            "up": [
+                121
+            ],
+            "down": [
+                103,
+                148,
+                177,
+                214
+            ],
+            "left": [
+                132,
+                166
+            ],
+            "right": [
+                104,
+                122,
+                134,
+                167,
+                168,
+                179,
+                185,
+                190,
+                199
+            ]
+        },
+        "134": {
+            "up": [
+                122,
+                134,
+                161,
+                185,
+                186,
+                209,
+                210
+            ],
+            "down": [
+                134,
+                149,
+                167,
+                200
+            ],
+            "left": [
+                103,
+                111,
+                121,
+                133,
+                214
+            ],
+            "right": [
+                111,
+                135,
+                147,
+                162,
+                171
+            ]
+        },
+        "135": {
+            "up": [
+                85,
+                132,
+                135,
+                165,
+                171
+            ],
+            "down": [
+                102,
+                135,
+                140,
+                147
+            ],
+            "left": [
+                110,
+                134,
+                146,
+                149,
+                161,
+                175,
+                186,
+                192,
+                198
+            ],
+            "right": [
+                136,
+                150,
+                211,
+                213,
+                214
+            ]
+        },
+        "136": {
+            "up": [
+                123,
+                166,
+                184,
+                195,
+                211,
+                213
+            ],
+            "down": [
+                150
+            ],
+            "left": [
+                135,
+                173,
+                184,
+                193,
+                213
+            ],
+            "right": [
+                148,
+                176
+            ]
+        },
+        "137": {
+            "up": [
+                124
+            ],
+            "down": [
+                151
+            ],
+            "left": [
+                24,
+                50,
+                66,
+                98
+            ],
+            "right": [
+                41,
+                181
+            ]
+        },
+        "138": {
+            "up": [
+                126
+            ],
+            "down": [
+                152,
+                185
+            ],
+            "left": [
+                42,
+                86,
+                160
+            ],
+            "right": [
+                78,
+                120,
+                154
+            ]
+        },
+        "139": {
+            "up": [
+                127,
+                149,
+                152
+            ],
+            "down": [
+                153
+            ],
+            "left": [
+                78,
+                163,
+                188
+            ],
+            "right": [
+                60,
+                102,
+                140,
+                215
+            ]
+        },
+        "140": {
+            "up": [
+                85,
+                132,
+                135,
+                165,
+                171
+            ],
+            "down": [
+                154
+            ],
+            "left": [
+                59,
+                101,
+                126,
+                139,
+                167,
+                194,
+                200,
+                203,
+                212
+            ],
+            "right": [
+                141,
+                177
+            ]
+        },
+        "141": {
+            "up": [
+                123,
+                166,
+                184,
+                195,
+                211,
+                213
+            ],
+            "down": [
+                155
+            ],
+            "left": [
+                140,
+                176
+            ],
+            "right": [
+                103,
+                164,
+                193
+            ]
+        },
+        "142": {
+            "up": [
+                130
+            ],
+            "down": [
+                157,
+                169,
+                202
+            ],
+            "left": [
+                23
+            ],
+            "right": [
+                143
+            ]
+        },
+        "143": {
+            "up": [
+                3,
+                108
+            ],
+            "down": [
+                84,
+                158
+            ],
+            "left": [
+                142
+            ],
+            "right": [
+                22,
+                125,
+                144
+            ]
+        },
+        "144": {
+            "up": [
+                4,
+                97,
+                128
+            ],
+            "down": [
+                85,
+                159
+            ],
+            "left": [
+                21,
+                143
+            ],
+            "right": [
+                113,
+                114,
+                145
+            ]
+        },
+        "145": {
+            "up": [
+                109,
+                174
+            ],
+            "down": [
+                86,
+                160
+            ],
+            "left": [
+                112,
+                113,
+                144
+            ],
+            "right": [
+                126,
+                146,
+                208
+            ]
+        },
+        "146": {
+            "up": [
+                110,
+                131
+            ],
+            "down": [
+                161,
+                194
+            ],
+            "left": [
+                125,
+                145,
+                207
+            ],
+            "right": [
+                111,
+                135,
+                147,
+                162,
+                171
+            ]
+        },
+        "147": {
+            "up": [
+                85,
+                132,
+                135,
+                165,
+                171
+            ],
+            "down": [
+                162
+            ],
+            "left": [
+                110,
+                134,
+                146,
+                149,
+                161,
+                175,
+                186,
+                192,
+                198
+            ],
+            "right": [
+                148,
+                176
+            ]
+        },
+        "148": {
+            "up": [
+                86,
+                133,
+                172,
+                196,
+                214
+            ],
+            "down": [
+                163
+            ],
+            "left": [
+                136,
+                147,
+                204
+            ],
+            "right": [
+                61,
+                127,
+                149,
+                152,
+                178,
+                197,
+                200
+            ]
+        },
+        "149": {
+            "up": [
+                122,
+                134,
+                161,
+                185,
+                186,
+                209,
+                210
+            ],
+            "down": [
+                139,
+                175
+            ],
+            "left": [
+                60,
+                148,
+                177,
+                183
+            ],
+            "right": [
+                111,
+                135,
+                147,
+                162,
+                171
+            ]
+        },
+        "150": {
+            "up": [
+                136,
+                204
+            ],
+            "down": [
+                164,
+                211
+            ],
+            "left": [
+                135,
+                173,
+                184,
+                193,
+                213
+            ],
+            "right": [
+                163,
+                187
+            ]
+        },
+        "151": {
+            "up": [
+                137
+            ],
+            "down": [
+                76
+            ],
+            "left": [],
+            "right": [
+                59,
+                192
+            ]
+        },
+        "152": {
+            "up": [
+                138,
+                153,
+                199
+            ],
+            "down": [
+                139,
+                175
+            ],
+            "left": [
+                60,
+                148,
+                177,
+                183
+            ],
+            "right": [
+                94,
+                132,
+                165,
+                182
+            ]
+        },
+        "153": {
+            "up": [
+                139
+            ],
+            "down": [
+                152,
+                185
+            ],
+            "left": [
+                94,
+                172,
+                196,
+                216
+            ],
+            "right": [
+                78,
+                120,
+                154
+            ]
+        },
+        "154": {
+            "up": [
+                140
+            ],
+            "down": [
+                165
+            ],
+            "left": [
+                77,
+                138,
+                153,
+                170,
+                178,
+                199,
+                205,
+                208
+            ],
+            "right": [
+                155,
+                188
+            ]
+        },
+        "155": {
+            "up": [
+                141
+            ],
+            "down": [
+                166
+            ],
+            "left": [
+                154,
+                187
+            ],
+            "right": [
+                121,
+                173
+            ]
+        },
+        "156": {
+            "up": [
+                23,
+                73
+            ],
+            "down": [
+                168,
+                197
+            ],
+            "left": [
+                42,
+                86,
+                160
+            ],
+            "right": [
+                157
+            ]
+        },
+        "157": {
+            "up": [
+                142,
+                157,
+                191
+            ],
+            "down": [
+                157,
+                169,
+                202
+            ],
+            "left": [
+                156,
+                197
+            ],
+            "right": [
+                77,
+                84,
+                93,
+                101,
+                158,
+                198
+            ]
+        },
+        "158": {
+            "up": [
+                70,
+                143
+            ],
+            "down": [
+                77,
+                170
+            ],
+            "left": [
+                76,
+                83,
+                92,
+                157
+            ],
+            "right": [
+                159
+            ]
+        },
+        "159": {
+            "up": [
+                71,
+                105,
+                112,
+                144
+            ],
+            "down": [
+                120
+            ],
+            "left": [
+                158
+            ],
+            "right": [
+                160
+            ]
+        },
+        "160": {
+            "up": [
+                72,
+                114,
+                145
+            ],
+            "down": [
+                121
+            ],
+            "left": [
+                159
+            ],
+            "right": [
+                43,
+                87,
+                138,
+                156,
+                161,
+                194,
+                210
+            ]
+        },
+        "161": {
+            "up": [
+                146
+            ],
+            "down": [
+                134,
+                149,
+                167,
+                200
+            ],
+            "left": [
+                42,
+                86,
+                160
+            ],
+            "right": [
+                111,
+                135,
+                147,
+                162,
+                171
+            ]
+        },
+        "162": {
+            "up": [
+                147,
+                182
+            ],
+            "down": [
+                171,
+                215
+            ],
+            "left": [
+                110,
+                134,
+                146,
+                149,
+                161,
+                175,
+                186,
+                192,
+                198
+            ],
+            "right": [
+                163,
+                187
+            ]
+        },
+        "163": {
+            "up": [
+                148,
+                183
+            ],
+            "down": [
+                172,
+                216
+            ],
+            "left": [
+                150,
+                162
+            ],
+            "right": [
+                79,
+                139,
+                175,
+                189,
+                201,
+                205
+            ]
+        },
+        "164": {
+            "up": [
+                150
+            ],
+            "down": [
+                173
+            ],
+            "left": [
+                102,
+                141
+            ],
+            "right": [
+                172,
+                195
+            ]
+        },
+        "165": {
+            "up": [
+                154
+            ],
+            "down": [
+                102,
+                135,
+                140,
+                147
+            ],
+            "left": [
+                93,
+                131,
+                152,
+                181,
+                185,
+                189,
+                209,
+                210
+            ],
+            "right": [
+                166,
+                196
+            ]
+        },
+        "166": {
+            "up": [
+                155
+            ],
+            "down": [
+                136,
+                141,
+                176,
+                193,
+                213
+            ],
+            "left": [
+                165,
+                195
+            ],
+            "right": [
+                133,
+                184,
+                204
+            ]
+        },
+        "167": {
+            "up": [
+                122,
+                134,
+                161,
+                185,
+                186,
+                209,
+                210
+            ],
+            "down": [
+                178,
+                199
+            ],
+            "left": [
+                103,
+                111,
+                121,
+                133,
+                214
+            ],
+            "right": [
+                60,
+                102,
+                140,
+                215
+            ]
+        },
+        "168": {
+            "up": [
+                156,
+                190
+            ],
+            "down": [
+                61,
+                179
+            ],
+            "left": [
+                103,
+                111,
+                121,
+                133,
+                214
+            ],
+            "right": [
+                44,
+                169
+            ]
+        },
+        "169": {
+            "up": [
+                142,
+                157,
+                191
+            ],
+            "down": [
+                180
+            ],
+            "left": [
+                43,
+                168
+            ],
+            "right": [
+                170
+            ]
+        },
+        "170": {
+            "up": [
+                59,
+                101,
+                158
+            ],
+            "down": [
+                181
+            ],
+            "left": [
+                169
+            ],
+            "right": [
+                78,
+                120,
+                154
+            ]
+        },
+        "171": {
+            "up": [
+                162
+            ],
+            "down": [
+                102,
+                135,
+                140,
+                147
+            ],
+            "left": [
+                110,
+                134,
+                146,
+                149,
+                161,
+                175,
+                186,
+                192,
+                198
+            ],
+            "right": [
+                172,
+                195
+            ]
+        },
+        "172": {
+            "up": [
+                163
+            ],
+            "down": [
+                103,
+                148,
+                177,
+                214
+            ],
+            "left": [
+                164,
+                171,
+                211
+            ],
+            "right": [
+                95,
+                153,
+                186,
+                206,
+                209,
+                212
+            ]
+        },
+        "173": {
+            "up": [
+                164,
+                193
+            ],
+            "down": [
+                184,
+                204
+            ],
+            "left": [
+                120,
+                155
+            ],
+            "right": [
+                136,
+                150,
+                211,
+                213,
+                214
+            ]
+        },
+        "174": {
+            "up": [
+                76
+            ],
+            "down": [
+                125,
+                145
+            ],
+            "left": [
+                3
+            ],
+            "right": [
+                110,
+                131,
+                203
+            ]
+        },
+        "175": {
+            "up": [
+                127,
+                149,
+                152
+            ],
+            "down": [
+                186,
+                212
+            ],
+            "left": [
+                78,
+                163,
+                188
+            ],
+            "right": [
+                111,
+                135,
+                147,
+                162,
+                171
+            ]
+        },
+        "176": {
+            "up": [
+                123,
+                166,
+                184,
+                195,
+                211,
+                213
+            ],
+            "down": [
+                187
+            ],
+            "left": [
+                136,
+                147,
+                204
+            ],
+            "right": [
+                141,
+                177
+            ]
+        },
+        "177": {
+            "up": [
+                86,
+                133,
+                172,
+                196,
+                214
+            ],
+            "down": [
+                188
+            ],
+            "left": [
+                140,
+                176
+            ],
+            "right": [
+                61,
+                127,
+                149,
+                152,
+                178,
+                197,
+                200
+            ]
+        },
+        "178": {
+            "up": [
+                167,
+                194,
+                212
+            ],
+            "down": [
+                189
+            ],
+            "left": [
+                60,
+                148,
+                177,
+                183
+            ],
+            "right": [
+                78,
+                120,
+                154
+            ]
+        },
+        "179": {
+            "up": [
+                43,
+                168
+            ],
+            "down": [
+                190
+            ],
+            "left": [
+                103,
+                111,
+                121,
+                133,
+                214
+            ],
+            "right": [
+                62,
+                180
+            ]
+        },
+        "180": {
+            "up": [
+                169
+            ],
+            "down": [
+                191
+            ],
+            "left": [
+                61,
+                179
+            ],
+            "right": [
+                41,
+                181
+            ]
+        },
+        "181": {
+            "up": [
+                170
+            ],
+            "down": [
+                59,
+                192
+            ],
+            "left": [
+                40,
+                137,
+                180
+            ],
+            "right": [
+                94,
+                132,
+                165,
+                182
+            ]
+        },
+        "182": {
+            "up": [
+                120
+            ],
+            "down": [
+                162
+            ],
+            "left": [
+                93,
+                131,
+                152,
+                181,
+                185,
+                189,
+                209,
+                210
+            ],
+            "right": [
+                183
+            ]
+        },
+        "183": {
+            "up": [
+                121
+            ],
+            "down": [
+                163
+            ],
+            "left": [
+                182
+            ],
+            "right": [
+                61,
+                127,
+                149,
+                152,
+                178,
+                197,
+                200
+            ]
+        },
+        "184": {
+            "up": [
+                173
+            ],
+            "down": [
+                136,
+                141,
+                176,
+                193,
+                213
+            ],
+            "left": [
+                132,
+                166
+            ],
+            "right": [
+                136,
+                150,
+                211,
+                213,
+                214
+            ]
+        },
+        "185": {
+            "up": [
+                138,
+                153,
+                199
+            ],
+            "down": [
+                134,
+                149,
+                167,
+                200
+            ],
+            "left": [
+                103,
+                111,
+                121,
+                133,
+                214
+            ],
+            "right": [
+                94,
+                132,
+                165,
+                182
+            ]
+        },
+        "186": {
+            "up": [
+                175,
+                189
+            ],
+            "down": [
+                134,
+                149,
+                167,
+                200
+            ],
+            "left": [
+                94,
+                172,
+                196,
+                216
+            ],
+            "right": [
+                111,
+                135,
+                147,
+                162,
+                171
+            ]
+        },
+        "187": {
+            "up": [
+                176
+            ],
+            "down": [
+                195
+            ],
+            "left": [
+                150,
+                162
+            ],
+            "right": [
+                155,
+                188
+            ]
+        },
+        "188": {
+            "up": [
+                177
+            ],
+            "down": [
+                196
+            ],
+            "left": [
+                154,
+                187
+            ],
+            "right": [
+                79,
+                139,
+                175,
+                189,
+                201,
+                205
+            ]
+        },
+        "189": {
+            "up": [
+                178
+            ],
+            "down": [
+                186,
+                212
+            ],
+            "left": [
+                78,
+                163,
+                188
+            ],
+            "right": [
+                94,
+                132,
+                165,
+                182
+            ]
+        },
+        "190": {
+            "up": [
+                179
+            ],
+            "down": [
+                168,
+                197
+            ],
+            "left": [
+                103,
+                111,
+                121,
+                133,
+                214
+            ],
+            "right": [
+                80,
+                191
+            ]
+        },
+        "191": {
+            "up": [
+                180
+            ],
+            "down": [
+                157,
+                169,
+                202
+            ],
+            "left": [
+                79,
+                190
+            ],
+            "right": [
+                59,
+                192
+            ]
+        },
+        "192": {
+            "up": [
+                41,
+                181
+            ],
+            "down": [
+                101,
+                110,
+                198,
+                203
+            ],
+            "left": [
+                58,
+                151,
+                191
+            ],
+            "right": [
+                111,
+                135,
+                147,
+                162,
+                171
+            ]
+        },
+        "193": {
+            "up": [
+                123,
+                166,
+                184,
+                195,
+                211,
+                213
+            ],
+            "down": [
+                173
+            ],
+            "left": [
+                102,
+                141
+            ],
+            "right": [
+                136,
+                150,
+                211,
+                213,
+                214
+            ]
+        },
+        "194": {
+            "up": [
+                146
+            ],
+            "down": [
+                178,
+                199
+            ],
+            "left": [
+                42,
+                86,
+                160
+            ],
+            "right": [
+                60,
+                102,
+                140,
+                215
+            ]
+        },
+        "195": {
+            "up": [
+                187
+            ],
+            "down": [
+                136,
+                141,
+                176,
+                193,
+                213
+            ],
+            "left": [
+                164,
+                171,
+                211
+            ],
+            "right": [
+                166,
+                196
+            ]
+        },
+        "196": {
+            "up": [
+                188
+            ],
+            "down": [
+                103,
+                148,
+                177,
+                214
+            ],
+            "left": [
+                165,
+                195
+            ],
+            "right": [
+                95,
+                153,
+                186,
+                206,
+                209,
+                212
+            ]
+        },
+        "197": {
+            "up": [
+                156,
+                190
+            ],
+            "down": [
+                201
+            ],
+            "left": [
+                60,
+                148,
+                177,
+                183
+            ],
+            "right": [
+                157
+            ]
+        },
+        "198": {
+            "up": [
+                84,
+                93,
+                192,
+                198
+            ],
+            "down": [
+                101,
+                110,
+                198,
+                203
+            ],
+            "left": [
+                76,
+                83,
+                92,
+                157
+            ],
+            "right": [
+                111,
+                135,
+                147,
+                162,
+                171
+            ]
+        },
+        "199": {
+            "up": [
+                167,
+                194,
+                212
+            ],
+            "down": [
+                152,
+                185
+            ],
+            "left": [
+                103,
+                111,
+                121,
+                133,
+                214
+            ],
+            "right": [
+                78,
+                120,
+                154
+            ]
+        },
+        "200": {
+            "up": [
+                122,
+                134,
+                161,
+                185,
+                186,
+                209,
+                210
+            ],
+            "down": [
+                205
+            ],
+            "left": [
+                60,
+                148,
+                177,
+                183
+            ],
+            "right": [
+                60,
+                102,
+                140,
+                215
+            ]
+        },
+        "201": {
+            "up": [
+                197
+            ],
+            "down": [
+                206
+            ],
+            "left": [
+                78,
+                163,
+                188
+            ],
+            "right": [
+                88,
+                96,
+                202
+            ]
+        },
+        "202": {
+            "up": [
+                142,
+                157,
+                191
+            ],
+            "down": [
+                207
+            ],
+            "left": [
+                87,
+                95,
+                201
+            ],
+            "right": [
+                110,
+                131,
+                203
+            ]
+        },
+        "203": {
+            "up": [
+                84,
+                93,
+                192,
+                198
+            ],
+            "down": [
+                208
+            ],
+            "left": [
+                109,
+                174,
+                202
+            ],
+            "right": [
+                60,
+                102,
+                140,
+                215
+            ]
+        },
+        "204": {
+            "up": [
+                173
+            ],
+            "down": [
+                150
+            ],
+            "left": [
+                132,
+                166
+            ],
+            "right": [
+                148,
+                176
+            ]
+        },
+        "205": {
+            "up": [
+                200
+            ],
+            "down": [
+                209
+            ],
+            "left": [
+                78,
+                163,
+                188
+            ],
+            "right": [
+                78,
+                120,
+                154
+            ]
+        },
+        "206": {
+            "up": [
+                201
+            ],
+            "down": [
+                122,
+                127
+            ],
+            "left": [
+                94,
+                172,
+                196,
+                216
+            ],
+            "right": [
+                105,
+                112,
+                207
+            ]
+        },
+        "207": {
+            "up": [
+                202
+            ],
+            "down": [
+                42
+            ],
+            "left": [
+                104,
+                206
+            ],
+            "right": [
+                126,
+                146,
+                208
+            ]
+        },
+        "208": {
+            "up": [
+                203
+            ],
+            "down": [
+                210
+            ],
+            "left": [
+                125,
+                145,
+                207
+            ],
+            "right": [
+                78,
+                120,
+                154
+            ]
+        },
+        "209": {
+            "up": [
+                205
+            ],
+            "down": [
+                134,
+                149,
+                167,
+                200
+            ],
+            "left": [
+                94,
+                172,
+                196,
+                216
+            ],
+            "right": [
+                94,
+                132,
+                165,
+                182
+            ]
+        },
+        "210": {
+            "up": [
+                208
+            ],
+            "down": [
+                134,
+                149,
+                167,
+                200
+            ],
+            "left": [
+                42,
+                86,
+                160
+            ],
+            "right": [
+                94,
+                132,
+                165,
+                182
+            ]
+        },
+        "211": {
+            "up": [
+                150
+            ],
+            "down": [
+                136,
+                141,
+                176,
+                193,
+                213
+            ],
+            "left": [
+                135,
+                173,
+                184,
+                193,
+                213
+            ],
+            "right": [
+                172,
+                195
+            ]
+        },
+        "212": {
+            "up": [
+                175,
+                189
+            ],
+            "down": [
+                178,
+                199
+            ],
+            "left": [
+                94,
+                172,
+                196,
+                216
+            ],
+            "right": [
+                60,
+                102,
+                140,
+                215
+            ]
+        },
+        "213": {
+            "up": [
+                123,
+                166,
+                184,
+                195,
+                211,
+                213
+            ],
+            "down": [
+                136,
+                141,
+                176,
+                193,
+                213
+            ],
+            "left": [
+                135,
+                173,
+                184,
+                193,
+                213
+            ],
+            "right": [
+                136,
+                150,
+                211,
+                213,
+                214
+            ]
+        },
+        "214": {
+            "up": [
+                86,
+                133,
+                172,
+                196,
+                214
+            ],
+            "down": [
+                103,
+                148,
+                177,
+                214
+            ],
+            "left": [
+                135,
+                173,
+                184,
+                193,
+                213
+            ],
+            "right": [
+                104,
+                122,
+                134,
+                167,
+                168,
+                179,
+                185,
+                190,
+                199
+            ]
+        },
+        "215": {
+            "up": [
+                162
+            ],
+            "down": [
+                120
+            ],
+            "left": [
+                59,
+                101,
+                126,
+                139,
+                167,
+                194,
+                200,
+                203,
+                212
+            ],
+            "right": [
+                216
+            ]
+        },
+        "216": {
+            "up": [
+                163
+            ],
+            "down": [
+                121
+            ],
+            "left": [
+                215
+            ],
+            "right": [
+                95,
+                153,
+                186,
+                206,
+                209,
+                212
+            ]
+        }
+    }
+}

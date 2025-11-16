@@ -5,8 +5,8 @@ import { Direction } from "../../src/scripts/Utilities"
 
 // --- CONFIGURAÇÃO ---
 const INPUT_IMAGE_PATH = './tools/TilesetBuilder/input/input-map.png';
-const SKELETON_PATH = './tools/TilesetBuilder/skeletons/Skeleton_Tileset_Streets.json';
-const OUTPUT_JSON_PATH = './tools/TilesetBuilder/output/Generated_Street_Tileset.json';
+const SKELETON_PATH = './tools/TilesetBuilder/skeletons/Skeleton_Tileset_Colors.json';
+const OUTPUT_JSON_PATH = './tools/TilesetBuilder/output/Generated_Tileset.json';
 // --------------------
 
 // --- CONSTANTES ---

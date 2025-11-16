@@ -64,7 +64,7 @@ export class Scene{
         this.player = new Player(scene, 10,10,-15);
         this.camera = new Camera(scene, this.player, false);
 
-        this.wfc = new WFCSimpleTiled(scene, 11, 10, 'generate_Street', this.player);
+        this.wfc = new WFCSimpleTiled(scene, 11, 10, 'generate_skyscrapers', this.player);
         await this.wfc.Initialize();
         
         scene.onBeforeRenderObservable.add(() => {
@@ -106,7 +106,7 @@ export class Scene{
         // this.player = new Player(scene, 10,10,-15);
         this.camera = new Camera(scene, null, false);
 
-        this.wfc = new WFCOverlapping(scene, 15, 6, 'generate_Pattern_Flowers', null); // 15 6
+        this.wfc = new WFCOverlapping(scene, 19, 6, 'generate_pattern_skyscrapers', null);
         await this.wfc.Initialize();
         
         scene.onBeforeRenderObservable.add(() => {

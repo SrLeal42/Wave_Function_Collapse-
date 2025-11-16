@@ -1,0 +1,70 @@
+{
+    "name": "Colors",
+    "legend": {
+      "#00FF00": "green",
+      "#FF0000": "red",
+      "#FFFFFF": "white",
+      "#009000": "darkGreen",
+      "#000000": "black",
+      "#00FFFF": "ciano",
+      "#FFFF00": "yellow",
+      "#FF00FF": "pink",
+      "#0000FF": "blue"
+    },
+    "tiles": [
+      {
+        "id": "green", 
+        "matKey": "greenUnlit",
+        "modelKey": "greenUnlit",
+        "height": 0
+      },
+      {
+        "id": "red", 
+        "matKey": "redUnlit",
+        "modelKey": "redUnlit",
+        "height": 0
+      },
+      {
+        "id": "white", 
+        "matKey": "whiteUnlit",
+        "modelKey": "whiteUnlit",
+        "height": 0
+      },
+      {
+        "id": "darkGreen", 
+        "matKey": "darkGreenUnlit",
+        "modelKey": "darkGreenUnlit",
+        "height": 0
+      },
+      {
+        "id": "black", 
+        "matKey": "blackUnlit",
+        "modelKey": "blackUnlit",
+        "height": 0
+      },
+      {
+        "id": "ciano", 
+        "matKey": "cianoUnlit",
+        "modelKey": "cianoUnlit",
+        "height": 0
+      },
+      {
+        "id": "yellow", 
+        "matKey": "yellowUnlit",
+        "modelKey": "yellowUnlit",
+        "height": 0
+      },
+      {
+        "id": "pink",
+        "matKey": "pinkUnlit",
+        "modelKey": "pinkUnlit",
+        "height": 0
+      },
+      {
+        "id": "blue",
+        "matKey": "blueUnlit",
+        "modelKey": "blueUnlit",
+        "height": 0
+      }
+    ]
+}

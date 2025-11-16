@@ -1,0 +1,953 @@
+{
+    "name": "Colors",
+    "N": 3,
+    "tileLegend": {
+        "green": {
+            "matKey": "greenUnlit",
+            "modelKey": "greenUnlit",
+            "height": 0
+        },
+        "red": {
+            "matKey": "redUnlit",
+            "modelKey": "redUnlit",
+            "height": 0
+        },
+        "white": {
+            "matKey": "whiteUnlit",
+            "modelKey": "whiteUnlit",
+            "height": 0
+        },
+        "darkGreen": {
+            "matKey": "darkGreenUnlit",
+            "modelKey": "darkGreenUnlit",
+            "height": 0
+        },
+        "black": {
+            "matKey": "blackUnlit",
+            "modelKey": "blackUnlit",
+            "height": 0
+        },
+        "ciano": {
+            "matKey": "cianoUnlit",
+            "modelKey": "cianoUnlit",
+            "height": 0
+        },
+        "yellow": {
+            "matKey": "yellowUnlit",
+            "modelKey": "yellowUnlit",
+            "height": 0
+        },
+        "pink": {
+            "matKey": "pinkUnlit",
+            "modelKey": "pinkUnlit",
+            "height": 0
+        },
+        "blue": {
+            "matKey": "blueUnlit",
+            "modelKey": "blueUnlit",
+            "height": 0
+        }
+    },
+    "idMap": {
+        "[[\"black\",\"black\",\"black\"],[\"black\",\"black\",\"black\"],[\"black\",\"black\",\"black\"]]": 0,
+        "[[\"black\",\"black\",\"black\"],[\"black\",\"black\",\"black\"],[\"black\",\"black\",\"white\"]]": 1,
+        "[[\"black\",\"black\",\"black\"],[\"black\",\"black\",\"white\"],[\"black\",\"white\",\"black\"]]": 2,
+        "[[\"black\",\"black\",\"white\"],[\"black\",\"white\",\"black\"],[\"white\",\"black\",\"black\"]]": 3,
+        "[[\"black\",\"white\",\"black\"],[\"white\",\"black\",\"black\"],[\"black\",\"black\",\"black\"]]": 4,
+        "[[\"white\",\"black\",\"black\"],[\"black\",\"black\",\"black\"],[\"black\",\"black\",\"black\"]]": 5,
+        "[[\"black\",\"black\",\"black\"],[\"black\",\"black\",\"black\"],[\"white\",\"black\",\"black\"]]": 6,
+        "[[\"black\",\"black\",\"black\"],[\"white\",\"black\",\"black\"],[\"black\",\"white\",\"black\"]]": 7,
+        "[[\"white\",\"black\",\"black\"],[\"black\",\"white\",\"black\"],[\"black\",\"black\",\"white\"]]": 8,
+        "[[\"black\",\"white\",\"black\"],[\"black\",\"black\",\"white\"],[\"black\",\"black\",\"black\"]]": 9,
+        "[[\"black\",\"black\",\"white\"],[\"black\",\"black\",\"black\"],[\"black\",\"black\",\"black\"]]": 10,
+        "[[\"black\",\"black\",\"black\"],[\"black\",\"black\",\"black\"],[\"white\",\"black\",\"white\"]]": 11,
+        "[[\"black\",\"black\",\"black\"],[\"white\",\"black\",\"white\"],[\"black\",\"white\",\"black\"]]": 12,
+        "[[\"black\",\"black\",\"white\"],[\"black\",\"black\",\"black\"],[\"black\",\"black\",\"white\"]]": 13,
+        "[[\"black\",\"white\",\"black\"],[\"black\",\"black\",\"white\"],[\"black\",\"white\",\"black\"]]": 14,
+        "[[\"white\",\"black\",\"white\"],[\"black\",\"white\",\"black\"],[\"white\",\"black\",\"black\"]]": 15,
+        "[[\"white\",\"black\",\"black\"],[\"black\",\"black\",\"black\"],[\"black\",\"black\",\"white\"]]": 16,
+        "[[\"black\",\"black\",\"black\"],[\"black\",\"black\",\"black\"],[\"black\",\"white\",\"black\"]]": 17,
+        "[[\"black\",\"black\",\"black\"],[\"black\",\"white\",\"black\"],[\"white\",\"black\",\"white\"]]": 18,
+        "[[\"black\",\"white\",\"black\"],[\"white\",\"black\",\"white\"],[\"black\",\"black\",\"black\"]]": 19,
+        "[[\"white\",\"black\",\"white\"],[\"black\",\"black\",\"black\"],[\"black\",\"black\",\"black\"]]": 20,
+        "[[\"white\",\"black\",\"white\"],[\"black\",\"white\",\"black\"],[\"black\",\"black\",\"white\"]]": 21,
+        "[[\"black\",\"white\",\"black\"],[\"white\",\"black\",\"black\"],[\"black\",\"white\",\"black\"]]": 22,
+        "[[\"white\",\"black\",\"black\"],[\"black\",\"black\",\"black\"],[\"white\",\"black\",\"black\"]]": 23
+    },
+    "patternData": [
+        [
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "black"
+            ]
+        ],
+        [
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "white"
+            ]
+        ],
+        [
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "white"
+            ],
+            [
+                "black",
+                "white",
+                "black"
+            ]
+        ],
+        [
+            [
+                "black",
+                "black",
+                "white"
+            ],
+            [
+                "black",
+                "white",
+                "black"
+            ],
+            [
+                "white",
+                "black",
+                "black"
+            ]
+        ],
+        [
+            [
+                "black",
+                "white",
+                "black"
+            ],
+            [
+                "white",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "black"
+            ]
+        ],
+        [
+            [
+                "white",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "black"
+            ]
+        ],
+        [
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "white",
+                "black",
+                "black"
+            ]
+        ],
+        [
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "white",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "white",
+                "black"
+            ]
+        ],
+        [
+            [
+                "white",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "white",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "white"
+            ]
+        ],
+        [
+            [
+                "black",
+                "white",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "white"
+            ],
+            [
+                "black",
+                "black",
+                "black"
+            ]
+        ],
+        [
+            [
+                "black",
+                "black",
+                "white"
+            ],
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "black"
+            ]
+        ],
+        [
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "white",
+                "black",
+                "white"
+            ]
+        ],
+        [
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "white",
+                "black",
+                "white"
+            ],
+            [
+                "black",
+                "white",
+                "black"
+            ]
+        ],
+        [
+            [
+                "black",
+                "black",
+                "white"
+            ],
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "white"
+            ]
+        ],
+        [
+            [
+                "black",
+                "white",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "white"
+            ],
+            [
+                "black",
+                "white",
+                "black"
+            ]
+        ],
+        [
+            [
+                "white",
+                "black",
+                "white"
+            ],
+            [
+                "black",
+                "white",
+                "black"
+            ],
+            [
+                "white",
+                "black",
+                "black"
+            ]
+        ],
+        [
+            [
+                "white",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "white"
+            ]
+        ],
+        [
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "white",
+                "black"
+            ]
+        ],
+        [
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "white",
+                "black"
+            ],
+            [
+                "white",
+                "black",
+                "white"
+            ]
+        ],
+        [
+            [
+                "black",
+                "white",
+                "black"
+            ],
+            [
+                "white",
+                "black",
+                "white"
+            ],
+            [
+                "black",
+                "black",
+                "black"
+            ]
+        ],
+        [
+            [
+                "white",
+                "black",
+                "white"
+            ],
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "black"
+            ]
+        ],
+        [
+            [
+                "white",
+                "black",
+                "white"
+            ],
+            [
+                "black",
+                "white",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "white"
+            ]
+        ],
+        [
+            [
+                "black",
+                "white",
+                "black"
+            ],
+            [
+                "white",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "white",
+                "black"
+            ]
+        ],
+        [
+            [
+                "white",
+                "black",
+                "black"
+            ],
+            [
+                "black",
+                "black",
+                "black"
+            ],
+            [
+                "white",
+                "black",
+                "black"
+            ]
+        ]
+    ],
+    "weights": [
+        100,
+        21,
+        31,
+        32,
+        31,
+        22,
+        12,
+        12,
+        12,
+        10,
+        8,
+        2,
+        2,
+        1,
+        1,
+        1,
+        9,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+    ],
+    "rules": {
+        "0": {
+            "up": [
+                0,
+                5,
+                10,
+                20
+            ],
+            "down": [
+                0,
+                1,
+                6,
+                11,
+                17
+            ],
+            "left": [
+                0,
+                5,
+                6,
+                23
+            ],
+            "right": [
+                0,
+                1,
+                10,
+                13
+            ]
+        },
+        "1": {
+            "up": [
+                0,
+                5,
+                10,
+                20
+            ],
+            "down": [
+                2
+            ],
+            "left": [
+                0,
+                5,
+                6,
+                23
+            ],
+            "right": [
+                2,
+                17
+            ]
+        },
+        "2": {
+            "up": [
+                1,
+                13,
+                16
+            ],
+            "down": [
+                3
+            ],
+            "left": [
+                1,
+                11,
+                16
+            ],
+            "right": [
+                3,
+                18
+            ]
+        },
+        "3": {
+            "up": [
+                2,
+                14
+            ],
+            "down": [
+                4,
+                22
+            ],
+            "left": [
+                2,
+                12
+            ],
+            "right": [
+                4,
+                19
+            ]
+        },
+        "4": {
+            "up": [
+                3,
+                15
+            ],
+            "down": [
+                5,
+                16,
+                23
+            ],
+            "left": [
+                3,
+                15
+            ],
+            "right": [
+                5,
+                16,
+                20
+            ]
+        },
+        "5": {
+            "up": [
+                4
+            ],
+            "down": [
+                0,
+                1,
+                6,
+                11,
+                17
+            ],
+            "left": [
+                4
+            ],
+            "right": [
+                0,
+                1,
+                10,
+                13
+            ]
+        },
+        "6": {
+            "up": [
+                0,
+                5,
+                10,
+                20
+            ],
+            "down": [
+                7
+            ],
+            "left": [
+                7,
+                17
+            ],
+            "right": [
+                0,
+                1,
+                10,
+                13
+            ]
+        },
+        "7": {
+            "up": [
+                6,
+                23
+            ],
+            "down": [
+                8
+            ],
+            "left": [
+                8,
+                18
+            ],
+            "right": [
+                6,
+                11
+            ]
+        },
+        "8": {
+            "up": [
+                7,
+                22
+            ],
+            "down": [
+                9,
+                14
+            ],
+            "left": [
+                9,
+                19
+            ],
+            "right": [
+                7,
+                12
+            ]
+        },
+        "9": {
+            "up": [
+                8,
+                21
+            ],
+            "down": [
+                10,
+                13
+            ],
+            "left": [
+                10,
+                20
+            ],
+            "right": [
+                8,
+                21
+            ]
+        },
+        "10": {
+            "up": [
+                9
+            ],
+            "down": [
+                0,
+                1,
+                6,
+                11,
+                17
+            ],
+            "left": [
+                0,
+                5,
+                6,
+                23
+            ],
+            "right": [
+                9
+            ]
+        },
+        "11": {
+            "up": [
+                0,
+                5,
+                10,
+                20
+            ],
+            "down": [
+                12
+            ],
+            "left": [
+                7,
+                17
+            ],
+            "right": [
+                2,
+                17
+            ]
+        },
+        "12": {
+            "up": [
+                11
+            ],
+            "down": [
+                15,
+                21
+            ],
+            "left": [
+                8,
+                18
+            ],
+            "right": [
+                3,
+                18
+            ]
+        },
+        "13": {
+            "up": [
+                9
+            ],
+            "down": [
+                2
+            ],
+            "left": [
+                0,
+                5,
+                6,
+                23
+            ],
+            "right": [
+                14
+            ]
+        },
+        "14": {
+            "up": [
+                8,
+                21
+            ],
+            "down": [
+                3
+            ],
+            "left": [
+                13
+            ],
+            "right": [
+                15
+            ]
+        },
+        "15": {
+            "up": [
+                12
+            ],
+            "down": [
+                4,
+                22
+            ],
+            "left": [
+                14
+            ],
+            "right": [
+                4,
+                19
+            ]
+        },
+        "16": {
+            "up": [
+                4
+            ],
+            "down": [
+                2
+            ],
+            "left": [
+                4
+            ],
+            "right": [
+                2,
+                17
+            ]
+        },
+        "17": {
+            "up": [
+                0,
+                5,
+                10,
+                20
+            ],
+            "down": [
+                18
+            ],
+            "left": [
+                1,
+                11,
+                16
+            ],
+            "right": [
+                6,
+                11
+            ]
+        },
+        "18": {
+            "up": [
+                17
+            ],
+            "down": [
+                19
+            ],
+            "left": [
+                2,
+                12
+            ],
+            "right": [
+                7,
+                12
+            ]
+        },
+        "19": {
+            "up": [
+                18
+            ],
+            "down": [
+                20
+            ],
+            "left": [
+                3,
+                15
+            ],
+            "right": [
+                8,
+                21
+            ]
+        },
+        "20": {
+            "up": [
+                19
+            ],
+            "down": [
+                0,
+                1,
+                6,
+                11,
+                17
+            ],
+            "left": [
+                4
+            ],
+            "right": [
+                9
+            ]
+        },
+        "21": {
+            "up": [
+                12
+            ],
+            "down": [
+                9,
+                14
+            ],
+            "left": [
+                9,
+                19
+            ],
+            "right": [
+                22
+            ]
+        },
+        "22": {
+            "up": [
+                3,
+                15
+            ],
+            "down": [
+                8
+            ],
+            "left": [
+                21
+            ],
+            "right": [
+                23
+            ]
+        },
+        "23": {
+            "up": [
+                4
+            ],
+            "down": [
+                7
+            ],
+            "left": [
+                22
+            ],
+            "right": [
+                0,
+                1,
+                10,
+                13
+            ]
+        }
+    }
+}
