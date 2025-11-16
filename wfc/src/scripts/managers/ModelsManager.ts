@@ -3,97 +3,112 @@ import "@babylonjs/loaders/glTF";
 
 import { MaterialInstance } from './MaterialManager';
 
+import { MaterialsModelsConfig } from '../interfaces/MaterialsModelsConfig';
+
 export class ModelsManager{
 
     public scene? : B.Scene;
 
-    public modelsMap = new Map<string, B.AbstractMesh[]>();
+    public modelsMap = new Map<string, B.AbstractMesh>();
+
+    // Armazena os modelos base carregados do disco (sem material)
+    private rawMeshesMap = new Map<string, B.AbstractMesh>();
 
     private isInitialized = false;
 
 
     
-    public async Initialize(scene: B.Scene) : Promise<void> {
+    public async Initialize(scene: B.Scene, configPath: string) : Promise<void> {
         
         if(this.isInitialized)
             return;
 
         this.scene = scene;
 
-        await MaterialInstance.Initialize(scene);
+        if (!MaterialInstance.IsInitialized())
+            await MaterialInstance.Initialize(scene, configPath);
 
-        await this.LoadModel("defaultUnlit", "./assets/models/street/", "fundo.glb", "defaultUnlit");
+        const response = await fetch(configPath);
+        const config: MaterialsModelsConfig = await response.json();
 
-        // --- GRASSLAND
-        await this.LoadModel("grassUnlit", "./assets/models/street/", "fundo.glb", "grassUnlit");
-        await this.LoadModel("grassWetUnlit", "./assets/models/street/", "fundo.glb", "grassWetUnlit");
-        await this.LoadModel("waterUnlit", "./assets/models/street/", "fundo.glb", "waterUnlit");
-        await this.LoadModel("sandUnlit", "./assets/models/street/", "fundo.glb", "sandUnlit");
-        await this.LoadModel("stoneUnlit", "./assets/models/street/", "fundo.glb", "stoneUnlit");
-        await this.LoadModel("lowMountainUnlit", "./assets/models/street/", "fundo.glb", "lowMountainUnlit");
-        await this.LoadModel("highMountainUnlit", "./assets/models/street/", "fundo.glb", "highMountainUnlit");
-        await this.LoadModel("snowUnlit", "./assets/models/street/", "fundo.glb", "snowUnlit");
+        for (const modelConfig of config.models) {
+            await this.LoadRawModel(modelConfig.key, modelConfig.path, modelConfig.file);
+        }
 
-        // --- STREET
-        await this.LoadModel("fundo", "./assets/models/street/", "fundo.glb", "fundoUnlit");
-        await this.LoadModel("verticalStraightStreet", "./assets/models/street/", "fundo.glb", "verticalStraightStreetUnlit");
-        await this.LoadModel("horizontalStraightStreet", "./assets/models/street/", "fundo.glb", "horizontalStraightStreetUnlit");
-        await this.LoadModel("rightUpStreet", "./assets/models/street/", "fundo.glb", "rightUpStreetUnlit");
-        await this.LoadModel("rightDownStreet", "./assets/models/street/", "fundo.glb", "rightDownStreetUnlit");
-        await this.LoadModel("leftUpStreet", "./assets/models/street/", "fundo.glb", "leftUpStreetUnlit");
-        await this.LoadModel("leftDownStreet", "./assets/models/street/", "fundo.glb", "leftDownStreetUnlit");
-        await this.LoadModel("crossStreet", "./assets/models/street/", "fundo.glb", "crossStreetUnlit");
 
-        // --- FLOWERS
-        await this.LoadModel("greenUnlit", "./assets/models/street/", "fundo.glb", "greenUnlit");
-        await this.LoadModel("whiteUnlit", "./assets/models/street/", "fundo.glb", "whiteUnlit");
-        await this.LoadModel("redUnlit", "./assets/models/street/", "fundo.glb", "redUnlit");
-        await this.LoadModel("darkGreenUnlit", "./assets/models/street/", "fundo.glb", "darkGreenUnlit");
+        for (const prefabConfig of config.prefabs) {
+            
+            const rawRoot = this.rawMeshesMap.get(prefabConfig.modelKey);
+            if (!rawRoot) {
+                console.warn(`Modelo base "${prefabConfig.modelKey}" não encontrado para o prefab "${prefabConfig.key}"`);
+                continue;
+            }
+
+            const mat = MaterialInstance.GetMaterial(prefabConfig.materialKey);
+            if (!mat) {
+                console.warn(`Material "${prefabConfig.materialKey}" não encontrado para o prefab "${prefabConfig.key}"`);
+                continue;
+            }
+
+            const templateRoot = rawRoot.clone(prefabConfig.key + "_Template", null, false)!;
+
+            templateRoot.getChildMeshes(false).forEach(mesh => {
+                mesh.material = mat;
+            });
+
+            if (templateRoot instanceof B.Mesh) 
+                templateRoot.material = mat;
+
+            templateRoot.setEnabled(false);
+            
+            this.modelsMap.set(prefabConfig.key, templateRoot);
+        }
  
         this.isInitialized = true;
 
     }
 
 
-    // Carrega uma vez e salva no Map
-    public async LoadModel(key: string, path: string, file: string, matKey: string): Promise<void> {
+    private async LoadRawModel(key: string, path: string, file: string): Promise<void> {
+        if (this.rawMeshesMap.has(key)) return;
 
-        if (this.modelsMap.has(key)) return;
+        try {
+            const result = await B.SceneLoader.ImportMeshAsync("", path, file, this.scene);
+            
+            const root = result.meshes[0];
+            root.name = key + "_RawRoot";
+            
+            root.setEnabled(false);
 
-        const result = await B.SceneLoader.ImportMeshAsync("", path, file, this.scene);
-
-        // O resultado pode ter vários meshes (hierarquia)
-        this.modelsMap.set(key, result.meshes);
-
-        // Opcional: deixa o original invisível
-        // result.meshes.forEach(m => m.setEnabled(false));
-
-        const mat = MaterialInstance.GetMaterial(matKey)
-
-        result.meshes.forEach(m => m.material = mat);
-
+            this.rawMeshesMap.set(key, root);
+            
+        } catch (e) {
+            console.error(`Falha ao carregar modelo base: ${key} de ${path + file}`, e);
+        }
     }
 
-    // Retorna uma cópia do modelo para usar na cena
     public CreateInstance(key: string, name: string = key): B.TransformNode | null {
-        const originalMeshes = this.modelsMap.get(key);
+        const templateRoot = this.modelsMap.get(key);
 
-        if (!originalMeshes) {
-            console.warn(`Modelo "${key}" não está carregado!`);
+        if (!templateRoot) {
+            console.warn(`Template (prefab) "${key}" não está carregado!`);
             return null;
         }
 
-        // Instancia mais leve que clone
-        const root = new B.TransformNode(name, this.scene);
-
-        originalMeshes.forEach((mesh) => {
-            const instance = mesh.instantiateHierarchy()!;
-            instance.parent = root;
+        const instanceRoot = templateRoot.instantiateHierarchy(undefined, undefined, (source, clone) => {
+            clone.name = name;
         });
 
-        root.setEnabled(true);
+        // console.log(instanceRoot)
 
-        return root;
+        if (!instanceRoot) {
+            console.warn(`Falha ao instanciar "${key}"`);
+            return null;
+        }
+        
+        instanceRoot.setEnabled(true);
+
+       return instanceRoot as B.TransformNode;
     }
 
 }

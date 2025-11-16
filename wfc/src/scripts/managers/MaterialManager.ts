@@ -1,5 +1,7 @@
 import * as B from '@babylonjs/core';
 
+// import { MaterialConfig } from '../interfaces/MaterialConfig';
+import { MaterialsModelsConfig } from '../interfaces/MaterialsModelsConfig';
 
 export class MaterialManager{
 
@@ -10,50 +12,51 @@ export class MaterialManager{
     private isInitialized = false;
 
 
-    public async Initialize(scene: B.Scene) : Promise<void> {
+    public async Initialize(scene: B.Scene, configPath: string) : Promise<void> {
 
         if(this.isInitialized)
             return;
 
         this.scene = scene;
 
-        this.materials.set('defaultUnlit', this.CreateSimpleUnlitMaterial('Default_Unlit_Mat', new B.Color3(1, 1, 1)));
+        const response = await fetch(configPath);
+        const config: MaterialsModelsConfig = await response.json();
 
-        // --- GRASSLAND
-        this.materials.set('grassUnlit', this.CreateSimpleUnlitMaterial('Grass_Unlit_Mat', new B.Color3(0, 1, 0)));
-        this.materials.set('grassWetUnlit', this.CreateSimpleUnlitMaterial('Grass_Wet_Unlit_Mat', new B.Color3(0, .7, 0)));
-        this.materials.set('waterUnlit', this.CreateSimpleUnlitMaterial('Water_Unlit_Mat', new B.Color3(0, 0, 1)));
-        this.materials.set('sandUnlit', this.CreateSimpleUnlitMaterial('Grass_Unlit_Mat', new B.Color3(1, 1, .5)));
-        this.materials.set('stoneUnlit', this.CreateSimpleUnlitMaterial('Stone_Unlit_Mat', new B.Color3(.5, .5, .5)));
-        this.materials.set('lowMountainUnlit', this.CreateSimpleUnlitMaterial('Low_Mountain_Unlit_Mat', new B.Color3(.3, .3, .3)));
-        this.materials.set('highMountainUnlit', this.CreateSimpleUnlitMaterial('High_Mountain_Unlit_Mat', new B.Color3(.2, .2, .2)));
-        this.materials.set('snowUnlit', this.CreateSimpleUnlitMaterial('Snow_Unlit_Mat', new B.Color3(1, 1, .8)));
-        this.materials.set('PlayerDefaultUnlit', this.CreateSimpleUnlitMaterial('Player_Default_Unlit_Mat', new B.Color3(1, 0, 0)));
-
-
-        // --- STREET
-        this.materials.set('fundoUnlit', this.CreateTexturedUnlitMaterial('Fundo_Unlit_Mat', "./assets/textures/street/Fundo.png"));
-        
-        this.materials.set('verticalStraightStreetUnlit', this.CreateTexturedUnlitMaterial('Estrada_Linha_Reta_Vertical_Unlit_Mat', "./assets/textures/street/LinhaRetaVertical.png"));
-        this.materials.set('horizontalStraightStreetUnlit', this.CreateTexturedUnlitMaterial('Estrada_Linha_Reta_Horizontal_Unlit_Mat', "./assets/textures/street/LinhaRetaHorizontal.png"));
-        this.materials.set('rightUpStreetUnlit', this.CreateTexturedUnlitMaterial('Estrada_Direita_Cima_Unlit_Mat', "./assets/textures/street/DireitaCima.png"));
-        this.materials.set('rightDownStreetUnlit', this.CreateTexturedUnlitMaterial('Estrada_Direita_Baixo_Unlit_Mat', "./assets/textures/street/DireitaBaixo.png"));
-        this.materials.set('leftUpStreetUnlit', this.CreateTexturedUnlitMaterial('Estrada_Esquerda_Cima_Unlit_Mat', "./assets/textures/street/EsquerdaCima.png"));
-        this.materials.set('leftDownStreetUnlit', this.CreateTexturedUnlitMaterial('Estrada_Esquerda_Baixo_Unlit_Mat', "./assets/textures/street/EsquerdaBaixo.png"));
-        this.materials.set('crossStreetUnlit', this.CreateTexturedUnlitMaterial('Estrada_Cruz_Unlit_Mat', "./assets/textures/street/Cruz.png"));
-        
-        // --- FLOWERS
-        this.materials.set('greenUnlit', this.CreateSimpleUnlitMaterial('Green_Unlit_Mat', new B.Color3(0, 1, 0)));
-        this.materials.set('whiteUnlit', this.CreateSimpleUnlitMaterial('White_Unlit_Mat', new B.Color3(1, 1, 1)));
-        this.materials.set('redUnlit', this.CreateSimpleUnlitMaterial('Red_Unlit_Mat', new B.Color3(1, 0, 0)));
-        this.materials.set('darkGreenUnlit', this.CreateSimpleUnlitMaterial('Dark_Green_Unlit_Mat', new B.Color3(0, .5, 0)));
-
+        await this.CreateMaterialsFromConfig(config);
 
         this.isInitialized = true;
 
     }
 
-    
+    public async CreateMaterialsFromConfig(config: MaterialsModelsConfig) : Promise<void>{
+
+        for (const matConfig of config.materials) {
+            let mat: B.StandardMaterial | null = null;
+
+            switch (matConfig.type) {
+                case 'simple':
+                    if (matConfig.color && matConfig.color.length === 3) {
+                        const color = new B.Color3(matConfig.color[0], matConfig.color[1], matConfig.color[2]);
+                        mat = this.CreateSimpleUnlitMaterial(matConfig.key + "_Mat", color);
+                    }
+                    break;
+                case 'textured':
+                    if (matConfig.path) {
+                        mat = this.CreateTexturedUnlitMaterial(matConfig.key + "_Mat", matConfig.path);
+                    }
+                    break;
+            }
+
+            if (mat)
+                this.materials.set(matConfig.key, mat);
+            else 
+                console.warn(`Falha ao criar material: ${matConfig.key}`);
+            
+        }
+
+    }
+
+
     public CreateSimpleUnlitMaterial(name: string, color: B.Color3) : B.StandardMaterial {
         
         const mat = new B.StandardMaterial(name, this.scene);
@@ -86,7 +89,11 @@ export class MaterialManager{
 
         return this.materials.get(name)!;
 
-    } 
+    }
+
+    public IsInitialized(): boolean {
+        return this.isInitialized;
+    }
 
 }
 

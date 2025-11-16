@@ -3,6 +3,20 @@ import { TILESET_REGISTRY } from "./wfc/TilesetRegistry";
 import { Tileset, TilesetNumeric } from "./interfaces/TilesSet";
 import { Cell } from "./wfc/Cell";
 
+
+export type MaterialsType = 'simple' | 'textured'
+
+export type Direction = 'up' | 'down' | 'right' | 'left';
+
+export const DIRECTIONS: { name: Direction, dx: number, dy: number, opposite: Direction }[] = [
+    { name: 'up', dx: 0,  dy: 1,  opposite: 'down' },
+    { name: 'down', dx: 0,  dy: -1, opposite: 'up' },
+    { name: 'right',  dx: 1,  dy: 0,  opposite: 'left'  },
+    { name: 'left',  dx: -1, dy: 0,  opposite: 'right'  },
+];
+
+export type CollapsedNeighbors = { [key in Direction]?: Cell };
+
 export async function LoadTileset(name: string): Promise<any> {
   const path = TILESET_REGISTRY.get(name);
   if (!path) {
@@ -24,15 +38,6 @@ export async function LoadTileset(name: string): Promise<any> {
 
   return json;
 }
-
-export type Direction = 'up' | 'down' | 'right' | 'left';
-export const DIRECTIONS: { name: Direction, dx: number, dy: number, opposite: Direction }[] = [
-    { name: 'up', dx: 0,  dy: 1,  opposite: 'down' },
-    { name: 'down', dx: 0,  dy: -1, opposite: 'up' },
-    { name: 'right',  dx: 1,  dy: 0,  opposite: 'left'  },
-    { name: 'left',  dx: -1, dy: 0,  opposite: 'right'  },
-];
-export type CollapsedNeighbors = { [key in Direction]?: Cell };
 
 export function ChooseWeightedRandom<T extends { weight?: number }>(items: T[]): T {
   if (items.length === 0) {

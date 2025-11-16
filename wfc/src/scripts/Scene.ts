@@ -17,6 +17,8 @@ export class Scene{
 
     public camera? : Camera;
 
+    public configPath = "./assets/configs/materials_models/config.json";
+
     public wfcModel : boolean; // false = SimpleTiled / true = Overlapping
     public wfc? : WFCSimpleTiled | WFCOverlapping;
     public player? : Player;
@@ -39,7 +41,7 @@ export class Scene{
 
         // await MaterialInstance.Initialize(scene); // Isso é inicializado no ModelManager
         await InputsInstance.Initialize(scene);
-        await ModelsInstance.Initialize(scene);
+        await ModelsInstance.Initialize(scene, this.configPath);
 
         const pageTitle = document.querySelector("title")!;
 
@@ -104,7 +106,7 @@ export class Scene{
         // this.player = new Player(scene, 10,10,-15);
         this.camera = new Camera(scene, null, false);
 
-        this.wfc = new WFCOverlapping(scene, 15, 6, 'generate_Pattern_Flowers', null);
+        this.wfc = new WFCOverlapping(scene, 15, 6, 'generate_Pattern_Flowers', null); // 15 6
         await this.wfc.Initialize();
         
         scene.onBeforeRenderObservable.add(() => {

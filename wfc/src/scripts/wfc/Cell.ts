@@ -50,10 +50,10 @@ export class Cell {
         this.collapsed = false;
         this.chosenTile = null;
 
-        this.ChangeMesh('defaultUnlit');
-
         this.cellSize = cellSize;
         this.meshSize = cellSize * .5;
+
+        this.ChangeMesh('defaultUnlit');
 
         this.meshNode.position.x = (x * this.cellSize );
         this.meshNode.position.y = (y * this.cellSize );

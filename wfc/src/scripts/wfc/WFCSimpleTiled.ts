@@ -42,7 +42,7 @@ export class WFCSimpleTiled{
     public player : Player | null;
 
 
-    constructor(scene : B.Scene, cellSize: number, renderDistance : number, tilesetName : string, player: Player | null){
+    constructor(scene : B.Scene, renderDistance : number,  cellSize: number, tilesetName : string, player: Player | null){
     
         this.scene = scene;
         

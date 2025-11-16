@@ -1,0 +1,61 @@
+{
+  "materials": [
+    { "key": "defaultUnlit", "type": "simple", "color": [1, 1, 1] },
+
+    { "key": "grassUnlit", "type": "simple", "color": [0, 1, 0] },
+    { "key": "grassWetUnlit", "type": "simple", "color": [0, 0.7, 0] },
+    { "key": "waterUnlit", "type": "simple", "color": [0, 0, 1] },
+    { "key": "sandUnlit", "type": "simple", "color": [1, 1, 0.5] },
+    { "key": "stoneUnlit", "type": "simple", "color": [0.5, 0.5, 0.5] },
+    { "key": "lowMountainUnlit", "type": "simple", "color": [0.3, 0.3, 0.3] },
+    { "key": "highMountainUnlit", "type": "simple", "color": [0.2, 0.2, 0.2] },
+    { "key": "snowUnlit", "type": "simple", "color": [1, 1, 0.8] },
+
+    { "key": "PlayerDefaultUnlit", "type": "simple", "color": [1, 0, 0] },
+
+    { "key": "greenUnlit", "type": "simple", "color": [0, 1, 0] },
+    { "key": "darkGreenUnlit", "type": "simple", "color": [0, 0.5, 0] },
+    { "key": "whiteUnlit", "type": "simple", "color": [1, 1, 1] },
+    { "key": "redUnlit", "type": "simple", "color": [1, 0, 0] },
+    { "key": "blackUnlit", "type": "simple", "color": [0, 0, 0] },
+    { "key": "CianoUnlit", "type": "simple", "color": [0, 1, 0.8] },
+
+    { "key": "fundoUnlit", "type": "textured", "path": "./assets/textures/street/Fundo.png" },
+    { "key": "verticalStraightStreetUnlit", "type": "textured", "path": "./assets/textures/street/LinhaRetaVertical.png" },
+    { "key": "horizontalStraightStreetUnlit", "type": "textured", "path": "./assets/textures/street/LinhaRetaHorizontal.png" },
+    { "key": "rightUpStreetUnlit", "type": "textured", "path": "./assets/textures/street/DireitaCima.png" },
+    { "key": "rightDownStreetUnlit", "type": "textured", "path": "./assets/textures/street/DireitaBaixo.png" },
+    { "key": "leftUpStreetUnlit", "type": "textured", "path": "./assets/textures/street/EsquerdaCima.png" },
+    { "key": "leftDownStreetUnlit", "type": "textured", "path": "./assets/textures/street/EsquerdaBaixo.png" },
+    { "key": "crossStreetUnlit", "type": "textured", "path": "./assets/textures/street/Cruz.png" }
+  ],
+  "models": [
+    { "key": "baseTile", "path": "./assets/models/street/", "file": "fundo.glb" }
+  ],
+  "prefabs": [
+    { "key": "defaultUnlit", "modelKey": "baseTile", "materialKey": "defaultUnlit" },
+
+    { "key": "grassUnlit", "modelKey": "baseTile", "materialKey": "grassUnlit" },
+    { "key": "grassWetUnlit", "modelKey": "baseTile", "materialKey": "grassWetUnlit" },
+    { "key": "waterUnlit", "modelKey": "baseTile", "materialKey": "waterUnlit" },
+    { "key": "sandUnlit", "modelKey": "baseTile", "materialKey": "sandUnlit" },
+    { "key": "stoneUnlit", "modelKey": "baseTile", "materialKey": "stoneUnlit" },
+    { "key": "lowMountainUnlit", "modelKey": "baseTile", "materialKey": "lowMountainUnlit" },
+    { "key": "highMountainUnlit", "modelKey": "baseTile", "materialKey": "highMountainUnlit" },
+    { "key": "snowUnlit", "modelKey": "baseTile", "materialKey": "snowUnlit" },
+
+    { "key": "fundo", "modelKey": "baseTile", "materialKey": "fundoUnlit" },
+    { "key": "verticalStraightStreet", "modelKey": "baseTile", "materialKey": "verticalStraightStreetUnlit" },
+    { "key": "horizontalStraightStreet", "modelKey": "baseTile", "materialKey": "horizontalStraightStreetUnlit" },
+    { "key": "rightUpStreet", "modelKey": "baseTile", "materialKey": "rightUpStreetUnlit" },
+    { "key": "rightDownStreet", "modelKey": "baseTile", "materialKey": "rightDownStreetUnlit" },
+    { "key": "leftUpStreet", "modelKey": "baseTile", "materialKey": "leftUpStreetUnlit" },
+    { "key": "leftDownStreet", "modelKey": "baseTile", "materialKey": "leftDownStreetUnlit" },
+    { "key": "crossStreet", "modelKey": "baseTile", "materialKey": "crossStreetUnlit" },
+    
+    { "key": "greenUnlit", "modelKey": "baseTile", "materialKey": "greenUnlit" },
+    { "key": "whiteUnlit", "modelKey": "baseTile", "materialKey": "whiteUnlit" },
+    { "key": "redUnlit", "modelKey": "baseTile", "materialKey": "redUnlit" },
+    { "key": "darkGreenUnlit", "modelKey": "baseTile", "materialKey": "darkGreenUnlit" }
+  ]
+}
