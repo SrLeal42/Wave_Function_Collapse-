@@ -22,6 +22,7 @@
     { "key": "yellowUnlit", "type": "simple", "color": [1, 1, 0] },
     { "key": "pinkUnlit", "type": "simple", "color": [1, 0, 1] },
     { "key": "blueUnlit", "type": "simple", "color": [0, 0, 1] },
+    { "key": "grayUnlit", "type": "simple", "color": [0.7, 0.7, 0.7] },
 
     { "key": "fundoUnlit", "type": "textured", "path": "./assets/textures/street/Fundo.png" },
     { "key": "verticalStraightStreetUnlit", "type": "textured", "path": "./assets/textures/street/LinhaRetaVertical.png" },
@@ -64,7 +65,8 @@
     { "key": "cianoUnlit", "modelKey": "baseTile", "materialKey": "cianoUnlit" },
     { "key": "yellowUnlit", "modelKey": "baseTile", "materialKey": "yellowUnlit" },
     { "key": "pinkUnlit", "modelKey": "baseTile", "materialKey": "pinkUnlit" },
-    { "key": "blueUnlit", "modelKey": "baseTile", "materialKey": "blueUnlit" }
+    { "key": "blueUnlit", "modelKey": "baseTile", "materialKey": "blueUnlit" },
+    { "key": "grayUnlit", "modelKey": "baseTile", "materialKey": "grayUnlit" }
 
   ]
 }

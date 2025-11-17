@@ -9,7 +9,8 @@
       "#00FFFF": "ciano",
       "#FFFF00": "yellow",
       "#FF00FF": "pink",
-      "#0000FF": "blue"
+      "#0000FF": "blue",
+      "#AAAAAA": "gray"
     },
     "tiles": [
       {
@@ -64,6 +65,12 @@
         "id": "blue",
         "matKey": "blueUnlit",
         "modelKey": "blueUnlit",
+        "height": 0
+      },
+      {
+        "id": "gray",
+        "matKey": "grayUnlit",
+        "modelKey": "grayUnlit",
         "height": 0
       }
     ]

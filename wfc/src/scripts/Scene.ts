@@ -106,7 +106,7 @@ export class Scene{
         // this.player = new Player(scene, 10,10,-15);
         this.camera = new Camera(scene, null, false);
 
-        this.wfc = new WFCOverlapping(scene, 19, 6, 'generate_pattern_skyscrapers', null); // 19
+        this.wfc = new WFCOverlapping(scene, 19, 6, 'generate_pattern_col_street', null); // 19
         await this.wfc.Initialize();
         
         scene.onBeforeRenderObservable.add(() => {
