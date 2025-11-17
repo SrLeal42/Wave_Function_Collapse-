@@ -222,7 +222,7 @@ export class Cell {
 
     public Reset() : void {
 
-        this.possibleTiles = this.possibleTilesStart;
+        this.possibleTiles = new Set(this.possibleTilesStart);
         this.collapsed = false;
         this.chosenTile = null;
 

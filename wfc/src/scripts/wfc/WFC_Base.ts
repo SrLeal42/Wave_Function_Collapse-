@@ -28,6 +28,7 @@ export abstract class WFC_Base {
 
     private stateStack: WFCStateNumeric[] = [];
 
+    private forceRollback = false;
 
     constructor(scene : B.Scene, renderDistance : number, cellSize: number, tilesetName : string, player: Player | null){
     
@@ -107,8 +108,7 @@ export abstract class WFC_Base {
             }
         }
 
-
-        for(let i = 0; i < this.disposeCellQueue.length; i++){
+        while (this.disposeCellQueue.length > 0) {
             const cellKey = this.disposeCellQueue.pop()!;
             const cell = this.grid.get(cellKey);
             
@@ -117,6 +117,17 @@ export abstract class WFC_Base {
                 this.grid.delete(cellKey);
             }
         }
+
+
+        // for(let i = 0; i < this.disposeCellQueue.length; i++){
+        //     const cellKey = this.disposeCellQueue.pop()!;
+        //     const cell = this.grid.get(cellKey);
+            
+        //     if (cell){
+        //         cell.meshNode.dispose();
+        //         this.grid.delete(cellKey);
+        //     }
+        // }
 
     }
 
@@ -166,7 +177,9 @@ export abstract class WFC_Base {
         const result = newCell.Constrain(allowedIDs, changeLog);
 
         if (!result.success) {
-            console.error(`CREATECELL FALHOU: Contradição na célula (${x},${y})`);
+            console.error(`CreateCell falhou em (${x},${y}). Forçando rollback...`);
+            console.log(allowedIDs)
+            this.forceRollback = true;
             return false;
         }
 
@@ -180,7 +193,17 @@ export abstract class WFC_Base {
     }
 
     public Step(): { success: boolean, finish: boolean } {
+
+        if (this.forceRollback) {
+            console.warn("Rollback forçado iniciado por CreateCell...");
+            this.forceRollback = false;
+            
+            return this.DoRollback(); 
+        }
+
+
         let cellToCollapse = this.FindCellWithLowestEntropy();
+
         while (
             cellToCollapse && 
             !this.grid.has(`${cellToCollapse.x},${cellToCollapse.y}`)
@@ -213,32 +236,8 @@ export abstract class WFC_Base {
                 failedTile: chosenID!
             });
         } else {
-            // ... (Lógica de Rollback) ...
-            console.warn(`Contradição detectada... Rollback.`);
-            let rollbackSuccess = false;
-            while (!rollbackSuccess && this.stateStack.length > 0) {
-                const lastGoodState = this.stateStack.pop()!;
-                this.RestoreState(lastGoodState.changes);
-                
-                const banLog: WFCChangeNumeric[] = [];
-                const result = lastGoodState.failedCell.BanTile(lastGoodState.failedTile, banLog);
-                this.entropyQueue.update(lastGoodState.failedCell);
-
-                if (result.success) {
-                    if (this.Propagate(lastGoodState.failedCell, banLog)) {
-                        this.stateStack.push({
-                            changes: banLog,
-                            failedCell: lastGoodState.failedCell,
-                            failedTile: lastGoodState.failedTile
-                        });
-                        rollbackSuccess = true;
-                    }
-                }
-            }
-            if (!rollbackSuccess) {
-                console.error("FALHA CATASTRÓFICA: Rollback falhou.");
-                return { success: false, finish: true };
-            }
+            
+            return this.DoRollback();
         }
         return { success: true, finish: false };
     }
@@ -270,7 +269,6 @@ export abstract class WFC_Base {
     }
 
     private Propagate(cellChanged: Cell, changeLog: WFCChangeNumeric[]): boolean {
-        // ... (Esta função é 100% idêntica e compartilhada) ...
         const stack: Cell[] = [cellChanged];
         const inStack: Set<Cell> = new Set([cellChanged]);
 
@@ -313,7 +311,7 @@ export abstract class WFC_Base {
     }
 
     private RestoreState(changes: WFCChangeNumeric[]): void {
-        console.warn("--- Iniciando Rollback (Otimizado) ---");
+        console.warn("--- Iniciando Rollback ---");
         for (let i = changes.length - 1; i >= 0; i--) {
             const change = changes[i];
             const cell = change.cell;
@@ -332,6 +330,38 @@ export abstract class WFC_Base {
                 this.entropyQueue.insert(cell);
             }
         }
+    }
+
+
+    private DoRollback(): { success: boolean, finish: boolean } {
+        let rollbackSuccess = false;
+        
+        while (!rollbackSuccess && this.stateStack.length > 0) {
+            const lastGoodState = this.stateStack.pop()!;
+            this.RestoreState(lastGoodState.changes);
+            
+            const banLog: WFCChangeNumeric[] = [];
+            const result = lastGoodState.failedCell.BanTile(lastGoodState.failedTile, banLog);
+            this.entropyQueue.update(lastGoodState.failedCell);
+
+            if (result.success) {
+                if (this.Propagate(lastGoodState.failedCell, banLog)) {
+                    this.stateStack.push({
+                        changes: banLog,
+                        failedCell: lastGoodState.failedCell,
+                        failedTile: lastGoodState.failedTile
+                    });
+                    rollbackSuccess = true;
+                }
+            }
+        }
+
+        if (!rollbackSuccess) {
+            console.error("FALHA CATASTRÓFICA: Rollback falhou.");
+            return { success: false, finish: true };
+        }
+        
+        return { success: true, finish: false };
     }
 
     public Reset(): void {
