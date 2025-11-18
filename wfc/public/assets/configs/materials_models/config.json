@@ -31,10 +31,28 @@
     { "key": "rightDownStreetUnlit", "type": "textured", "path": "./assets/textures/street/DireitaBaixo.png" },
     { "key": "leftUpStreetUnlit", "type": "textured", "path": "./assets/textures/street/EsquerdaCima.png" },
     { "key": "leftDownStreetUnlit", "type": "textured", "path": "./assets/textures/street/EsquerdaBaixo.png" },
-    { "key": "crossStreetUnlit", "type": "textured", "path": "./assets/textures/street/Cruz.png" }
+    { "key": "crossStreetUnlit", "type": "textured", "path": "./assets/textures/street/Cruz.png" },
+
+    { "key": "grassUnlitTex", "type": "textured", "path": "./assets/textures/grasslands/grama.png" },
+    { "key": "sandUnlitTex", "type": "textured", "path": "./assets/textures/grasslands/sand/Areia.png" },
+    { "key": "sandEdgeUnlitTex", "type": "textured", "path": "./assets/textures/grasslands/sand/AreiaCanto.png" },
+    { "key": "waterUnlitTex", "type": "textured", "path": "./assets/textures/grasslands/water/Agua.png" }
+
   ],
   "models": [
-    { "key": "baseTile", "path": "./assets/models/street/", "file": "fundo.glb" }
+    { "key": "baseTile", "path": "./assets/models/street/", "file": "fundo.glb" },
+  
+    { "key": "grassModel", "path": "./assets/models/grasslands/", "file": "Grama.glb" },
+    { "key": "sandDownModel", "path": "./assets/models/grasslands/sand/", "file": "AreiaBaixo.glb" },
+    { "key": "sandUpModel", "path": "./assets/models/grasslands/sand/", "file": "AreiaCima.glb" },
+    { "key": "sandRightModel", "path": "./assets/models/grasslands/sand/", "file": "AreiaDireita.glb" },
+    { "key": "sandLeftModel", "path": "./assets/models/grasslands/sand/", "file": "AreiaEsquerda.glb" },
+    { "key": "sandBottomRightModel", "path": "./assets/models/grasslands/sand/", "file": "AreiaInferiorDireito.glb" },
+    { "key": "sandBottomLeftModel", "path": "./assets/models/grasslands/sand/", "file": "AreiaInferiorEsquerdo.glb" },
+    { "key": "sandTopRightModel", "path": "./assets/models/grasslands/sand/", "file": "AreiaSuperiorDireito.glb" },
+    { "key": "sandTopLeftModel", "path": "./assets/models/grasslands/sand/", "file": "AreiaSuperiorEsquerdo.glb" },
+    { "key": "waterModel", "path": "./assets/models/grasslands/water/", "file": "Agua.glb" }
+  
   ],
   "prefabs": [
     { "key": "defaultUnlit", "modelKey": "baseTile", "materialKey": "defaultUnlit" },
@@ -66,7 +84,18 @@
     { "key": "yellowUnlit", "modelKey": "baseTile", "materialKey": "yellowUnlit" },
     { "key": "pinkUnlit", "modelKey": "baseTile", "materialKey": "pinkUnlit" },
     { "key": "blueUnlit", "modelKey": "baseTile", "materialKey": "blueUnlit" },
-    { "key": "grayUnlit", "modelKey": "baseTile", "materialKey": "grayUnlit" }
+    { "key": "grayUnlit", "modelKey": "baseTile", "materialKey": "grayUnlit" },
+
+    { "key": "grassUnlitTex", "modelKey": "grassModel", "materialKey": "grassUnlitTex" },
+    { "key": "sandDownUnlitTex", "modelKey": "sandDownModel", "materialKey": "sandUnlitTex" },
+    { "key": "sandUpUnlitTex", "modelKey": "sandUpModel", "materialKey": "sandUnlitTex" },
+    { "key": "sandRightUnlitTex", "modelKey": "sandRightModel", "materialKey": "sandUnlitTex" },
+    { "key": "sandLeftUnlitTex", "modelKey": "sandLeftModel", "materialKey": "sandUnlitTex" },
+    { "key": "sandBottomRightUnlitTex", "modelKey": "sandBottomRightModel", "materialKey": "sandEdgeUnlitTex" },
+    { "key": "sandBottomLeftUnlitTex", "modelKey": "sandBottomLeftModel", "materialKey": "sandEdgeUnlitTex" },
+    { "key": "sandTopRightUnlitTex", "modelKey": "sandTopRightModel", "materialKey": "sandEdgeUnlitTex" },
+    { "key": "sandTopLeftUnlitTex", "modelKey": "sandTopLeftModel", "materialKey": "sandEdgeUnlitTex" },
+    { "key": "waterUnlitTex", "modelKey": "waterModel", "materialKey": "waterUnlitTex" }
 
   ]
 }

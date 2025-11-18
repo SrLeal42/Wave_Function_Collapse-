@@ -64,7 +64,7 @@ export class Scene{
         this.player = new Player(scene, 10,10,-15);
         this.camera = new Camera(scene, this.player, false);
 
-        this.wfc = new WFCSimpleTiled(scene, 11, 10, 'generate_skyscrapers', this.player);
+        this.wfc = new WFCSimpleTiled(scene, 11, 10, 'generate_grasslands_tex', this.player);
         await this.wfc.Initialize();
         
         scene.onBeforeRenderObservable.add(() => {

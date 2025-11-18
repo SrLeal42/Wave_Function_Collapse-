@@ -1,0 +1,303 @@
+{
+    "name": "Grasslands Textured",
+    "idMap": {
+        "grass": 0,
+        "sandDown": 1,
+        "sandUp": 2,
+        "sandRight": 3,
+        "sandLeft": 4,
+        "sandBottomRight": 5,
+        "sandBottomLeft": 6,
+        "sandTopRight": 7,
+        "sandTopLeft": 8,
+        "water": 9
+    },
+    "tileData": [
+        {
+            "id": 0,
+            "matKey": "grassUnlitTex",
+            "modelKey": "grassUnlitTex",
+            "height": 0
+        },
+        {
+            "id": 1,
+            "matKey": "sandDownUnlitTex",
+            "modelKey": "sandDownUnlitTex",
+            "height": 0
+        },
+        {
+            "id": 2,
+            "matKey": "sandUpUnlitTex",
+            "modelKey": "sandUpUnlitTex",
+            "height": 0
+        },
+        {
+            "id": 3,
+            "matKey": "sandRightUnlitTex",
+            "modelKey": "sandRightUnlitTex",
+            "height": 0
+        },
+        {
+            "id": 4,
+            "matKey": "sandLeftUnlitTex",
+            "modelKey": "sandLeftUnlitTex",
+            "height": 0
+        },
+        {
+            "id": 5,
+            "matKey": "sandBottomRightUnlitTex",
+            "modelKey": "sandBottomRightUnlitTex",
+            "height": 0
+        },
+        {
+            "id": 6,
+            "matKey": "sandBottomLeftUnlitTex",
+            "modelKey": "sandBottomLeftUnlitTex",
+            "height": 0
+        },
+        {
+            "id": 7,
+            "matKey": "sandTopRightUnlitTex",
+            "modelKey": "sandTopRightUnlitTex",
+            "height": 0
+        },
+        {
+            "id": 8,
+            "matKey": "sandTopLeftUnlitTex",
+            "modelKey": "sandTopLeftUnlitTex",
+            "height": 0
+        },
+        {
+            "id": 9,
+            "matKey": "waterUnlitTex",
+            "modelKey": "waterUnlitTex",
+            "height": 0
+        }
+    ],
+    "weights": [
+        87,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        0,
+        9
+    ],
+    "rules": {
+        "0": {
+            "up": [
+                0,
+                7,
+                2
+            ],
+            "down": [
+                0,
+                5,
+                1,
+                6
+            ],
+            "left": [
+                0,
+                6,
+                4
+            ],
+            "right": [
+                0,
+                5,
+                3,
+                7
+            ]
+        },
+        "1": {
+            "up": [
+                0
+            ],
+            "down": [
+                9
+            ],
+            "left": [
+                5,
+                1
+            ],
+            "right": [
+                1,
+                6
+            ]
+        },
+        "2": {
+            "up": [
+                9
+            ],
+            "down": [
+                0
+            ],
+            "left": [
+                7,
+                2
+            ],
+            "right": [
+                2
+            ]
+        },
+        "3": {
+            "up": [
+                5,
+                3
+            ],
+            "down": [
+                3,
+                7
+            ],
+            "left": [
+                0
+            ],
+            "right": [
+                9
+            ]
+        },
+        "4": {
+            "up": [
+                6,
+                4
+            ],
+            "down": [
+                4
+            ],
+            "left": [
+                9
+            ],
+            "right": [
+                0
+            ]
+        },
+        "5": {
+            "up": [
+                0
+            ],
+            "down": [
+                3
+            ],
+            "left": [
+                0
+            ],
+            "right": [
+                1
+            ]
+        },
+        "6": {
+            "up": [
+                0
+            ],
+            "down": [
+                4
+            ],
+            "left": [
+                1
+            ],
+            "right": [
+                0
+            ]
+        },
+        "7": {
+            "up": [
+                3
+            ],
+            "down": [
+                0
+            ],
+            "left": [
+                0
+            ],
+            "right": [
+                2
+            ]
+        },
+        "8": {
+            "up": [],
+            "down": [],
+            "left": [],
+            "right": []
+        },
+        "9": {
+            "up": [
+                1,
+                9
+            ],
+            "down": [
+                9,
+                2
+            ],
+            "left": [
+                3,
+                9
+            ],
+            "right": [
+                9,
+                4
+            ]
+        }
+    },
+    "affinities": {
+        "0": {
+            "0": 10,
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "5": 1,
+            "6": 1,
+            "7": 1
+        },
+        "1": {
+            "0": 6,
+            "1": 10,
+            "5": 1,
+            "6": 1,
+            "9": 6
+        },
+        "2": {
+            "0": 6,
+            "2": 10,
+            "7": 1,
+            "9": 6
+        },
+        "3": {
+            "0": 6,
+            "3": 10,
+            "5": 1,
+            "7": 1,
+            "9": 6
+        },
+        "4": {
+            "0": 6,
+            "4": 10,
+            "6": 1,
+            "9": 6
+        },
+        "5": {
+            "0": 10,
+            "1": 1,
+            "3": 1
+        },
+        "6": {
+            "0": 10,
+            "1": 1,
+            "4": 1
+        },
+        "7": {
+            "0": 10,
+            "2": 1,
+            "3": 1
+        },
+        "9": {
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "9": 10
+        }
+    }
+}

@@ -5,7 +5,7 @@ import { Direction } from "../../src/scripts/Utilities"
 
 // --- CONFIGURAÇÃO ---
 const INPUT_IMAGE_PATH = './tools/TilesetBuilder/input/input-map.png';
-const SKELETON_PATH = './tools/TilesetBuilder/skeletons/Skeleton_Tileset_Colors.json';
+const SKELETON_PATH = './tools/TilesetBuilder/skeletons/Skeleton_Tileset_Grassland_Tex.json';
 const OUTPUT_JSON_PATH = './tools/TilesetBuilder/output/Generated_Tileset.json';
 // --------------------
 
