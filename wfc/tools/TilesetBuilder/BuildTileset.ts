@@ -6,7 +6,7 @@ import { Direction } from "../../src/scripts/Utilities"
 // --- CONFIGURAÇÃO ---
 const INPUT_IMAGE_PATH = './tools/TilesetBuilder/input/input-map.png';
 const SKELETON_PATH = './tools/TilesetBuilder/skeletons/Skeleton_Tileset_Grassland_Tex.json';
-const OUTPUT_JSON_PATH = './tools/TilesetBuilder/output/Generated_Tileset.json';
+const OUTPUT_JSON_PATH = './tools/TilesetBuilder/output/Generated_Tileset_Grasslands_Tex.json';
 // --------------------
 
 // --- CONSTANTES ---
@@ -54,7 +54,7 @@ function NormalizeWeight(weight: number, maxWeight: number, minWeight: number, m
     const normalized = 
         ((weight - minWeight) / (maxWeight - minWeight)) * (max - min) + min;
 
-    return Math.round(normalized);
+    return Math.max(MIN_WEIGHT, Math.round(normalized));
 }
 
 async function BuildTileset() {

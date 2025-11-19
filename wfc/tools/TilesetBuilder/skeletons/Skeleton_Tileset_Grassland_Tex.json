@@ -2,6 +2,7 @@
     "name": "Grasslands Textured",
     "legend": {
       "#00FF00": "grass",
+      
       "#FFFF00": "sandDown",
       "#FF0000": "sandUp",
       "#FF00FF": "sandRight",
@@ -9,7 +10,12 @@
       "#000000": "sandBottomRight",
       "#FFFFFF": "sandBottomLeft",
       "#009000": "sandTopRight",
-      "#9f9f9f": "sandTopLeft",
+      "#9F9F9F": "sandTopLeft",
+      "#464646": "sandInnerTopLeft",
+      "#FF8080": "sandInnerBottomLeft",
+      "#989800": "sandInnerBottomRight",
+      "#830083": "sandInnerTopRight",
+
       "#0000FF": "water"
     },
     "tiles": [
@@ -65,6 +71,30 @@
         "id": "sandTopLeft",
         "matKey": "sandTopLeftUnlitTex",
         "modelKey": "sandTopLeftUnlitTex",
+        "height": 0
+      },
+      {
+        "id": "sandInnerTopLeft",
+        "matKey": "sandInnerEdgeUnlitTex",
+        "modelKey": "sandInnerEdgeTopLeftTex",
+        "height": 0
+      },
+      {
+        "id": "sandInnerBottomLeft",
+        "matKey": "sandInnerEdgeUnlitTex",
+        "modelKey": "sandInnerEdgeBottomLeftTex",
+        "height": 0
+      },
+      {
+        "id": "sandInnerBottomRight",
+        "matKey": "sandInnerEdgeUnlitTex",
+        "modelKey": "sandInnerEdgeBottomRightTex",
+        "height": 0
+      },
+      {
+        "id": "sandInnerTopRight",
+        "matKey": "sandInnerEdgeUnlitTex",
+        "modelKey": "sandInnerEdgeTopRightTex",
         "height": 0
       },
       {

@@ -36,6 +36,7 @@
     { "key": "grassUnlitTex", "type": "textured", "path": "./assets/textures/grasslands/grama.png" },
     { "key": "sandUnlitTex", "type": "textured", "path": "./assets/textures/grasslands/sand/Areia.png" },
     { "key": "sandEdgeUnlitTex", "type": "textured", "path": "./assets/textures/grasslands/sand/AreiaCanto.png" },
+    { "key": "sandInnerEdgeUnlitTex", "type": "textured", "path": "./assets/textures/grasslands/sand/AreiaCantoInterno.png" },
     { "key": "waterUnlitTex", "type": "textured", "path": "./assets/textures/grasslands/water/Agua.png" }
 
   ],
@@ -51,6 +52,10 @@
     { "key": "sandBottomLeftModel", "path": "./assets/models/grasslands/sand/", "file": "AreiaInferiorEsquerdo.glb" },
     { "key": "sandTopRightModel", "path": "./assets/models/grasslands/sand/", "file": "AreiaSuperiorDireito.glb" },
     { "key": "sandTopLeftModel", "path": "./assets/models/grasslands/sand/", "file": "AreiaSuperiorEsquerdo.glb" },
+    { "key": "sandInnerEdgeTopLeftModel", "path": "./assets/models/grasslands/sand/", "file": "AreiaInternoSE.glb" },
+    { "key": "sandInnerEdgeTopRightModel", "path": "./assets/models/grasslands/sand/", "file": "AreiaInternoSD.glb" },
+    { "key": "sandInnerEdgeBottomRightModel", "path": "./assets/models/grasslands/sand/", "file": "AreiaInternoID.glb" },
+    { "key": "sandInnerEdgeBottomLeftModel", "path": "./assets/models/grasslands/sand/", "file": "AreiaInternoIE.glb" },
     { "key": "waterModel", "path": "./assets/models/grasslands/water/", "file": "Agua.glb" }
   
   ],
@@ -95,6 +100,10 @@
     { "key": "sandBottomLeftUnlitTex", "modelKey": "sandBottomLeftModel", "materialKey": "sandEdgeUnlitTex" },
     { "key": "sandTopRightUnlitTex", "modelKey": "sandTopRightModel", "materialKey": "sandEdgeUnlitTex" },
     { "key": "sandTopLeftUnlitTex", "modelKey": "sandTopLeftModel", "materialKey": "sandEdgeUnlitTex" },
+    { "key": "sandInnerEdgeTopLeftTex", "modelKey": "sandInnerEdgeTopLeftModel", "materialKey": "sandInnerEdgeUnlitTex" },
+    { "key": "sandInnerEdgeTopRightTex", "modelKey": "sandInnerEdgeTopRightModel", "materialKey": "sandInnerEdgeUnlitTex" },
+    { "key": "sandInnerEdgeBottomRightTex", "modelKey": "sandInnerEdgeBottomRightModel", "materialKey": "sandInnerEdgeUnlitTex" },
+    { "key": "sandInnerEdgeBottomLeftTex", "modelKey": "sandInnerEdgeBottomLeftModel", "materialKey": "sandInnerEdgeUnlitTex" },
     { "key": "waterUnlitTex", "modelKey": "waterModel", "materialKey": "waterUnlitTex" }
 
   ]
