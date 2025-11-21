@@ -37,7 +37,8 @@
     { "key": "sandUnlitTex", "type": "textured", "path": "./assets/textures/grasslands/sand/Areia.png" },
     { "key": "sandEdgeUnlitTex", "type": "textured", "path": "./assets/textures/grasslands/sand/AreiaCanto.png" },
     { "key": "sandInnerEdgeUnlitTex", "type": "textured", "path": "./assets/textures/grasslands/sand/AreiaCantoInterno.png" },
-    { "key": "waterUnlitTex", "type": "textured", "path": "./assets/textures/grasslands/water/Agua.png" }
+    { "key": "waterUnlitTex", "type": "textured", "path": "./assets/textures/grasslands/water/Agua.png" },
+    { "key": "streetVerticalUnlitTex", "type": "textured", "path": "./assets/textures/grasslands/street/EstradaVertical.png" }
 
   ],
   "models": [
@@ -56,7 +57,8 @@
     { "key": "sandInnerEdgeTopRightModel", "path": "./assets/models/grasslands/sand/", "file": "AreiaInternoSD.glb" },
     { "key": "sandInnerEdgeBottomRightModel", "path": "./assets/models/grasslands/sand/", "file": "AreiaInternoID.glb" },
     { "key": "sandInnerEdgeBottomLeftModel", "path": "./assets/models/grasslands/sand/", "file": "AreiaInternoIE.glb" },
-    { "key": "waterModel", "path": "./assets/models/grasslands/water/", "file": "Agua.glb" }
+    { "key": "waterModel", "path": "./assets/models/grasslands/water/", "file": "Agua.glb" },
+    { "key": "streetVerticalModel", "path": "./assets/models/grasslands/street/", "file": "EstradaVertical.glb" }
   
   ],
   "prefabs": [
@@ -104,7 +106,8 @@
     { "key": "sandInnerEdgeTopRightTex", "modelKey": "sandInnerEdgeTopRightModel", "materialKey": "sandInnerEdgeUnlitTex" },
     { "key": "sandInnerEdgeBottomRightTex", "modelKey": "sandInnerEdgeBottomRightModel", "materialKey": "sandInnerEdgeUnlitTex" },
     { "key": "sandInnerEdgeBottomLeftTex", "modelKey": "sandInnerEdgeBottomLeftModel", "materialKey": "sandInnerEdgeUnlitTex" },
-    { "key": "waterUnlitTex", "modelKey": "waterModel", "materialKey": "waterUnlitTex" }
+    { "key": "waterUnlitTex", "modelKey": "waterModel", "materialKey": "waterUnlitTex" },
+    { "key": "streetVerticalUnlitTex", "modelKey": "streetVerticalModel", "materialKey": "streetVerticalUnlitTex" }
 
   ]
 }

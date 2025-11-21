@@ -70,7 +70,8 @@ export class MaterialManager{
         
         const mat = new B.StandardMaterial(name, this.scene);
         mat.disableLighting = true;
-        const emissiveTex = new B.Texture(path, this.scene);
+        
+        const emissiveTex = new B.Texture(path, this.scene, true, false);
         mat.emissiveTexture = emissiveTex;
 
         mat.emissiveTexture.wrapU = B.Texture.CLAMP_ADDRESSMODE;
