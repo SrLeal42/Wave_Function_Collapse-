@@ -33,10 +33,10 @@ export class WFCSimpleTiled extends WFC_Base {
      */
     protected UpdateCellVisual(cell: Cell, chosenID: number): void {
         const tileData = this.tileData[chosenID];
-        if (tileData) {
+        
+        if (tileData)
             cell.ChangeMesh(tileData.modelKey);
-            cell.meshNode.position.z = tileData.height ? tileData.height * -1 : 0;
-        }
+        
     }
 
     /**

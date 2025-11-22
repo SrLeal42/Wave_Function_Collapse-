@@ -18,7 +18,9 @@ export abstract class WFC_Base {
     protected entropyQueue: PriorityQueue;
     private disposeCellQueue: string[] = [];
     
-    public renderDistance: number;
+    public renderDistanceX: number;
+    public renderDistanceY: number;
+    public renderDistanceZ: number;
     public cellSize: number;
     public tilesetName: string;
     public player: Player | null;
@@ -31,13 +33,17 @@ export abstract class WFC_Base {
 
     private forceRollback = false;
 
-    constructor(scene : B.Scene, renderDistance : number, cellSize: number, tilesetName : string, player: Player | null){
+    public isInicialized = false;
+
+    constructor(scene : B.Scene, renderDistanceX : number, renderDistanceY : number, renderDistanceZ : number, cellSize: number, tilesetName : string, player: Player | null){
     
         this.scene = scene;
         
         this.cellSize = cellSize;
 
-        this.renderDistance = renderDistance;
+        this.renderDistanceX = renderDistanceX;
+        this.renderDistanceY = renderDistanceY;
+        this.renderDistanceZ = renderDistanceZ;
         
         this.tilesetName = tilesetName;
 
@@ -73,39 +79,51 @@ export abstract class WFC_Base {
         
         this.InitializeGrid();
         this.Step();
+
+        this.isInicialized = true; 
     }
 
     private InitializeGrid(): void {
-        for(let y = -this.renderDistance; y < this.renderDistance; y++){
-            for (let x = -this.renderDistance; x < this.renderDistance; x++){
-                this.CreateCell(x,y);
+
+        for(let x = -this.renderDistanceX; x < this.renderDistanceX; x++){
+            for (let y = -this.renderDistanceY; y < this.renderDistanceY; y++){
+                for(let z = -this.renderDistanceZ; z < this.renderDistanceZ; z++){ // Z é profundidade
+                    this.CreateCell(x, y, z);
+                }
             }
         }
+
     }
 
    public Update(playerPosition: B.Vector3 | undefined) : void {
+
+        if (!this.isInicialized)
+            return;
 
         const playerCell = playerPosition ? this.GetCellCoordinates(playerPosition) : this.GetCellCoordinates(new B.Vector3(0,0,0));
 
         this.grid.forEach((cell, cellKey) => {
             if (
-                (Math.abs(cell.x - playerCell.x) > this.renderDistance ||
-                Math.abs(cell.y - playerCell.y) > this.renderDistance)
+                Math.abs(cell.x - playerCell.x) > this.renderDistanceX ||
+                Math.abs(cell.y - playerCell.y) > this.renderDistanceY ||
+                Math.abs(cell.z - playerCell.z) > this.renderDistanceZ
             ) {
                 this.disposeCellQueue.push(cellKey);
             }
         });
 
 
-        for (let x = playerCell.x - this.renderDistance; x <= playerCell.x + this.renderDistance; x++) {
-            for (let y = playerCell.y - this.renderDistance; y <= playerCell.y + this.renderDistance; y++) {
+        for (let x = playerCell.x - this.renderDistanceX; x <= playerCell.x + this.renderDistanceX; x++) {
+            for (let y = playerCell.y - this.renderDistanceY; y <= playerCell.y + this.renderDistanceY; y++) {
+                for (let z = playerCell.z - this.renderDistanceZ; z <= playerCell.z + this.renderDistanceZ; z++) {
+                    
+                    const cellKey = `${x},${y},${z}`;
+                    
+                    if (!this.grid.has(cellKey)) {
+                        this.CreateCell(x, y, z, true);
+                    }
 
-                const cellKey = `${x},${y}`;
-                
-                if (!this.grid.has(cellKey)) {
-                    this.CreateCell(x, y, true);
-                } 
-                
+                }
             }
         }
 
@@ -132,18 +150,19 @@ export abstract class WFC_Base {
 
     }
 
-    public GetCellCoordinates(position: B.Vector3): { x: number, y: number } {
-        const x = Math.floor((position.x + this.cellSize * .5) / this.cellSize);
-        const y = Math.floor((position.y + this.cellSize * .5) / this.cellSize);
-        return { x, y };
+    public GetCellCoordinates(position: B.Vector3): { x: number, y: number, z: number } {
+        return {
+            x: Math.floor((position.x + this.cellSize * .5) / this.cellSize),
+            y: Math.floor((position.y + this.cellSize * .5) / this.cellSize),
+            z: Math.floor((position.z + this.cellSize * .5) / this.cellSize)
+        };
     }
 
-    private CreateCell(x: number, y: number, constrain = false) : boolean {
-        const cellKey = `${x},${y}`;
+    private CreateCell(x: number, y: number, z: number, constrain = false) : boolean {
+        const cellKey = `${x},${y},${z}`;
 
-        const newCell = new Cell(this.scene, x, y, this.totalNumTiles, this.cellSize);
+        const newCell = new Cell(this.scene, x, y, z, this.totalNumTiles, this.cellSize);
         this.grid.set(cellKey, newCell);
-
         this.entropyQueue.insert(newCell);
 
         if (!constrain)
@@ -157,17 +176,18 @@ export abstract class WFC_Base {
         for (const dir of DIRECTIONS) {
             const nx = newCell.x + dir.dx;
             const ny = newCell.y + dir.dy;
-            const neighbor = this.grid.get(`${nx},${ny}`);
+            const nz = newCell.z + dir.dz;
+            const neighbor = this.grid.get(`${nx},${ny},${nz}`);
 
-            if (!neighbor || (nx === newCell.x && ny === newCell.y )) continue;
+            if (!neighbor || (nx === newCell.x && ny === newCell.y && nz === newCell.z)) continue;
 
             const neighborAllows = new Set<number>();
             
             for (const tileID of neighbor.possibleTiles) {
-                const rules = this.rules[tileID]; // Acessa a regra numérica
+                const rules = this.rules[tileID];
                 const rulesForDir = rules[dir.opposite]; 
                 
-                rulesForDir?.forEach(id => neighborAllows.add(id)); // id já é um número
+                rulesForDir?.forEach(id => neighborAllows.add(id));
             }
 
             allowedIDs = new Set(
@@ -207,7 +227,7 @@ export abstract class WFC_Base {
 
         while (
             cellToCollapse && 
-            !this.grid.has(`${cellToCollapse.x},${cellToCollapse.y}`)
+            !this.grid.has(`${cellToCollapse.x},${cellToCollapse.y},${cellToCollapse.z}`)
         ) {
             cellToCollapse = this.FindCellWithLowestEntropy();
         }
@@ -253,7 +273,9 @@ export abstract class WFC_Base {
         for (const dir of DIRECTIONS) {
             const nx = cellToChange.x + dir.dx;
             const ny = cellToChange.y + dir.dy;
-            const neighbor = this.grid.get(`${nx},${ny}`);
+            const nz = cellToChange.z + dir.dz;
+            const neighbor = this.grid.get(`${nx},${ny},${nz}`);
+            
             if (neighbor && neighbor.collapsed) {
                 neighbors[dir.name] = neighbor;
             }
@@ -279,7 +301,9 @@ export abstract class WFC_Base {
             const possibleTiles = currentCell.possibleTiles;
 
             for (const dir of DIRECTIONS) {
-                const neighbor = this.grid.get(`${currentCell.x + dir.dx},${currentCell.y + dir.dy}`);
+                const neighborKey = `${currentCell.x + dir.dx},${currentCell.y + dir.dy},${currentCell.z + dir.dz}`;
+                const neighbor = this.grid.get(neighborKey);
+                
                 if (!neighbor || neighbor.collapsed) continue;
 
                 const allowedIDs = new Set<number>();
@@ -324,7 +348,6 @@ export abstract class WFC_Base {
                 this.UpdateCellVisual(cell, cell.chosenTile);
             } else {
                 cell.ChangeMesh('defaultUnlit');
-                cell.meshNode.position.z = 0;
             }
 
             if (!cell.collapsed) {

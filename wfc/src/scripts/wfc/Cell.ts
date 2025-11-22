@@ -4,7 +4,7 @@ import * as B from "@babylonjs/core";
 import { AffinitiesNumeric } from "../interfaces/AffinitiesNumeric";
 import { WFCChange, WFCChangeNumeric } from "../interfaces/WFCState";
 
-// import { MaterialInstance } from "../managers/MaterialManager";
+import { MaterialInstance } from "../managers/MaterialManager";
 import { ModelsInstance } from "../managers/ModelsManager";
 
 import { ChooseWeightedRandomBy, CollapsedNeighbors, Direction } from "../Utilities";
@@ -15,6 +15,7 @@ export class Cell {
 
     public x: number;
     public y: number;
+    public z: number;
 
     public possibleTilesStart: Set<number>;
     public possibleTiles: Set<number>;
@@ -30,6 +31,7 @@ export class Cell {
         scene: B.Scene,
         x: number,
         y: number,
+        z: number,
         totalNumTiles: number,
         cellSize: number,
     ) {
@@ -38,6 +40,7 @@ export class Cell {
 
         this.x = x;
         this.y = y;
+        this.z = z;
 
         const allPossibleNumericIDs = new Set<number>();
         for (let i = 0; i < totalNumTiles; i++) {
@@ -55,21 +58,6 @@ export class Cell {
 
         this.ChangeMesh('defaultUnlit');
 
-        this.meshNode.position.x = (x * this.cellSize );
-        this.meshNode.position.y = (y * this.cellSize );
-
-        // this.meshNode = B.MeshBuilder.CreatePlane(
-        // `cell_${x}_${y}`,
-        // { size: Cell.cellSize },
-        // scene
-        // );
-
-        // this.meshNode.position.x = (x * Cell.cellSize)
-        // this.meshNode.position.y = (y * Cell.cellSize)
-        // this.meshNode.position.z = 0;
-
-        // this.meshNode.material = MaterialInstance.GetMaterial('defaultUnlit');
-
     }
 
 
@@ -77,14 +65,12 @@ export class Cell {
         // this.meshNode.material = MaterialInstance.GetMaterial(key);
         if (this.meshNode)
             this.meshNode.dispose();
+
         this.meshNode = ModelsInstance.CreateInstance(key)!;
         
-        if (this.meshNode == null)
-            console.log(key);
-        
         this.meshNode.scaling = new B.Vector3(this.meshSize, this.meshSize, this.meshSize);
-        this.meshNode.rotation = new B.Vector3(-(Math.PI/2), 0, 0);
-        this.meshNode.position = new B.Vector3((this.x * this.cellSize ), (this.y * this.cellSize ), 0);
+        // this.meshNode.rotation = new B.Vector3(-(Math.PI/2), 0, 0);
+        this.meshNode.position = new B.Vector3((this.x * this.cellSize ), (this.y * this.cellSize ), (this.z * this.cellSize ));
     }
 
 
@@ -122,6 +108,8 @@ export class Cell {
 
             return Math.max(0.1, dynamicWeight);
         };
+        
+        // console.log(this.possibleTiles);
 
         // Converte o Set de possibilidades para um Array para o sorteio
         const possibleTilesArray = Array.from(this.possibleTiles);
@@ -135,7 +123,6 @@ export class Cell {
 
         // this.mesh.material = MaterialInstance.GetMaterial(this.chosenTile.matKey);
         // this.ChangeMesh(this.chosenTile.modelKey);
-        // this.meshNode.position.z = chosenTile.height ? chosenTile.height*-1 : 0;
             
         return chosenTileID;
 
@@ -145,7 +132,7 @@ export class Cell {
         allowedTileIDs: Set<number>,
         changeLog: WFCChangeNumeric[]
     ) : { success : boolean, changed : boolean} {
-
+        
         if (allowedTileIDs.size <= 0)
             return { success: true, changed: false};
 
@@ -234,7 +221,6 @@ export class Cell {
         this.chosenTile = null;
 
         this.ChangeMesh('defaultUnlit');
-        this.meshNode.position.z = 0;
 
         // this.mesh.material = MaterialInstance.GetMaterial('defaultUnlit');
 

@@ -35,10 +35,9 @@ export class WFCOverlapping extends WFC_Base {
         const centerTileName = pattern[this.centerIndex][this.centerIndex]; 
         const tileData = this.tileLegend[centerTileName]; 
         
-        if (tileData) {
+        if (tileData) 
             cell.ChangeMesh(tileData.modelKey);
-            cell.meshNode.position.z = tileData.height ? tileData.height * -1 : 0;
-        }
+
     }
 
     /**

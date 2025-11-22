@@ -1,0 +1,39 @@
+{
+  "materials": [
+    { "key": "defaultUnlit", "type": "simple", "color": [1, 1, 1] },
+
+    { "key": "PlayerDefaultUnlit", "type": "simple", "color": [1, 0, 0] },
+
+    { "key": "greenUnlit", "type": "simple", "color": [0, 1, 0] },
+    { "key": "darkGreenUnlit", "type": "simple", "color": [0, 0.5, 0] },
+    { "key": "whiteUnlit", "type": "simple", "color": [1, 1, 1] },
+    { "key": "redUnlit", "type": "simple", "color": [1, 0, 0] },
+    { "key": "blackUnlit", "type": "simple", "color": [0, 0, 0] },
+    { "key": "cianoUnlit", "type": "simple", "color": [0, 1, 1] },
+    { "key": "yellowUnlit", "type": "simple", "color": [1, 1, 0] },
+    { "key": "pinkUnlit", "type": "simple", "color": [1, 0, 1] },
+    { "key": "blueUnlit", "type": "simple", "color": [0, 0, 1] },
+    { "key": "grayUnlit", "type": "simple", "color": [0.7, 0.7, 0.7] }
+
+  ],
+  "models": [
+    { "key": "boxTile", "path": "./assets/models/cube/", "file": "Cube.glb" }
+  
+  
+  ],
+  "prefabs": [
+    { "key": "defaultUnlit", "modelKey": "boxTile", "materialKey": "defaultUnlit" },
+
+    { "key": "greenUnlit", "modelKey": "boxTile", "materialKey": "greenUnlit" },
+    { "key": "whiteUnlit", "modelKey": "boxTile", "materialKey": "whiteUnlit" },
+    { "key": "redUnlit", "modelKey": "boxTile", "materialKey": "redUnlit" },
+    { "key": "darkGreenUnlit", "modelKey": "boxTile", "materialKey": "darkGreenUnlit" },
+    { "key": "blackUnlit", "modelKey": "boxTile", "materialKey": "blackUnlit" },
+    { "key": "cianoUnlit", "modelKey": "boxTile", "materialKey": "cianoUnlit" },
+    { "key": "yellowUnlit", "modelKey": "boxTile", "materialKey": "yellowUnlit" },
+    { "key": "pinkUnlit", "modelKey": "boxTile", "materialKey": "pinkUnlit" },
+    { "key": "blueUnlit", "modelKey": "boxTile", "materialKey": "blueUnlit" },
+    { "key": "grayUnlit", "modelKey": "boxTile", "materialKey": "grayUnlit" }
+
+  ]
+}

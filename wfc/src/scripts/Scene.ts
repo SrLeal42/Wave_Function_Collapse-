@@ -17,7 +17,7 @@ export class Scene{
 
     public camera? : Camera;
 
-    public configPath = "./assets/configs/materials_models/config.json";
+    public configPath = "./assets/configs/materials_models/config3D.json"; // "./assets/configs/materials_models/config.json";
 
     public wfcModel : boolean; // false = SimpleTiled / true = Overlapping
     public wfc? : WFCSimpleTiled | WFCOverlapping;
@@ -62,9 +62,9 @@ export class Scene{
     public async CreateWFCSimpleTiled(scene: B.Scene) : Promise<void> {
 
         this.player = new Player(scene, 10,10,-15);
-        this.camera = new Camera(scene, this.player, false);
+        this.camera = new Camera(scene, this.player, true, false);
 
-        this.wfc = new WFCSimpleTiled(scene, 11, 10, 'generate_grasslands_tex', this.player);
+        this.wfc = new WFCSimpleTiled(scene, 3,3,0 , 20, 'colors_3d_tileset', this.player);
         await this.wfc.Initialize();
         
         scene.onBeforeRenderObservable.add(() => {
@@ -91,7 +91,7 @@ export class Scene{
             }
 
             this.player!.Move();
-            this.camera!.Move();
+            // this.camera!.Move();
 
             this.wfc!.Update(this.player!.pivot.position);
 
@@ -104,9 +104,9 @@ export class Scene{
     public async CreateWFCOverlapping(scene: B.Scene) : Promise<void> {
 
         // this.player = new Player(scene, 10,10,-15);
-        this.camera = new Camera(scene, null, false);
+        this.camera = new Camera(scene, null, true, false);
 
-        this.wfc = new WFCOverlapping(scene, 19, 6, 'generate_pattern_col_street', null); // 19
+        this.wfc = new WFCOverlapping(scene, 1,1,1 , 6, 'generate_pattern_col_street', null); // 19
         await this.wfc.Initialize();
         
         scene.onBeforeRenderObservable.add(() => {

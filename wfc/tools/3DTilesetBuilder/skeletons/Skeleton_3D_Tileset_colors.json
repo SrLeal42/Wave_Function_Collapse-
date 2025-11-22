@@ -1,35 +1,43 @@
 {
     "name": "3D Colors",
-    "sockets": ["air", "ground", "road"], 
+    "sockets": ["black_s", "gray_s", "white_s"],
+    "socketCompatibility": {
+        "black_s": ["black_s", "gray_s"],
+        "gray_s":  ["black_s", "gray_s", "white_s"],
+        "white_s": ["white_s", "gray_s"]
+    },
     "tiles": [
         {
-            "id": "grass",
-            "modelKey": "grass_block",
-            "weight": 10,
+            "id": "white",
+            "modelKey": "whiteUnlit",
+            "matKey": "whiteUnlit",
+            "weight": 1,
             "sockets": {
-                "py": "air",    "ny": "ground",
-                "pz": "ground", "nz": "ground",
-                "px": "ground", "nx": "ground"
+                "py": "white_s", "ny": "white_s",
+                "pz": "white_s", "nz": "white_s",
+                "px": "white_s", "nx": "white_s"
             }
         },
         {
-            "id": "road_straight",
-            "modelKey": "road_straight",
+            "id": "gray",
+            "modelKey": "grayUnlit",
+            "matKey": "grayUnlit",
             "weight": 1,
             "sockets": {
-                "py": "air",    "ny": "ground",
-                "pz": "road",   "nz": "road",
-                "px": "ground", "nx": "ground"
+                "py": "gray_s", "ny": "gray_s",
+                "pz": "gray_s", "nz": "gray_s",
+                "px": "gray_s", "nx": "gray_s"
             }
         },
         {
-            "id": "road_turn",
-            "modelKey": "road_turn",
+            "id": "black",
+            "modelKey": "blackUnlit",
+            "matKey": "blackUnlit",
             "weight": 1,
             "sockets": {
-                "py": "air",    "ny": "ground",
-                "pz": "road",   "nz": "ground",
-                "px": "road",   "nx": "ground"
+                "py": "black_s", "ny": "black_s",
+                "pz": "black_s", "nz": "black_s",
+                "px": "black_s", "nx": "black_s"
             }
         }
     ]
