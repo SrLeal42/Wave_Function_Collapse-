@@ -7,11 +7,19 @@ export interface TileRules {
   };
 }
 
+// export interface TileRulesNumeric {
+//   [tileId: string]: {
+//     up: number[];
+//     down: number[];
+//     left: number[];
+//     right: number[];
+//   };
+// }
 export interface TileRulesNumeric {
-  [tileId: string]: {
     up: number[];
     down: number[];
     left: number[];
     right: number[];
-  };
+    forward?: number[];
+    back?: number[];
 }

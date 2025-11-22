@@ -115,7 +115,7 @@ async function BuildTileset() {
 
     for (let i = 0; i < numTileTypes; i++) {
         weights.set(i, 0);
-        rules.set(i, { up: new Set(), down: new Set(), left: new Set(), right: new Set() });
+        rules.set(i, { up: new Set(), down: new Set(), left: new Set(), right: new Set(), forward: new Set(), back: new Set() });
         
         const neighborMap = new Map<number, number>();
         for (let j = 0; j < numTileTypes; j++) {

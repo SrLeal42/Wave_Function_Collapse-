@@ -8,4 +8,5 @@ export interface PrefabConfig {
     key: string;
     modelKey: string;
     materialKey: string;
+    rotation?: number[];
 }

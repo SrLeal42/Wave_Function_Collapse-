@@ -1,0 +1,36 @@
+{
+    "name": "3D Colors",
+    "sockets": ["air", "ground", "road"], 
+    "tiles": [
+        {
+            "id": "grass",
+            "modelKey": "grass_block",
+            "weight": 10,
+            "sockets": {
+                "py": "air",    "ny": "ground",
+                "pz": "ground", "nz": "ground",
+                "px": "ground", "nx": "ground"
+            }
+        },
+        {
+            "id": "road_straight",
+            "modelKey": "road_straight",
+            "weight": 1,
+            "sockets": {
+                "py": "air",    "ny": "ground",
+                "pz": "road",   "nz": "road",
+                "px": "ground", "nx": "ground"
+            }
+        },
+        {
+            "id": "road_turn",
+            "modelKey": "road_turn",
+            "weight": 1,
+            "sockets": {
+                "py": "air",    "ny": "ground",
+                "pz": "road",   "nz": "ground",
+                "px": "road",   "nx": "ground"
+            }
+        }
+    ]
+}

@@ -35,35 +35,8 @@ export class ModelsManager{
             await this.LoadRawModel(modelConfig.key, modelConfig.path, modelConfig.file);
         }
 
+        await this.CreateConfigPrefabs(config);
 
-        for (const prefabConfig of config.prefabs) {
-            
-            const rawRoot = this.rawMeshesMap.get(prefabConfig.modelKey);
-            if (!rawRoot) {
-                console.warn(`Modelo base "${prefabConfig.modelKey}" não encontrado para o prefab "${prefabConfig.key}"`);
-                continue;
-            }
-
-            const mat = MaterialInstance.GetMaterial(prefabConfig.materialKey);
-            if (!mat) {
-                console.warn(`Material "${prefabConfig.materialKey}" não encontrado para o prefab "${prefabConfig.key}"`);
-                continue;
-            }
-
-            const templateRoot = rawRoot.clone(prefabConfig.key + "_Template", null, false)!;
-
-            templateRoot.getChildMeshes(false).forEach(mesh => {
-                mesh.material = mat;
-            });
-
-            if (templateRoot instanceof B.Mesh) 
-                templateRoot.material = mat;
-
-            templateRoot.setEnabled(false);
-            
-            this.modelsMap.set(prefabConfig.key, templateRoot);
-        }
- 
         this.isInitialized = true;
 
     }
@@ -85,6 +58,46 @@ export class ModelsManager{
         } catch (e) {
             console.error(`Falha ao carregar modelo base: ${key} de ${path + file}`, e);
         }
+    }
+
+    private async CreateConfigPrefabs(config: MaterialsModelsConfig) : Promise<void>{
+        
+        for (const prefabConfig of config.prefabs) {
+            
+            const rawRoot = this.rawMeshesMap.get(prefabConfig.modelKey);
+            if (!rawRoot) {
+                console.warn(`Modelo base "${prefabConfig.modelKey}" não encontrado para o prefab "${prefabConfig.key}"`);
+                continue;
+            }
+
+            const mat = MaterialInstance.GetMaterial(prefabConfig.materialKey);
+            if (!mat) {
+                console.warn(`Material "${prefabConfig.materialKey}" não encontrado para o prefab "${prefabConfig.key}"`);
+                continue;
+            }
+
+            const templateRoot = rawRoot.clone(prefabConfig.key + "_Template", null, false)!;
+
+            if (prefabConfig.rotation && prefabConfig.rotation.length === 3) {
+                templateRoot.rotation = new B.Vector3(
+                    B.Tools.ToRadians(prefabConfig.rotation[0]),
+                    B.Tools.ToRadians(prefabConfig.rotation[1]),
+                    B.Tools.ToRadians(prefabConfig.rotation[2])
+                );
+            }
+
+            templateRoot.getChildMeshes(false).forEach(mesh => {
+                mesh.material = mat;
+            });
+
+            if (templateRoot instanceof B.Mesh) 
+                templateRoot.material = mat;
+
+            templateRoot.setEnabled(false);
+            
+            this.modelsMap.set(prefabConfig.key, templateRoot);
+        }
+ 
     }
 
     public CreateInstance(key: string, name: string = key): B.TransformNode | null {

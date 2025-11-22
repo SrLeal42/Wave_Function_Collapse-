@@ -4,6 +4,7 @@ import { Cell } from "./Cell";
 
 import { WFCChangeNumeric, WFCStateNumeric } from "../interfaces/WFCState";
 import { AffinitiesNumeric } from "../interfaces/AffinitiesNumeric";
+import { TileRulesNumeric } from "../interfaces/TilesRules";
 
 import { Player } from "../Player/Player";
 
@@ -24,7 +25,7 @@ export abstract class WFC_Base {
 
     protected totalNumTiles = 0; // 'tiles' ou 'patterns'
     protected weights!: number[]; 
-    protected rules!: { [key: number]: { [dir: string]: number[] } };
+    protected rules!: TileRulesNumeric[]; //{ [key: number]: { [dir: string]: number[] } };
 
     private stateStack: WFCStateNumeric[] = [];
 
@@ -158,7 +159,7 @@ export abstract class WFC_Base {
             const ny = newCell.y + dir.dy;
             const neighbor = this.grid.get(`${nx},${ny}`);
 
-            if (!neighbor) continue;
+            if (!neighbor || (nx === newCell.x && ny === newCell.y )) continue;
 
             const neighborAllows = new Set<number>();
             
@@ -166,7 +167,7 @@ export abstract class WFC_Base {
                 const rules = this.rules[tileID]; // Acessa a regra numérica
                 const rulesForDir = rules[dir.opposite]; 
                 
-                rulesForDir.forEach(id => neighborAllows.add(id)); // id já é um número
+                rulesForDir?.forEach(id => neighborAllows.add(id)); // id já é um número
             }
 
             allowedIDs = new Set(
@@ -286,7 +287,7 @@ export abstract class WFC_Base {
                     const rules = this.rules[tileID];
                     if (!rules) continue;
                     const rulesForDir = rules[dir.name]; 
-                    rulesForDir.forEach(id => allowedIDs.add(id));
+                    rulesForDir?.forEach(id => allowedIDs.add(id));
                 }
                 
                 const result = neighbor.Constrain(allowedIDs, changeLog);

@@ -6,13 +6,15 @@ import { Cell } from "./wfc/Cell";
 
 export type MaterialsType = 'simple' | 'textured'
 
-export type Direction = 'up' | 'down' | 'right' | 'left';
+export type Direction = 'up' | 'down' | 'left' | 'right' | 'forward' | 'back';
 
-export const DIRECTIONS: { name: Direction, dx: number, dy: number, opposite: Direction }[] = [
-    { name: 'up', dx: 0,  dy: 1,  opposite: 'down' },
-    { name: 'down', dx: 0,  dy: -1, opposite: 'up' },
-    { name: 'right',  dx: 1,  dy: 0,  opposite: 'left'  },
-    { name: 'left',  dx: -1, dy: 0,  opposite: 'right'  },
+export const DIRECTIONS: { name: Direction, dx: number, dy: number, dz: number, opposite: Direction }[] = [
+    { name: 'up',    dx: 0, dy: 1, dz: 0, opposite: 'down' },
+    { name: 'down',  dx: 0, dy:-1, dz: 0, opposite: 'up' },
+    { name: 'left',  dx:-1, dy: 0, dz: 0, opposite: 'right' },
+    { name: 'right', dx: 1, dy: 0, dz: 0, opposite: 'left' },
+    { name: 'forward', dx: 0, dy: 0, dz: 1, opposite: 'back' },
+    { name: 'back',    dx: 0, dy: 0, dz:-1, opposite: 'forward' },
 ];
 
 export type CollapsedNeighbors = { [key in Direction]?: Cell };

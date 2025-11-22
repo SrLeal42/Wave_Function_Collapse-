@@ -14,6 +14,6 @@ export interface TilesetNumeric {
     idMap: { [key: string]: number }; 
     tileData: TileDefinitionNumeric[];
     weights: number[]; 
-    rules: TileRulesNumeric; 
+    rules: TileRulesNumeric[]; 
     affinities: AffinitiesNumeric;
 }

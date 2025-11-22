@@ -1,0 +1,86 @@
+{
+    "name": "3D Colors",
+    "type": "Simple_Tiled_3D",
+    "idMap": {
+        "grass": 0,
+        "road_straight": 1,
+        "road_turn": 2
+    },
+    "tileData": [
+        {
+            "id": 0,
+            "modelKey": "grass_block"
+        },
+        {
+            "id": 1,
+            "modelKey": "road_straight"
+        },
+        {
+            "id": 2,
+            "modelKey": "road_turn"
+        }
+    ],
+    "weights": [
+        10,
+        1,
+        1
+    ],
+    "rules": [
+        {
+            "up": [],
+            "down": [],
+            "left": [
+                0,
+                1
+            ],
+            "right": [
+                0,
+                1,
+                2
+            ],
+            "forward": [
+                0,
+                2
+            ],
+            "back": [
+                0
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [
+                0,
+                1
+            ],
+            "right": [
+                0,
+                1,
+                2
+            ],
+            "forward": [
+                1
+            ],
+            "back": [
+                1,
+                2
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [
+                0,
+                1
+            ],
+            "right": [],
+            "forward": [
+                1
+            ],
+            "back": [
+                0
+            ]
+        }
+    ],
+    "affinities": {}
+}

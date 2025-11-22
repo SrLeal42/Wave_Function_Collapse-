@@ -146,6 +146,9 @@ export class Cell {
         changeLog: WFCChangeNumeric[]
     ) : { success : boolean, changed : boolean} {
 
+        if (allowedTileIDs.size <= 0)
+            return { success: true, changed: false};
+
         const initialCount = this.possibleTiles.size;
         let changed = false;
 
