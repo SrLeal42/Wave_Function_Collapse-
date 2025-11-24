@@ -18,7 +18,7 @@ export class Camera {
         this.engine = scene.getEngine() as B.Engine;
         this.scene = scene;
 
-        this.camera = new B.FreeCamera("MainCamera", new B.Vector3(0,0,-300), scene); // -10
+        this.camera = new B.FreeCamera("MainCamera", new B.Vector3(0,300,0), scene); // -300
         // this.camera.fov = .8;
         
         if (attachControl)
@@ -28,7 +28,7 @@ export class Camera {
             this.camera.mode = B.Camera.ORTHOGRAPHIC_CAMERA;
         }
         
-        this.camera.rotation.x = 0;
+        this.camera.rotation.x = Math.PI/2;
         this.camera.rotation.y = 0;
         this.camera.rotation.z = 0;
 
@@ -55,7 +55,7 @@ export class Camera {
             return;
 
         this.camera.position.x = this.player.pivot.position.x;
-        this.camera.position.y = this.player.pivot.position.y;
+        this.camera.position.z = this.player.pivot.position.z;
 
     }
 

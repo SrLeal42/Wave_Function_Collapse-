@@ -36,7 +36,7 @@ export class Player {
         const vertical = InputsInstance.Vertical as number;
         const horizontal = InputsInstance.Horizontal as number;
 
-        this.pivot.position.y += vertical * this.vel;
+        this.pivot.position.z += vertical * this.vel;
         this.pivot.position.x += horizontal * this.vel;
 
     }

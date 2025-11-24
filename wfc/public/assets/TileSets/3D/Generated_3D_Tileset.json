@@ -1,0 +1,107 @@
+{
+    "name": "3D Colors",
+    "type": "Simple_Tiled_3D_Sampled",
+    "idMap": {
+        "white": 0,
+        "gray": 1,
+        "black": 2
+    },
+    "tileData": [
+        {
+            "id": 0,
+            "modelKey": "whiteUnlit",
+            "matKey": "whiteUnlit",
+            "height": 0
+        },
+        {
+            "id": 1,
+            "modelKey": "grayUnlit",
+            "matKey": "grayUnlit",
+            "height": 0
+        },
+        {
+            "id": 2,
+            "modelKey": "blackUnlit",
+            "matKey": "blackUnlit",
+            "height": 0
+        }
+    ],
+    "weights": [
+        60,
+        31,
+        60
+    ],
+    "rules": [
+        {
+            "up": [
+                0,
+                1
+            ],
+            "down": [
+                0,
+                1
+            ],
+            "left": [
+                0
+            ],
+            "right": [
+                0,
+                1
+            ],
+            "forward": [
+                0
+            ],
+            "back": [
+                0
+            ]
+        },
+        {
+            "up": [
+                0,
+                2
+            ],
+            "down": [
+                2,
+                0
+            ],
+            "left": [
+                1,
+                0
+            ],
+            "right": [
+                1,
+                2
+            ],
+            "forward": [
+                1
+            ],
+            "back": [
+                1
+            ]
+        },
+        {
+            "up": [
+                1,
+                2
+            ],
+            "down": [
+                2,
+                1
+            ],
+            "left": [
+                2,
+                1
+            ],
+            "right": [
+                2
+            ],
+            "forward": [
+                2
+            ],
+            "back": [
+                2
+            ]
+        }
+    ],
+    "affinities": {}
+}

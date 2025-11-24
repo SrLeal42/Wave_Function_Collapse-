@@ -62,9 +62,9 @@ export class Scene{
     public async CreateWFCSimpleTiled(scene: B.Scene) : Promise<void> {
 
         this.player = new Player(scene, 10,10,-15);
-        this.camera = new Camera(scene, this.player, true, false);
+        this.camera = new Camera(scene, this.player, false, false);
 
-        this.wfc = new WFCSimpleTiled(scene, 3,3,0 , 20, 'colors_3d_tileset', this.player);
+        this.wfc = new WFCSimpleTiled(scene, 3,0,3 , 20, 'generated_3d_tileset', this.player);
         await this.wfc.Initialize();
         
         scene.onBeforeRenderObservable.add(() => {
@@ -91,7 +91,7 @@ export class Scene{
             }
 
             this.player!.Move();
-            // this.camera!.Move();
+            this.camera!.Move();
 
             this.wfc!.Update(this.player!.pivot.position);
 

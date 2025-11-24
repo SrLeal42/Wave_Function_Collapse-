@@ -13,11 +13,34 @@
     { "key": "yellowUnlit", "type": "simple", "color": [1, 1, 0] },
     { "key": "pinkUnlit", "type": "simple", "color": [1, 0, 1] },
     { "key": "blueUnlit", "type": "simple", "color": [0, 0, 1] },
-    { "key": "grayUnlit", "type": "simple", "color": [0.7, 0.7, 0.7] }
+    { "key": "grayUnlit", "type": "simple", "color": [0.7, 0.7, 0.7] },
+
+    { "key": "grassUnlit", "type": "textured", "path": "./assets/textures/grassStreets/grass/grama.png" },
+    { "key": "sandUnlit", "type": "textured", "path": "./assets/textures/grassStreets/sand/Areia.png" },
+    { "key": "sandEdgeUnlit", "type": "textured", "path": "./assets/textures/grassStreets/sand/AreiaCanto.png" },
+    { "key": "sandInnerEdgeUnlit", "type": "textured", "path": "./assets/textures/grassStreets/sand/AreiaCantoInterno.png" },
+    { "key": "waterUnlit", "type": "textured", "path": "./assets/textures/grassStreets/water/Agua.png" },
+    { "key": "streetVerticalUnlit", "type": "textured", "path": "./assets/textures/grassStreets/street/EstradaVertical.png" }
 
   ],
   "models": [
-    { "key": "boxTile", "path": "./assets/models/cube/", "file": "Cube.glb" }
+    { "key": "boxTile", "path": "./assets/models/cube/", "file": "Cube.glb" },
+
+    { "key": "grassModel", "path": "./assets/models/grassStreets/grass/", "file": "Grama.glb" },
+    { "key": "sandDownModel", "path": "./assets/models/grassStreets/sand/", "file": "AreiaBaixo.glb" },
+    { "key": "sandUpModel", "path": "./assets/models/grassStreets/sand/", "file": "AreiaCima.glb" },
+    { "key": "sandRightModel", "path": "./assets/models/grassStreets/sand/", "file": "AreiaDireita.glb" },
+    { "key": "sandLeftModel", "path": "./assets/models/grassStreets/sand/", "file": "AreiaEsquerda.glb" },
+    { "key": "sandBottomRightModel", "path": "./assets/models/grassStreets/sand/", "file": "AreiaInferiorDireito.glb" },
+    { "key": "sandBottomLeftModel", "path": "./assets/models/grassStreets/sand/", "file": "AreiaInferiorEsquerdo.glb" },
+    { "key": "sandTopRightModel", "path": "./assets/models/grassStreets/sand/", "file": "AreiaSuperiorDireito.glb" },
+    { "key": "sandTopLeftModel", "path": "./assets/models/grassStreets/sand/", "file": "AreiaSuperiorEsquerdo.glb" },
+    { "key": "sandInnerEdgeTopLeftModel", "path": "./assets/models/grassStreets/sand/", "file": "AreiaInternoSE.glb" },
+    { "key": "sandInnerEdgeTopRightModel", "path": "./assets/models/grassStreets/sand/", "file": "AreiaInternoSD.glb" },
+    { "key": "sandInnerEdgeBottomRightModel", "path": "./assets/models/grassStreets/sand/", "file": "AreiaInternoID.glb" },
+    { "key": "sandInnerEdgeBottomLeftModel", "path": "./assets/models/grassStreets/sand/", "file": "AreiaInternoIE.glb" },
+    { "key": "waterModel", "path": "./assets/models/grassStreets/water/", "file": "Agua.glb" },
+    { "key": "streetVerticalModel", "path": "./assets/models/grassStreets/street/", "file": "EstradaVertical.glb" }
   
   
   ],
@@ -33,7 +56,24 @@
     { "key": "yellowUnlit", "modelKey": "boxTile", "materialKey": "yellowUnlit" },
     { "key": "pinkUnlit", "modelKey": "boxTile", "materialKey": "pinkUnlit" },
     { "key": "blueUnlit", "modelKey": "boxTile", "materialKey": "blueUnlit" },
-    { "key": "grayUnlit", "modelKey": "boxTile", "materialKey": "grayUnlit" }
+    { "key": "grayUnlit", "modelKey": "boxTile", "materialKey": "grayUnlit" },
+
+    { "key": "grassUnlit", "modelKey": "grassModel", "materialKey": "grassUnlit" },
+    { "key": "sandDownUnlit", "modelKey": "sandDownModel", "materialKey": "sandUnlit" },
+    { "key": "sandUpUnlit", "modelKey": "sandUpModel", "materialKey": "sandUnlit" },
+    { "key": "sandRightUnlit", "modelKey": "sandRightModel", "materialKey": "sandUnlit" },
+    { "key": "sandLeftUnlit", "modelKey": "sandLeftModel", "materialKey": "sandUnlit" },
+    { "key": "sandBottomRightUnlit", "modelKey": "sandBottomRightModel", "materialKey": "sandEdgeUnlit" },
+    { "key": "sandBottomLeftUnlit", "modelKey": "sandBottomLeftModel", "materialKey": "sandEdgeUnlit" },
+    { "key": "sandTopRightUnlit", "modelKey": "sandTopRightModel", "materialKey": "sandEdgeUnlit" },
+    { "key": "sandTopLeftUnlit", "modelKey": "sandTopLeftModel", "materialKey": "sandEdgeUnlit" },
+    { "key": "sandInnerEdgeTopLeft", "modelKey": "sandInnerEdgeTopLeftModel", "materialKey": "sandInnerEdgeUnlit" },
+    { "key": "sandInnerEdgeTopRight", "modelKey": "sandInnerEdgeTopRightModel", "materialKey": "sandInnerEdgeUnlit" },
+    { "key": "sandInnerEdgeBottomRight", "modelKey": "sandInnerEdgeBottomRightModel", "materialKey": "sandInnerEdgeUnlit" },
+    { "key": "sandInnerEdgeBottomLeft", "modelKey": "sandInnerEdgeBottomLeftModel", "materialKey": "sandInnerEdgeUnlit" },
+    { "key": "waterUnlit", "modelKey": "waterModel", "materialKey": "waterUnlit" },
+    { "key": "streetVerticalUnlit", "modelKey": "streetVerticalModel", "materialKey": "streetVerticalUnlit" }
+
 
   ]
 }

@@ -6,6 +6,7 @@ export const TILESET_REGISTRY = new Map<string, string>([
   ["generate_grasslands_tex", "./assets/TileSets/2D/Generated_Tileset_Grasslands_Tex.json"],
   
   ["colors_3d_tileset", "./assets/TileSets/3D/Colors_3D_Tileset.json"],
+  ["generated_3d_tileset", "./assets/TileSets/3D/Generated_3D_Tileset.json"],
 
   ["generate_pattern_flowers", "./assets/patterns/Overlapping_Pattern_Flowers.json"],
   ["generate_pattern_tri", "./assets/patterns/Overlapping_Pattern_Tri.json"],
