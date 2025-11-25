@@ -1,52 +1,145 @@
 {
-    "name": "3D Colors",
+    "name": "3D Grass Streets",
     "type": "Simple_Tiled_3D_Sampled",
     "idMap": {
-        "white": 0,
-        "gray": 1,
-        "black": 2
+        "air": 0,
+        "grass": 1,
+        "sandDown": 2,
+        "sandUp": 3,
+        "sandLeft": 4,
+        "sandRight": 5,
+        "sandBottomRight": 6,
+        "sandBottomLeft": 7,
+        "sandTopRight": 8,
+        "sandTopLeft": 9,
+        "sandInnerTopLeft": 10,
+        "sandInnerTopRight": 11,
+        "sandInnerBottomLeft": 12,
+        "sandInnerBottomRight": 13,
+        "water": 14
     },
     "tileData": [
         {
             "id": 0,
-            "modelKey": "whiteUnlit",
-            "matKey": "whiteUnlit",
+            "modelKey": "grassUnlit",
+            "matKey": "grassUnlit",
             "height": 0
         },
         {
             "id": 1,
-            "modelKey": "grayUnlit",
-            "matKey": "grayUnlit",
+            "modelKey": "grassUnlit",
+            "matKey": "grassUnlit",
             "height": 0
         },
         {
             "id": 2,
-            "modelKey": "blackUnlit",
-            "matKey": "blackUnlit",
+            "modelKey": "sandDownUnlit",
+            "matKey": "sandDownUnlit",
+            "height": 0
+        },
+        {
+            "id": 3,
+            "modelKey": "sandUpUnlit",
+            "matKey": "sandUpUnlit",
+            "height": 0
+        },
+        {
+            "id": 4,
+            "modelKey": "sandLeftUnlit",
+            "matKey": "sandLeftUnlit",
+            "height": 0
+        },
+        {
+            "id": 5,
+            "modelKey": "sandRightUnlit",
+            "matKey": "sandRightUnlit",
+            "height": 0
+        },
+        {
+            "id": 6,
+            "modelKey": "sandBottomRightUnlit",
+            "matKey": "sandBottomRightUnlit",
+            "height": 0
+        },
+        {
+            "id": 7,
+            "modelKey": "sandBottomLeftUnlit",
+            "matKey": "sandBottomLeftUnlit",
+            "height": 0
+        },
+        {
+            "id": 8,
+            "modelKey": "sandTopRightUnlit",
+            "matKey": "sandTopRightUnlit",
+            "height": 0
+        },
+        {
+            "id": 9,
+            "modelKey": "sandTopLeftUnlit",
+            "matKey": "sandTopLeftUnlit",
+            "height": 0
+        },
+        {
+            "id": 10,
+            "modelKey": "sandInnerEdgeTopLeft",
+            "matKey": "sandInnerEdgeTopLeft",
+            "height": 0
+        },
+        {
+            "id": 11,
+            "modelKey": "sandInnerEdgeTopRight",
+            "matKey": "sandInnerEdgeTopRight",
+            "height": 0
+        },
+        {
+            "id": 12,
+            "modelKey": "sandInnerEdgeBottomLeft",
+            "matKey": "sandInnerEdgeBottomLeft",
+            "height": 0
+        },
+        {
+            "id": 13,
+            "modelKey": "sandInnerEdgeBottomRight",
+            "matKey": "sandInnerEdgeBottomRight",
+            "height": 0
+        },
+        {
+            "id": 14,
+            "modelKey": "waterUnlit",
+            "matKey": "waterUnlit",
             "height": 0
         }
     ],
     "weights": [
-        60,
-        31,
-        60
+        199,
+        80,
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        11
     ],
     "rules": [
         {
             "up": [
-                0,
-                1
+                0
             ],
             "down": [
-                0,
-                1
+                0
             ],
             "left": [
                 0
             ],
             "right": [
-                0,
-                1
+                0
             ],
             "forward": [
                 0
@@ -56,50 +149,255 @@
             ]
         },
         {
-            "up": [
-                0,
-                2
-            ],
-            "down": [
-                2,
-                0
-            ],
+            "up": [],
+            "down": [],
             "left": [
                 1,
-                0
+                5,
+                6
             ],
             "right": [
                 1,
+                9,
+                4,
+                7
+            ],
+            "forward": [
+                1,
+                7,
+                2,
+                6
+            ],
+            "back": [
+                1,
+                9,
+                3
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [
+                7,
+                13,
+                2
+            ],
+            "right": [
+                12,
+                6,
                 2
             ],
             "forward": [
-                1
+                14
             ],
             "back": [
                 1
             ]
         },
         {
-            "up": [
-                1,
-                2
+            "up": [],
+            "down": [],
+            "left": [
+                9,
+                3,
+                11
             ],
-            "down": [
-                2,
+            "right": [
+                3,
+                10
+            ],
+            "forward": [
                 1
             ],
+            "back": [
+                14
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
             "left": [
-                2,
+                1
+            ],
+            "right": [
+                14
+            ],
+            "forward": [
+                9,
+                4,
+                12
+            ],
+            "back": [
+                4,
+                10,
+                7
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [
+                14
+            ],
+            "right": [
+                1
+            ],
+            "forward": [
+                5,
+                13
+            ],
+            "back": [
+                11,
+                5,
+                6
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [
+                2
+            ],
+            "right": [
+                1
+            ],
+            "forward": [
+                5
+            ],
+            "back": [
+                1
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [
                 1
             ],
             "right": [
                 2
             ],
             "forward": [
-                2
+                4
             ],
             "back": [
+                1
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [],
+            "right": [],
+            "forward": [],
+            "back": []
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [
+                1
+            ],
+            "right": [
+                3
+            ],
+            "forward": [
+                1
+            ],
+            "back": [
+                4
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [
+                3
+            ],
+            "right": [
+                14
+            ],
+            "forward": [
+                4
+            ],
+            "back": [
+                14
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [
+                14
+            ],
+            "right": [
+                3
+            ],
+            "forward": [
+                5
+            ],
+            "back": [
+                14
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [
                 2
+            ],
+            "right": [
+                14
+            ],
+            "forward": [
+                14
+            ],
+            "back": [
+                4
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [
+                14
+            ],
+            "right": [
+                2
+            ],
+            "forward": [
+                14
+            ],
+            "back": [
+                5
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [
+                4,
+                14,
+                10,
+                12
+            ],
+            "right": [
+                14,
+                5,
+                11,
+                13
+            ],
+            "forward": [
+                3,
+                14,
+                11,
+                10
+            ],
+            "back": [
+                14,
+                2,
+                12,
+                13
             ]
         }
     ],

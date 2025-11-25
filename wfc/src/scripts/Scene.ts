@@ -64,7 +64,7 @@ export class Scene{
         this.player = new Player(scene, 10,10,-15);
         this.camera = new Camera(scene, this.player, false, false);
 
-        this.wfc = new WFCSimpleTiled(scene, 3,0,3 , 20, 'generated_3d_tileset', this.player);
+        this.wfc = new WFCSimpleTiled(scene, 8,0,8 , 10, 'generated_3d_tileset', this.player);
         await this.wfc.Initialize();
         
         scene.onBeforeRenderObservable.add(() => {

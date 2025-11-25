@@ -1,0 +1,100 @@
+{
+    "name": "3D Grass Streets",
+    "legend": {
+      "#FFFFFF": "air",
+
+      "#00FF00": "grass",
+      
+      "#FFFF00": "sandDown",
+      "#FF0000": "sandUp",
+      "#FF00FF": "sandRight",
+      "#990000": "sandLeft",
+      "#000000": "sandBottomRight",
+      "#006400": "sandBottomLeft",
+      "#4a834a": "sandTopRight",
+      "#9F9F9F": "sandTopLeft",
+      "#464646": "sandInnerTopLeft",
+      "#FF8080": "sandInnerBottomLeft",
+      "#989800": "sandInnerBottomRight",
+      "#830083": "sandInnerTopRight",
+
+      "#0000FF": "water"
+    },
+    "tiles": [
+      {
+        "id": "air", 
+        "matKey": "grassUnlit",
+        "modelKey": "grassUnlit"
+      },
+      {
+        "id": "grass", 
+        "matKey": "grassUnlit",
+        "modelKey": "grassUnlit"
+      },
+      {
+        "id": "sandDown", 
+        "matKey": "sandDownUnlit",
+        "modelKey": "sandDownUnlit"
+      },
+            {
+        "id": "sandUp", 
+        "matKey": "sandUpUnlit",
+        "modelKey": "sandUpUnlit"
+      },
+            {
+        "id": "sandLeft", 
+        "matKey": "sandLeftUnlit",
+        "modelKey": "sandLeftUnlit"
+      },
+            {
+        "id": "sandRight", 
+        "matKey": "sandRightUnlit",
+        "modelKey": "sandRightUnlit"
+      },
+      {
+        "id": "sandBottomRight", 
+        "matKey": "sandBottomRightUnlit",
+        "modelKey": "sandBottomRightUnlit"
+      },
+      {
+        "id": "sandBottomLeft", 
+        "matKey": "sandBottomLeftUnlit",
+        "modelKey": "sandBottomLeftUnlit"
+      },
+      {
+        "id": "sandTopRight", 
+        "matKey": "sandTopRightUnlit",
+        "modelKey": "sandTopRightUnlit"
+      },
+      {
+        "id": "sandTopLeft", 
+        "matKey": "sandTopLeftUnlit",
+        "modelKey": "sandTopLeftUnlit"
+      },
+      {
+        "id": "sandInnerTopLeft", 
+        "matKey": "sandInnerEdgeTopLeft",
+        "modelKey": "sandInnerEdgeTopLeft"
+      },
+      {
+        "id": "sandInnerTopRight", 
+        "matKey": "sandInnerEdgeTopRight",
+        "modelKey": "sandInnerEdgeTopRight"
+      },
+      {
+        "id": "sandInnerBottomLeft", 
+        "matKey": "sandInnerEdgeBottomLeft",
+        "modelKey": "sandInnerEdgeBottomLeft"
+      },
+      {
+        "id": "sandInnerBottomRight", 
+        "matKey": "sandInnerEdgeBottomRight",
+        "modelKey": "sandInnerEdgeBottomRight"
+      },
+      {
+        "id": "water", 
+        "matKey": "waterUnlit",
+        "modelKey": "waterUnlit"
+      }
+    ]
+}

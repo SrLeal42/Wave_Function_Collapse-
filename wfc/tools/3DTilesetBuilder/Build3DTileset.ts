@@ -4,8 +4,8 @@ import Jimp from "jimp";
 import { Direction } from "../../src/scripts/Utilities"
 
 // --- CONFIGURAÇÃO ---
-const INPUT_FOLDER = './tools/3DTilesetBuilder/input/colors/';
-const SKELETON_PATH = './tools/3DTilesetBuilder/skeletons/Skeleton_3D_Tileset_Colors.json';
+const INPUT_FOLDER = './tools/3DTilesetBuilder/input/grassStreet/';
+const SKELETON_PATH = './tools/3DTilesetBuilder/skeletons/Skeleton_3D_Tileset_GrassStreets.json';
 const OUTPUT_PATH = './tools/3DTilesetBuilder/output/Generated_3D_Tileset.json';
 
 // Mapeamento: Quais imagens representam quais eixos?
@@ -15,13 +15,13 @@ const OUTPUT_PATH = './tools/3DTilesetBuilder/output/Generated_3D_Tileset.json';
 // Se desenhamos uma vista frontal, o pixel (0,0) é o topo. O pixel (0,1) está ABAIXO dele.
 const PLANES = [
     // Plano XY (Visão Frontal): X+ é Right, Y+ (imagem) é Down (mundo)
-    { files: ['forward.png', 'back.png'], hRule: 'right', vRule: 'down' },
+    { files: ['forward.png'], hRule: 'right', vRule: 'down' }, // ['forward.png', 'back.png']
     
     // Plano XZ (Visão Topo): X+ é Right, Y+ (imagem) é Back (mundo - Z negativo)
-    { files: ['up.png', 'down.png'],      hRule: 'right', vRule: 'back' },
+    { files: ['up.png'],      hRule: 'right', vRule: 'back' }, // ['up.png', 'down.png']
     
     // Plano ZY (Visão Lateral): X+ (imagem) é Forward (mundo - Z positivo), Y+ (imagem) é Down (mundo)
-    { files: ['left.png', 'right.png'],   hRule: 'forward', vRule: 'down' }
+    { files: ['left.png'],   hRule: 'forward', vRule: 'down' } // ['left.png', 'right.png']
 ];
 // --------------------
 
@@ -74,7 +74,7 @@ async function BuildTileset() {
     // 1. Carregar Skeleton
     const skeleton: Skeleton = JSON.parse(await fs.readFile(SKELETON_PATH, 'utf-8'));
     const legend = skeleton.legend;
-    
+
     // 2. Criar Mapa de IDs (String -> Number)
     const idMap = new Map<string, number>();
     const tileData: any[] = [];
@@ -114,16 +114,9 @@ async function BuildTileset() {
         for (const filename of plane.files) {
 
             let image = await LoadImageInputs(INPUT_FOLDER + filename);
-            // let image: Jimp.Jimp;
-            // try {
-            //     image = await Jimp.read(INPUT_FOLDER + filename);
-            // } catch (e) {
-            //     console.warn(`Aviso: Imagem ${filename} não encontrada. Pulando.`);
-            //     continue;
-            // }
 
             if (maxW < image.bitmap.height * image.bitmap.width)
-                maxW = 100; // image.bitmap.height * image.bitmap.width;
+                maxW = image.bitmap.height * image.bitmap.width;
 
             console.log(`Processando ${filename} (H: ${hDir}, V: ${vDir})...`);
 
@@ -134,7 +127,7 @@ async function BuildTileset() {
                     const tileKey = legend[hex];
 
                     if (!tileKey) continue;
-                    
+
                     const currentID = idMap.get(tileKey)!;
 
                     rawWeights[currentID]++;
