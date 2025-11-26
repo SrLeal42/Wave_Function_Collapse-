@@ -16,7 +16,13 @@
         "sandInnerTopRight": 11,
         "sandInnerBottomLeft": 12,
         "sandInnerBottomRight": 13,
-        "water": 14
+        "water": 14,
+        "streetVertical": 15,
+        "streetHorizontal": 16,
+        "streetUpRight": 17,
+        "streetUpLeft": 18,
+        "streetDownRight": 19,
+        "streetDownLeft": 20
     },
     "tileData": [
         {
@@ -108,24 +114,66 @@
             "modelKey": "waterUnlit",
             "matKey": "waterUnlit",
             "height": 0
+        },
+        {
+            "id": 15,
+            "modelKey": "streetVerticalUnlit",
+            "matKey": "streetVerticalUnlit",
+            "height": 0
+        },
+        {
+            "id": 16,
+            "modelKey": "streetHorizontalUnlit",
+            "matKey": "streetVerticalUnlit",
+            "height": 0
+        },
+        {
+            "id": 17,
+            "modelKey": "streetUpRightUnlit",
+            "matKey": "streetCurvaUnlit",
+            "height": 0
+        },
+        {
+            "id": 18,
+            "modelKey": "streetUpLeftUnlit",
+            "matKey": "streetCurvaUnlit",
+            "height": 0
+        },
+        {
+            "id": 19,
+            "modelKey": "streetDownRightUnlit",
+            "matKey": "streetCurvaUnlit",
+            "height": 0
+        },
+        {
+            "id": 20,
+            "modelKey": "streetDownLeftUnlit",
+            "matKey": "streetCurvaUnlit",
+            "height": 0
         }
     ],
     "weights": [
-        199,
-        80,
-        3,
-        3,
-        3,
-        3,
-        1,
-        1,
         0,
+        77,
+        3,
+        3,
+        3,
+        3,
         1,
         1,
         1,
         1,
         1,
-        11
+        1,
+        1,
+        1,
+        11,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
     ],
     "rules": [
         {
@@ -153,25 +201,39 @@
             "down": [],
             "left": [
                 1,
+                18,
+                20,
+                15,
+                8,
                 5,
                 6
             ],
             "right": [
                 1,
+                17,
+                19,
+                15,
                 9,
                 4,
                 7
             ],
             "forward": [
                 1,
+                16,
+                20,
+                19,
                 7,
                 2,
                 6
             ],
             "back": [
                 1,
+                17,
+                16,
+                18,
                 9,
-                3
+                3,
+                8
             ]
         },
         {
@@ -204,6 +266,7 @@
             ],
             "right": [
                 3,
+                8,
                 10
             ],
             "forward": [
@@ -243,6 +306,7 @@
                 1
             ],
             "forward": [
+                8,
                 5,
                 13
             ],
@@ -287,10 +351,18 @@
         {
             "up": [],
             "down": [],
-            "left": [],
-            "right": [],
-            "forward": [],
-            "back": []
+            "left": [
+                3
+            ],
+            "right": [
+                1
+            ],
+            "forward": [
+                1
+            ],
+            "back": [
+                5
+            ]
         },
         {
             "up": [],
@@ -398,6 +470,114 @@
                 2,
                 12,
                 13
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [
+                1
+            ],
+            "right": [
+                1
+            ],
+            "forward": [
+                17,
+                18
+            ],
+            "back": [
+                19,
+                20
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [
+                17,
+                19
+            ],
+            "right": [
+                18,
+                20
+            ],
+            "forward": [
+                1
+            ],
+            "back": [
+                1
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [
+                1
+            ],
+            "right": [
+                16,
+                20
+            ],
+            "forward": [
+                1
+            ],
+            "back": [
+                20,
+                15
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [
+                16,
+                19
+            ],
+            "right": [
+                1
+            ],
+            "forward": [
+                1
+            ],
+            "back": [
+                19,
+                15
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [
+                1
+            ],
+            "right": [
+                18,
+                16
+            ],
+            "forward": [
+                18,
+                15
+            ],
+            "back": [
+                1
+            ]
+        },
+        {
+            "up": [],
+            "down": [],
+            "left": [
+                17,
+                16
+            ],
+            "right": [
+                1
+            ],
+            "forward": [
+                17,
+                15
+            ],
+            "back": [
+                1
             ]
         }
     ],

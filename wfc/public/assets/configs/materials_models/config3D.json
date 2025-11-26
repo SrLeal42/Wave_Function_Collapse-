@@ -20,7 +20,8 @@
     { "key": "sandEdgeUnlit", "type": "textured", "path": "./assets/textures/grassStreets/sand/AreiaCanto.png" },
     { "key": "sandInnerEdgeUnlit", "type": "textured", "path": "./assets/textures/grassStreets/sand/AreiaCantoInterno.png" },
     { "key": "waterUnlit", "type": "textured", "path": "./assets/textures/grassStreets/water/Agua.png" },
-    { "key": "streetVerticalUnlit", "type": "textured", "path": "./assets/textures/grassStreets/street/EstradaVertical.png" }
+    { "key": "streetVerticalUnlit", "type": "textured", "path": "./assets/textures/grassStreets/street/EstradaVertical.png" },
+    { "key": "streetCurvaUnlit", "type": "textured", "path": "./assets/textures/grassStreets/street/EstradaCurva.png" }
 
   ],
   "models": [
@@ -40,7 +41,8 @@
     { "key": "sandInnerEdgeBottomRightModel", "path": "./assets/models/grassStreets/sand/", "file": "AreiaInternoID.glb" },
     { "key": "sandInnerEdgeBottomLeftModel", "path": "./assets/models/grassStreets/sand/", "file": "AreiaInternoIE.glb" },
     { "key": "waterModel", "path": "./assets/models/grassStreets/water/", "file": "Agua.glb" },
-    { "key": "streetVerticalModel", "path": "./assets/models/grassStreets/street/", "file": "EstradaVertical.glb" }
+    { "key": "streetVerticalModel", "path": "./assets/models/grassStreets/street/", "file": "EstradaVertical.glb" },
+    { "key": "streetCurvaModel", "path": "./assets/models/grassStreets/street/", "file": "EstradaCurva.glb" }
   
   
   ],
@@ -72,7 +74,12 @@
     { "key": "sandInnerEdgeBottomRight", "modelKey": "sandInnerEdgeBottomRightModel", "materialKey": "sandInnerEdgeUnlit" },
     { "key": "sandInnerEdgeBottomLeft", "modelKey": "sandInnerEdgeBottomLeftModel", "materialKey": "sandInnerEdgeUnlit" },
     { "key": "waterUnlit", "modelKey": "waterModel", "materialKey": "waterUnlit" },
-    { "key": "streetVerticalUnlit", "modelKey": "streetVerticalModel", "materialKey": "streetVerticalUnlit" }
+    { "key": "streetVerticalUnlit", "modelKey": "streetVerticalModel", "materialKey": "streetVerticalUnlit", "rotation": [0,0,0] },
+    { "key": "streetHorizontalUnlit", "modelKey": "streetVerticalModel", "materialKey": "streetVerticalUnlit", "rotation": [0,90,0] },
+    { "key": "streetUpRightUnlit", "modelKey": "streetCurvaModel", "materialKey": "streetCurvaUnlit", "rotation": [0,0,0] },
+    { "key": "streetUpLeftUnlit", "modelKey": "streetCurvaModel", "materialKey": "streetCurvaUnlit", "rotation": [0,90,0] },
+    { "key": "streetDownRightUnlit", "modelKey": "streetCurvaModel", "materialKey": "streetCurvaUnlit", "rotation": [0,270,0] },
+    { "key": "streetDownLeftUnlit", "modelKey": "streetCurvaModel", "materialKey": "streetCurvaUnlit", "rotation": [0,180,0] }
 
 
   ]
