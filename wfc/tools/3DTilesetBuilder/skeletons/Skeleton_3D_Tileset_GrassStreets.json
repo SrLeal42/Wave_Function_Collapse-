@@ -25,7 +25,8 @@
       "#5D5D5D": "streetUpRight",
       "#7D7D7D": "streetUpLeft",
       "#9D9D9D": "streetDownRight",
-      "#ADADAD": "streetDownLeft"
+      "#ADADAD": "streetDownLeft",
+      "#CDCDCD": "streetCross"
     },
     "tiles": [
       {
@@ -132,6 +133,11 @@
         "id": "streetDownLeft", 
         "matKey": "streetCurvaUnlit",
         "modelKey": "streetDownLeftUnlit"
+      },
+      {
+        "id": "streetCross", 
+        "matKey": "streetCruzamentoUnlit",
+        "modelKey": "streetCrossUnlit"
       }
       
       
